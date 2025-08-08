@@ -1,0 +1,13 @@
+diff --git a/client/App.tsx b/client/App.tsx
+index affbfe4..aca0bcc 100644
+--- a/client/App.tsx
++++ b/client/App.tsx
+@@ -11,7 +11,7 @@ const queryClient = new QueryClient();
+ 
+ const App = () => (
+   <QueryClientProvider client={queryClient}>
+-    <BrowserRouter>
++    <BrowserRouter basename="/project1">
+       <Routes>
+         <Route path="/" element={<Index />} />
+         <Route path="/market-price" element={<MarketPrice />} />
