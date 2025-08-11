@@ -202,12 +202,12 @@ const BasicInformationAccessories = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="ピアジェ"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="ピアジェ">ピアジェ</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -221,12 +221,12 @@ const BasicInformationAccessories = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="パゴダ"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="パゴダ">パゴダ</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -237,12 +237,15 @@ const BasicInformationAccessories = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="94024NK81"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="94024NK81">94024NK81</Option>
+              <Option value="94024NK82">94024NK82</Option>
+              <Option value="94024NK83">94024NK83</Option>
+              <Option value="94024NK84">94024NK84</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -273,28 +276,40 @@ const BasicInformationAccessories = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              size="large"
+              placeholder="未選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue="SS×YG"
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="SS">SS</Option>
+              <Option value="SS×YG">SS×YG</Option>
+              <Option value="SS×WG">SS×WG</Option>
+              <Option value="SS×PT">SS×PT</Option>
+              <Option value="SS×PG">SS×PG</Option>
             </Select>
           </Form.Item>
         </Col>
         <Col span={12}>
           <Form.Item
-            label={<span>素材（サブ）</span>}
+            label={<span>ムーブメント</span>}
             name="modelNumber"
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              size="large"
+              placeholder="未選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue="QZ"
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="AT">AT</Option>
+              <Option value="QZ">QZ</Option>
+              <Option value="ソーラー">ソーラー</Option>
+              <Option value="トゥールビヨン">トゥールビヨン</Option>
+              <Option value="手巻き">手巻き</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -308,28 +323,37 @@ const BasicInformationAccessories = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              size="large"
+              placeholder="��選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue="白ホリコン"
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="白ホリコン">白ホリコン</Option>
+              <Option value="シェリーライン">シェリーライン</Option>
+              <Option value="ゴールド">ゴールド</Option>
+              <Option value="ブルーグラデーション">ブルーグラデーション</Option>
+              <Option value="ルーレット">ルーレット</Option>
             </Select>
           </Form.Item>
         </Col>
         <Col span={12}>
           <Form.Item
-            label={<span>色（サブ）</span>}
+            label={<span>ランク</span>}
             name="modelNumber"
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="SA"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="N">N</Option>
+              <Option value="S">S</Option>
+              <Option value="A">A</Option>
+              <Option value="SA">SA</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -343,12 +367,16 @@ const BasicInformationAccessories = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="XXL"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="S">S</Option>
+              <Option value="M">M</Option>
+              <Option value="L">L</Option>
+              <Option value="XL">XL</Option>
+              <Option value="XXL">XXL</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -359,12 +387,13 @@ const BasicInformationAccessories = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="男性"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="男性">男性</Option>
+              <Option value="女性">女性</Option>
             </Select>
           </Form.Item>
         </Col>

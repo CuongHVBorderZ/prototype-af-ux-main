@@ -379,7 +379,7 @@ const StateDefinition: React.FC = () => {
   ];
 
   return (
-    <div style={{ padding: "20px 24px 24px 24px" }}>
+    <div>
       {/* 状態異常・ダメージなしの総合ランク */}
       <div style={{ marginBottom: 10 }}>
         <Title level={5} style={{ marginBottom: 16 }}>
@@ -507,16 +507,6 @@ const StateDefinition: React.FC = () => {
           size="small"
           bordered
         />
-      </div>
-      {/* Action Buttons */}
-      <div>
-        <Flex gap="middle">
-          <Button style={{ width: "150px" }}>下書きを保存</Button>
-          <Button style={{ width: "150px" }}>クリア</Button>
-          <Button style={{ width: "150px" }} type="primary">
-            保存
-          </Button>
-        </Flex>
       </div>
     </div>
   );

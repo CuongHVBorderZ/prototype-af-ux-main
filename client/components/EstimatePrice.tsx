@@ -40,7 +40,7 @@ const { Option } = Select;
 // eslint-disable-next-line react/prop-types
 const EstimatePrice = () => {
   return (
-    <div style={{ padding: "20px" }}>
+    <div>
       {/* Price Information Summary Table */}
       <div
         style={{
@@ -134,7 +134,6 @@ const EstimatePrice = () => {
             fontSize: "20px",
             color: "rgba(0, 0, 0, 0.88)",
             marginBottom: "20px",
-            paddingLeft: "16px",
           }}
         >
           見込粗利率一覧
@@ -145,7 +144,6 @@ const EstimatePrice = () => {
           style={{
             display: "flex",
             gap: "24px",
-            padding: "0 16px",
             marginBottom: "20px",
           }}
         >
@@ -265,17 +263,6 @@ const EstimatePrice = () => {
               pagination={false}
             />
           </div>
-        </Flex>
-      </div>
-
-      {/* Action Buttons */}
-      <div>
-        <Flex gap="middle">
-          <Button style={{ width: "150px" }}>下書きを保存</Button>
-          <Button style={{ width: "150px" }}>クリア</Button>
-          <Button style={{ width: "150px" }} type="primary">
-            保存
-          </Button>
         </Flex>
       </div>
     </div>

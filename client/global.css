@@ -323,5 +323,30 @@ body {
       margin-bottom: 10px !important;
     }
   }
+}
 
+/* Bỏ bo tròn toàn bộ bảng */
+.ant-table {
+  border-radius: 0 !important;
+}
+
+/* Bỏ bo tròn phần header và footer nếu có */
+.ant-table-thead > tr > th,
+.ant-table-tbody > tr > td,
+.ant-table-footer {
+  border-radius: 0 !important;
+  font-size: 16px !important;
+}
+
+.ant-statistic .ant-statistic-title {
+    font-size: 16px !important;
+    margin-bottom: 0px !important;
+}
+
+.ant-table-footer {
+  background-color: #FFF !important;
+}
+
+.ant-layout-content {
+  background-color: #e5e7eb;
 }

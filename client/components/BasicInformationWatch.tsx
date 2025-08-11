@@ -205,6 +205,12 @@ const BasicInformationWatch = () => {
               }
             >
               <Option value="ロレックス">ロレックス</Option>
+              <Option value="オメガ">オメガ</Option>
+              <Option value="カルティエ">カルティエ</Option>
+              <Option value="タグホイヤー">タグホイヤー</Option>
+              <Option value="セイコー">セイコー</Option>
+              <Option value="CTスクーデリア">CTスクーデリア</Option>
+              <Option value="H.モーザー">H.モーザー</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -219,7 +225,20 @@ const BasicInformationWatch = () => {
             name="modelName"
             style={{ marginBottom: "16px" }}
           >
-            <Input size="large" defaultValue="エクスプローラー36" />
+            <Select
+              defaultValue="エクスプローラー36"
+              suffixIcon={
+                <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
+              }
+            >
+              <Option value="エクスプローラー36">エクスプローラー36</Option>
+              <Option value="デイトジャスト41">デイトジャスト41</Option>
+              <Option value="ヨットマスター 42">ヨットマスター 42</Option>
+              <Option value="ヨットマスター37">ヨットマスター37</Option>
+              <Option value="ヨットマスター40">ヨットマスター40</Option>
+              <Option value="シードゥエラー4000">シードゥエラー4000</Option>
+              <Option value="H.デイデイト40">デイデイト40</Option>
+            </Select>
           </Form.Item>
         </Col>
       </Row>
@@ -231,7 +250,20 @@ const BasicInformationWatch = () => {
             name="modelNumber"
             style={{ marginBottom: "16px" }}
           >
-            <Input defaultValue="124270" />
+            <Select
+              defaultValue="01445"
+              suffixIcon={
+                <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
+              }
+            >
+              <Option value="01445">01445</Option>
+              <Option value="00.10615.08.13.21">00.10615.08.13.21</Option>
+              <Option value="00.10615.08.53.01">00.10615.08.53.01</Option>
+              <Option value="00.10618.13.53.01">00.10618.13.53.01</Option>
+              <Option value="00.10618.13.53.21">00.10618.13.53.21</Option>
+              <Option value="00.10620.03.93.02">00.10620.03.93.02</Option>
+              <Option value="H.00.10620.08.53.01">00.10620.08.53.01</Option>
+            </Select>
           </Form.Item>
         </Col>
         <Col span={12}>{/* Empty space */}</Col>
@@ -276,8 +308,13 @@ const BasicInformationWatch = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue="SS×YG"
             >
-              <Option value="">未選択</Option>
+              <Option value="SS">SS</Option>
+              <Option value="SS×YG">SS×YG</Option>
+              <Option value="SS×WG">SS×WG</Option>
+              <Option value="SS×PT">SS×PT</Option>
+              <Option value="SS×PG">SS×PG</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -296,8 +333,13 @@ const BasicInformationWatch = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue="QZ"
             >
-              <Option value="">未選択</Option>
+              <Option value="AT">AT</Option>
+              <Option value="QZ">QZ</Option>
+              <Option value="ソーラー">ソーラー</Option>
+              <Option value="トゥールビヨン">トゥールビヨン</Option>
+              <Option value="手巻き">手巻き</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -313,8 +355,13 @@ const BasicInformationWatch = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue="白ホリコン"
             >
-              <Option value="">未選択</Option>
+              <Option value="白ホリコン">白ホリコン</Option>
+              <Option value="シェリーライン">シェリーライン</Option>
+              <Option value="ゴールド">ゴールド</Option>
+              <Option value="ブルーグラデーション">ブルーグラデーション</Option>
+              <Option value="ルーレット">ルーレット</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -333,8 +380,15 @@ const BasicInformationWatch = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue="バーインデックス"
             >
-              <Option value="">未選択</Option>
+              <Option value="バーインデックス">バーインデックス</Option>
+              <Option value="アラビアインデックス">アラビアインデックス</Option>
+              <Option value="ローマンインデックス">ローマンインデックス</Option>
+              <Option value="ドット/ポイントインデックス">
+                ドット/ポイントインデックス
+              </Option>
+              <Option value="クサビインデックス">クサビインデックス</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -350,8 +404,13 @@ const BasicInformationWatch = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue="200タキメーター"
             >
-              <Option value="">未選択</Option>
+              <Option value="200タキメーター">200タキメーター</Option>
+              <Option value="6ドット">6ドット</Option>
+              <Option value="アイボリーダイヤル">アイボリーダイヤル</Option>
+              <Option value="アンダーバー">アンダーバー</Option>
+              <Option value="クリームダイヤル">クリームダイヤル</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -391,6 +450,8 @@ const BasicInformationWatch = () => {
           <Option value="あまりゴマ">あまりゴマ</Option>
           <Option value="箱">箱</Option>
           <Option value="並行ギャラ">並行ギャラ</Option>
+          <Option value="修理明細">修理明細</Option>
+          <Option value="OH証明書">OH証明書</Option>
         </Select>
       </Form.Item>
 
@@ -408,26 +469,14 @@ const BasicInformationWatch = () => {
               }
             >
               <Option value="あまりゴマ１">あまりゴマ１</Option>
+              <Option value="あまりゴマ2">あまりゴマ2</Option>
+              <Option value="あまりゴマ3">あまりゴマ3</Option>
+              <Option value="あまりゴマ4">あまりゴマ4</Option>
+              <Option value="あまりゴマ5">あまりゴマ5</Option>
             </Select>
           </Form.Item>
         </Col>
-        <Col span={12}>
-          <Form.Item
-            label={<span>あまりゴマ</span>}
-            name="amariGoma2"
-            style={{ marginBottom: "16px" }}
-          >
-            <Select
-              size="middle"
-              defaultValue="あまりゴマ１"
-              suffixIcon={
-                <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
-              }
-            >
-              <Option value="あまりゴマ１">あまりゴマ１</Option>
-            </Select>
-          </Form.Item>
-        </Col>
+        <Col span={12}></Col>
       </Row>
 
       <Row gutter={16}>
