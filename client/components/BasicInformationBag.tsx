@@ -202,12 +202,16 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="3.1フィリップリム"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="3.1フィリップリム">3.1フィリップリム</Option>
+              <Option value="3.ADMJ">3.ADMJ</Option>
+              <Option value="3.J&Mデヴィッドソン">3.J&Mデヴィッドソン</Option>
+              <Option value="3.MCM">3.MCM</Option>
+              <Option value="3.omega">3.omega</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -235,12 +239,16 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="モデル名-1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="モデル名-1">モデル名-1</Option>
+              <Option value="モデル名-2">モデル名-2</Option>
+              <Option value="モデル名-3">モデル名-3</Option>
+              <Option value="モデル名-4">モデル名-4</Option>
+              <Option value="モデル名-5">モデル名-5</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -251,12 +259,16 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="型番-1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="型番-1">型番-1</Option>
+              <Option value="型番-2">型番-2</Option>
+              <Option value="型番-3">型番-3</Option>
+              <Option value="型番-4">型番-4</Option>
+              <Option value="型番-5">型番-5</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -292,12 +304,16 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="A:1997年"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="A:1997年">A:1997年</Option>
+              <Option value="A:1996年">A:1996年</Option>
+              <Option value="A:1995年">A:1997年</Option>
+              <Option value="A:1994年">A:1994年</Option>
+              <Option value="A:1993年">A:1993年</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -312,7 +328,18 @@ const BasicInformationBag = () => {
             name="modelName"
             style={{ marginBottom: "16px" }}
           >
-            <Input size="large" defaultValue="エクスプローラー36" />
+            <Select
+              defaultValue="A"
+              suffixIcon={
+                <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
+              }
+            >
+              <Option value="A">A</Option>
+              <Option value="B">B</Option>
+              <Option value="C">C</Option>
+              <Option value="F">F</Option>
+              <Option value="E">E</Option>
+            </Select>
           </Form.Item>
         </Col>
       </Row>
@@ -325,12 +352,16 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="レナージュ"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="レナージュ">レナージュ</Option>
+              <Option value="ロシアンセーブル">ロシアンセーブル</Option>
+              <Option value="ウール×ポリエステル">ウール×ポリエステル</Option>
+              <Option value="ポリアミド">ポリアミド</Option>
+              <Option value="キュプラ">キュプラ</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -341,12 +372,16 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="サイズ-1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="サイズ-1">サイズ-1</Option>
+              <Option value="サイズ-2">サイズ-2</Option>
+              <Option value="サイズ-3">サイズ-3</Option>
+              <Option value="サイズ-4">サイズ-4</Option>
+              <Option value="サイズ-5">サイズ-5</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -360,12 +395,16 @@ const BasicInformationBag = () => {
           >
             <Select
               mode="multiple"
-              defaultValue={["K24IG"]}
+              defaultValue={["箱"]}
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="箱">箱</Option>
+              <Option value="ギャランティ">ギャランティ</Option>
+              <Option value="カデナ">カデナ</Option>
+              <Option value="クロシェット">クロシェット</Option>
+              <Option value="ショルダーストラップ">ショルダーストラップ</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -406,6 +445,10 @@ const BasicInformationBag = () => {
               }
             >
               <Option value="N">N</Option>
+              <Option value="S">S</Option>
+              <Option value="SA">SA</Option>
+              <Option value="A">A</Option>
+              <Option value="B">B</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -428,12 +471,16 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="N"
+              defaultValue="無し"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="N">N</Option>
+              <Option value="無し">無し</Option>
+              <Option value="極小">極小</Option>
+              <Option value="小">小</Option>
+              <Option value="中">中</Option>
+              <Option value="大">大</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -443,12 +490,15 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="N"
+              defaultValue="無し"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="N">N</Option>
+              <Option value="無し">無し</Option>
+              <Option value="小">小</Option>
+              <Option value="中">中</Option>
+              <Option value="大">大</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -458,12 +508,15 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="N"
+              defaultValue="無し"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="N">N</Option>
+              <Option value="無し">無し</Option>
+              <Option value="小">小</Option>
+              <Option value="中">中</Option>
+              <Option value="大">大</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -473,12 +526,15 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="N"
+              defaultValue="無し"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="N">N</Option>
+              <Option value="無し">無し</Option>
+              <Option value="小">小</Option>
+              <Option value="中">中</Option>
+              <Option value="大">大</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -490,12 +546,15 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="N"
+              defaultValue="無し"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="N">N</Option>
+              <Option value="無し">無し</Option>
+              <Option value="小">小</Option>
+              <Option value="中">中</Option>
+              <Option value="大">大</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -505,12 +564,15 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="N"
+              defaultValue="無し"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="N">N</Option>
+              <Option value="無し">無し</Option>
+              <Option value="小">小</Option>
+              <Option value="中">中</Option>
+              <Option value="大">大</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -522,12 +584,16 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="N"
+              defaultValue="無し"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="N">N</Option>
+              <Option value="無し">無し</Option>
+              <Option value="極小">極小</Option>
+              <Option value="小">小</Option>
+              <Option value="中">中</Option>
+              <Option value="大">大</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -537,24 +603,30 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="N"
+              defaultValue="無し"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="N">N</Option>
+              <Option value="無し">無し</Option>
+              <Option value="小">小</Option>
+              <Option value="中">中</Option>
+              <Option value="大">大</Option>
             </Select>
           </Form.Item>
         </Col>
         <Col span={6}>
           <Form.Item label={<span>ベタ</span>} style={{ marginBottom: "16px" }}>
             <Select
-              defaultValue="N"
+              defaultValue="無し"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="N">N</Option>
+              <Option value="無し">無し</Option>
+              <Option value="小">小</Option>
+              <Option value="中">中</Option>
+              <Option value="大">大</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -566,12 +638,13 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="N"
+              defaultValue="あり"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="N">N</Option>
+              <Option value="あり">あり</Option>
+              <Option value="なし">なし</Option>
             </Select>
           </Form.Item>
         </Col>

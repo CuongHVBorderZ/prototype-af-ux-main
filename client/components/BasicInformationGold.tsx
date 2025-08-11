@@ -41,6 +41,7 @@ const { Option } = Select;
 
 import { TreeSelect } from "antd";
 import type { TreeSelectProps } from "antd";
+import TextArea from "antd/es/input/TextArea";
 
 // eslint-disable-next-line react/prop-types
 const BasicInformationGold = () => {
@@ -207,6 +208,10 @@ const BasicInformationGold = () => {
               }
             >
               <Option value="K24IG">K24IG</Option>
+              <Option value="K24IG（500g以下）">K24IG（500g以下）</Option>
+              <Option value="K24 S">K24 S</Option>
+              <Option value="K22 S">K22 S</Option>
+              <Option value="K21.6 S">K21.6 S</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -221,7 +226,7 @@ const BasicInformationGold = () => {
             name="modelName"
             style={{ marginBottom: "16px" }}
           >
-            <Input size="large" defaultValue="エクスプローラー36" />
+            <Input size="large" defaultValue="" />
           </Form.Item>
         </Col>
       </Row>
@@ -234,12 +239,16 @@ const BasicInformationGold = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="田中貴金属工業"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="田中貴金属工業">田中貴金属工業</Option>
+              <Option value="三菱マテリアル">三菱マテリアル</Option>
+              <Option value="三井金属鉱業">三井金属鉱業</Option>
+              <Option value="住友金属工業">住友金属工業</Option>
+              <Option value="日鉱金属">日鉱金属</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -312,6 +321,28 @@ const BasicInformationGold = () => {
           </div>
         </Flex>
       </Flex>
+      <Divider
+        style={{
+          borderColor: "rgba(230, 230, 230, 0.6)",
+          margin: "24px 0",
+        }}
+      />
+      <Title
+        level={4}
+        style={{
+          lineHeight: "28px",
+          marginBottom: "20px",
+        }}
+      >
+        その他
+      </Title>
+      <Row gutter={24}>
+        <Col span={24}>
+          <Form.Item label={<span>補足</span>} style={{ marginBottom: "16px" }}>
+            <TextArea value={value} autoSize={{ minRows: 3, maxRows: 5 }} />
+          </Form.Item>
+        </Col>
+      </Row>
     </div>
   );
 };

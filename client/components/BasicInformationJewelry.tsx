@@ -205,7 +205,18 @@ const BasicInformationJewelry = () => {
             name="modelName"
             style={{ marginBottom: "16px" }}
           >
-            <Input size="large" defaultValue="エクスプローラー36" />
+            <Select
+              defaultValue="形状1"
+              suffixIcon={
+                <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
+              }
+            >
+              <Option value="形状1">形状1</Option>
+              <Option value="形状2">形状2</Option>
+              <Option value="形状3">形状3</Option>
+              <Option value="形状4">形状4</Option>
+              <Option value="形状5">形状5</Option>
+            </Select>
           </Form.Item>
         </Col>
       </Row>
@@ -218,12 +229,16 @@ const BasicInformationJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="カラー1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="カラー1">カラー1</Option>
+              <Option value="カラー2">カラー2</Option>
+              <Option value="カラー3">カラー3</Option>
+              <Option value="カラー4">カラー4</Option>
+              <Option value="カラー5">カラー5</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -254,12 +269,16 @@ const BasicInformationJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="カラーダイヤ1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="カラーダイヤ1">カラーダイヤ1</Option>
+              <Option value="カラーダイヤ2">カラーダイヤ2</Option>
+              <Option value="カラーダイヤ3">カラーダイヤ3</Option>
+              <Option value="カラーダイヤ4">カラーダイヤ4</Option>
+              <Option value="カラーダイヤ5">カラーダイヤ5</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -270,12 +289,16 @@ const BasicInformationJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="クラリティ1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="クラリティ1">クラリティ1</Option>
+              <Option value="クラリティ2">クラリティ2</Option>
+              <Option value="クラリティ3">クラリティ3</Option>
+              <Option value="クラリティ4">クラリティ4</Option>
+              <Option value="クラリティ5">クラリティ5</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -289,12 +312,16 @@ const BasicInformationJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="カット1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="カット1">カット1</Option>
+              <Option value="カット2">カット2</Option>
+              <Option value="カット3">カット3</Option>
+              <Option value="カット4">カット4</Option>
+              <Option value="カット5">カット5</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -305,12 +332,16 @@ const BasicInformationJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="蛍光性1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="蛍光性1">蛍光性1</Option>
+              <Option value="蛍光性2">蛍光性2</Option>
+              <Option value="蛍光性3">蛍光性3</Option>
+              <Option value="蛍光性4">蛍光性4</Option>
+              <Option value="蛍光性5">蛍光性5</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -323,12 +354,16 @@ const BasicInformationJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="処理1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="処理1">処理1</Option>
+              <Option value="処理2">処理2</Option>
+              <Option value="処理3">処理3</Option>
+              <Option value="処理4">処理4</Option>
+              <Option value="処理5">処理5</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -339,12 +374,16 @@ const BasicInformationJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="鑑定書1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="鑑定書1">鑑定書1</Option>
+              <Option value="鑑定書2">鑑定書2</Option>
+              <Option value="鑑定書3">鑑定書3</Option>
+              <Option value="鑑定書4">鑑定書4</Option>
+              <Option value="鑑定書5">鑑定書5</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -358,12 +397,16 @@ const BasicInformationJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="ポリッシュ1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="ポリッシュ1">ポリッシュ1</Option>
+              <Option value="ポリッシュ2">ポリッシュ2</Option>
+              <Option value="ポリッシュ3">ポリッシュ3</Option>
+              <Option value="ポリッシュ4">ポリッシュ4</Option>
+              <Option value="ポリッシュ5">ポリッシュ5</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -374,12 +417,16 @@ const BasicInformationJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="シンメトリ1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="シンメトリ1">シンメトリ1</Option>
+              <Option value="シンメトリ2">シンメトリ2</Option>
+              <Option value="シンメトリ3">シンメトリ3</Option>
+              <Option value="シンメトリ4">シンメトリ4</Option>
+              <Option value="シンメトリ5">シンメトリ5</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -393,12 +440,16 @@ const BasicInformationJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="ソーティングNo1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="ソーティングNo1">ソーティングNo1</Option>
+              <Option value="ソーティングNo2">ソーティングNo2</Option>
+              <Option value="ソーティングNo3">ソーティングNo3</Option>
+              <Option value="ソーティングNo4">ソーティングNo4</Option>
+              <Option value="ソーティングNo5">ソーティングNo5</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -409,12 +460,16 @@ const BasicInformationJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="サイズ1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="サイズ1">サイズ1</Option>
+              <Option value="サイズ2">サイズ2</Option>
+              <Option value="サイズ3">サイズ3</Option>
+              <Option value="サイズ4">サイズ4</Option>
+              <Option value="サイズ5">サイズ5</Option>
             </Select>
           </Form.Item>
         </Col>

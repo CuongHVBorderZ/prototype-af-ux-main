@@ -202,12 +202,16 @@ const BasicInformationShoes = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="ブランド1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="ブランド1">ブランド1</Option>
+              <Option value="ブランド2">ブランド2</Option>
+              <Option value="ブランド3">ブランド3</Option>
+              <Option value="ブランド4">ブランド4</Option>
+              <Option value="ブランド5">ブランド5</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -222,7 +226,18 @@ const BasicInformationShoes = () => {
             name="modelName"
             style={{ marginBottom: "16px" }}
           >
-            <Input size="large" defaultValue="エクスプローラー36" />
+            <Select
+              defaultValue="ライン1"
+              suffixIcon={
+                <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
+              }
+            >
+              <Option value="ライン1">ライン1</Option>
+              <Option value="ライン2">ライン2</Option>
+              <Option value="ライン3">ライン3</Option>
+              <Option value="ライン4">ライン4</Option>
+              <Option value="ライン5">ライン5</Option>
+            </Select>
           </Form.Item>
         </Col>
       </Row>
@@ -235,12 +250,16 @@ const BasicInformationShoes = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="モデル名-1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="モデル名-1">モデル名-1</Option>
+              <Option value="モデル名-2">モデル名-2</Option>
+              <Option value="モデル名-3">モデル名-3</Option>
+              <Option value="モデル名-4">モデル名-4</Option>
+              <Option value="モデル名-5">モデル名-5</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -251,12 +270,16 @@ const BasicInformationShoes = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="型番-1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="型番-1">型番-1</Option>
+              <Option value="型番-2">型番-2</Option>
+              <Option value="型番-3">型番-3</Option>
+              <Option value="型番-4">型番-4</Option>
+              <Option value="型番-5">型番-5</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -292,12 +315,16 @@ const BasicInformationShoes = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="年式1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="年式1">年式1</Option>
+              <Option value="年式2">年式2</Option>
+              <Option value="年式3">年式3</Option>
+              <Option value="年式4">年式4</Option>
+              <Option value="年式5">年式5</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -311,12 +338,18 @@ const BasicInformationShoes = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              size="large"
+              placeholder="未選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue="SS×YG"
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="SS">SS</Option>
+              <Option value="SS×YG">SS×YG</Option>
+              <Option value="SS×WG">SS×WG</Option>
+              <Option value="SS×PT">SS×PT</Option>
+              <Option value="SS×PG">SS×PG</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -327,12 +360,18 @@ const BasicInformationShoes = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              size="large"
+              placeholder="未選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue="SS×YG"
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="SS">SS</Option>
+              <Option value="SS×YG">SS×YG</Option>
+              <Option value="SS×WG">SS×WG</Option>
+              <Option value="SS×PT">SS×PT</Option>
+              <Option value="SS×PG">SS×PG</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -346,12 +385,16 @@ const BasicInformationShoes = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="A"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="A">A</Option>
+              <Option value="B">B</Option>
+              <Option value="C">C</Option>
+              <Option value="F">F</Option>
+              <Option value="E">E</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -362,12 +405,16 @@ const BasicInformationShoes = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="A"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="A">A</Option>
+              <Option value="B">B</Option>
+              <Option value="C">C</Option>
+              <Option value="F">F</Option>
+              <Option value="E">E</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -380,12 +427,16 @@ const BasicInformationShoes = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="サイズ-1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="サイズ-1">サイズ-1</Option>
+              <Option value="サイズ-2">サイズ-2</Option>
+              <Option value="サイズ-3">サイズ-3</Option>
+              <Option value="サイズ-4">サイズ-4</Option>
+              <Option value="サイズ-5">サイズ-5</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -396,12 +447,13 @@ const BasicInformationShoes = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
+              defaultValue="男性"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="K24IG">K24IG</Option>
+              <Option value="男性">男性</Option>
+              <Option value="女性">女性</Option>
             </Select>
           </Form.Item>
         </Col>
