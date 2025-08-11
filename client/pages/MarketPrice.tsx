@@ -55,9 +55,22 @@ const MarketPrice = ({ isOpen, setVisible }) => {
   const { Option } = Select;
   const { Search } = Input;
 
+  const images = [
+    "https://www.theluxuryhut.com/admin/upload/1724418702secrets-of-rolex-watches.jpg",
+    "https://bizweb.dktcdn.net/100/175/988/products/20171021095017-5401-copy.jpg?v=1718079109400",
+    "https://magazine.chrono24.com/cdn-cgi/image/f=auto,metadata=none,fit=cover,q=65,w=1190,h=595,dpr=2.0/2022/04/Rolex-Opinion-21-scaled.jpg",
+    "https://blog.luxehouze.com/wp-content/uploads/2023/10/DSC05429-crop-1-1024x576.jpg",
+    "https://images.squarespace-cdn.com/content/v1/5b213f95506fbec9b54e014c/39c8e93e-c5d4-4b14-a14d-d7a579db5bec/DSC_2594-2.jpg",
+    "https://blog.luxehouze.com/wp-content/uploads/2024/03/crop-DSC08279-1024x576.jpg",
+    "https://swisswatches-magazine.com/uploads/2023/11/patek-philippe-5261R-001-rosegold-titlepicture-new.jpg",
+    "https://timepiecetradingllc.com/cdn/shop/articles/Why_Patek_Philippe_5980_is_the_Ultimate_Sports_Watch.jpg?v=1711610107",
+    "https://www.analogshift.com/cdn/shop/files/AS08680_40991407_RICHARDMILLE_PLATINUMTOURBILLON_RM-002V1-lifestyle-4.jpg?v=1690984736&width=1500",
+    "https://www.tagheuer.com/on/demandware.static/-/Library-Sites-TagHeuer-Shared/default/dw40ec1bf1/images/PLP/2024/aquaracer/plp-merchandize-landscape-aquaracer-diving.jpg?impolicy=resize&width=1800&height=900",
+  ];
+
   const mockProducts = Array.from({ length: 6 }, (_, index) => ({
     id: index + 1,
-    image: "https://via.placeholder.com/240x240",
+    image: images[Math.floor(Math.random() * images.length)],
     price: "¥1,000,000",
     name: "ロレックス エクスプローラー36 124270 ステンレス ギャラなし 箱なし あまりコマなし 動作...",
     supplement: "〇〇番、ケース径 etc...",
