@@ -112,7 +112,7 @@ const initialData: DataType[] = [
     note: "",
     initial_offer_amount: "¥ 1000",
     first_offer_price: "¥ 900",
-    expected_price: "-",
+    expected_price: "",
     final_gross_profit: 0,
     final_rate: 0,
     check_authen_checked: true,
@@ -128,8 +128,8 @@ const initialData: DataType[] = [
     serial_number: "",
     note: "",
     initial_offer_amount: "¥ 1500",
-    first_offer_price: "-",
-    expected_price: "-",
+    first_offer_price: "",
+    expected_price: "",
     final_gross_profit: 0,
     final_rate: 0,
     check_authen_checked: true,
@@ -162,8 +162,8 @@ const initialData: DataType[] = [
     serial_number: "",
     note: "",
     initial_offer_amount: "¥ 1500",
-    first_offer_price: "-",
-    expected_price: "-",
+    first_offer_price: "",
+    expected_price: "",
     final_gross_profit: 0,
     final_rate: 0,
     check_authen_checked: false,
@@ -179,8 +179,8 @@ const initialData: DataType[] = [
     serial_number: "",
     note: "",
     initial_offer_amount: "¥ 1500",
-    first_offer_price: "-",
-    expected_price: "-",
+    first_offer_price: "",
+    expected_price: "",
     final_gross_profit: 0,
     final_rate: 0,
     check_authen_checked: false,
@@ -196,8 +196,8 @@ const initialData: DataType[] = [
     serial_number: "",
     note: "",
     initial_offer_amount: "¥ 1500",
-    first_offer_price: "-",
-    expected_price: "-",
+    first_offer_price: "",
+    expected_price: "",
     final_gross_profit: 0,
     final_rate: 0,
     check_authen_checked: false,
@@ -213,8 +213,8 @@ const initialData: DataType[] = [
     serial_number: "",
     note: "",
     initial_offer_amount: "¥ 1500",
-    first_offer_price: "-",
-    expected_price: "-",
+    first_offer_price: "",
+    expected_price: "",
     final_gross_profit: 0,
     final_rate: 0,
     check_authen_checked: false,
@@ -330,9 +330,9 @@ export default function Home() {
       prev.map((item) =>
         item.key === key
           ? {
-            ...item,
-            [dataIndex]: value,
-          }
+              ...item,
+              [dataIndex]: value,
+            }
           : item,
       ),
     );
@@ -341,7 +341,8 @@ export default function Home() {
 
   const applyItem = () => {
     if (!urlParams.has("applyItem")) return;
-    const applyItem = parseParamValue(urlParams.get("applyItem")) || dataSource.length + 1;
+    const applyItem =
+      parseParamValue(urlParams.get("applyItem")) || dataSource.length + 1;
     if (applyItem) {
       const id = parseInt(String(applyItem));
       const newItem: DataType = {
@@ -356,8 +357,8 @@ export default function Home() {
         initial_offer_amount: "",
         first_offer_price: "",
         expected_price: "",
-        final_gross_profit: "",
-        final_rate: "",
+        final_gross_profit: 0,
+        final_rate: 0,
       };
       setDataSource((prevData) => {
         const existingItemIndex = prevData.findIndex(
@@ -373,7 +374,7 @@ export default function Home() {
         }
       });
     }
-  }
+  };
 
   const columns: TableColumnsType<DataType> = [
     {
@@ -558,6 +559,10 @@ export default function Home() {
             key: record.key,
             dataIndex: "initial_offer_amount",
           }),
+        className:
+          Number(record.initial_offer_amount) <= 0
+            ? "cell-yellow no-hover-cell"
+            : "cell-normal no-hover-cell",
       }),
     },
     {
@@ -574,6 +579,10 @@ export default function Home() {
         onSave: save,
         onClick: () =>
           setEditingCell({ key: record.key, dataIndex: "first_offer_price" }),
+        className:
+          Number(record.first_offer_price) <= 0
+            ? "cell-yellow no-hover-cell"
+            : "cell-normal no-hover-cell",
       }),
     },
     {
@@ -590,6 +599,10 @@ export default function Home() {
         onSave: save,
         onClick: () =>
           setEditingCell({ key: record.key, dataIndex: "expected_price" }),
+        className:
+          Number(record.expected_price) <= 0
+            ? "cell-yellow no-hover-cell"
+            : "cell-normal no-hover-cell",
       }),
     },
     // {
@@ -645,12 +658,19 @@ export default function Home() {
           "-"
         );
       },
+      onCell: (record, rowIndex) => ({
+        className:
+          record.final_gross_profit < 0
+            ? "cell-red no-hover-cell"
+            : "cell-normal no-hover-cell",
+      }),
     },
     {
       title: "最終粗利率",
       key: "final_rate",
       dataIndex: "final_rate",
       width: 130,
+      className: "final_rate",
       render: (_, record, index) => {
         const valueFinalProfit = Number(record.final_rate);
         const hasNegativeProfit = valueFinalProfit < 0;
@@ -684,6 +704,12 @@ export default function Home() {
           "-"
         );
       },
+      onCell: (record, rowIndex) => ({
+        className:
+          record.final_rate < 0
+            ? "cell-red no-hover-cell"
+            : "cell-normal no-hover-cell",
+      }),
     },
     {
       title: "成立",
@@ -742,7 +768,7 @@ export default function Home() {
   }, []);
 
   function parseParamValue(value) {
-    if (value === 'null') return null;
+    if (value === "null") return null;
     if (value.toLowerCase() === "true") return true;
     if (value.toLowerCase() === "false") return false;
     return value;
@@ -822,8 +848,8 @@ export default function Home() {
       initial_offer_amount: "0",
       first_offer_price: "0",
       expected_price: "0",
-      final_gross_profit: "0",
-      final_rate: "-",
+      final_gross_profit: 0,
+      final_rate: 0,
     };
     setDataSource((prev) => [...prev, newItem]);
   };
@@ -1001,6 +1027,7 @@ export default function Home() {
               strategy={verticalListSortingStrategy}
             >
               <Table<DataType>
+                rowHoverable={false}
                 columns={columns}
                 dataSource={dataSource}
                 pagination={false}

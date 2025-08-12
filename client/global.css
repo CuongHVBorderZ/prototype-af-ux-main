@@ -354,3 +354,13 @@ body {
 .ant-input, .ant-select-selector {
   border-radius: 0 !important;
 }
+.ant-table-tbody .ant-table-cell {
+  /* background-color: transparent !important; */
+}
+.cell-red {
+  background-color: #ffa39e !important;
+}
+.cell-yellow {
+  background-color: #fff7e6 !important;
+}
+
