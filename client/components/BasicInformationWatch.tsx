@@ -20,6 +20,7 @@ import {
   Drawer,
   Tag,
   Pagination,
+  Modal,
 } from "antd";
 import {
   SearchOutlined,
@@ -39,6 +40,7 @@ const { Option } = Select;
 import { TreeSelect } from "antd";
 import type { TreeSelectProps } from "antd";
 import TextArea from "antd/es/input/TextArea";
+import ModalAuthenticityCheck from "./ModalAuthenticityCheck";
 
 // eslint-disable-next-line react/prop-types
 const BasicInformationWatch = () => {
@@ -174,6 +176,11 @@ const BasicInformationWatch = () => {
     console.log("onPopupScroll", e);
   };
 
+  const [openCheckAuthentication, setOpenCheckAuthentication] = useState(false);
+  const handleOnChangeCheckAuthen = (e) => {
+    setOpenCheckAuthentication(true);
+  };
+
   return (
     <div>
       <Title
@@ -264,6 +271,24 @@ const BasicInformationWatch = () => {
               <Option value="00.10620.03.93.02">00.10620.03.93.02</Option>
               <Option value="H.00.10620.08.53.01">00.10620.08.53.01</Option>
             </Select>
+          </Form.Item>
+        </Col>
+        <Col span={12}>{/* Empty space */}</Col>
+      </Row>
+      <Row gutter={16}>
+        <Col span={12}>
+          <Form.Item
+            label=""
+            name="modelNumber"
+            style={{ marginBottom: "16px" }}
+          >
+            <Checkbox
+              onChange={(e) => {
+                handleOnChangeCheckAuthen(e);
+              }}
+            >
+              VD真贋チェック
+            </Checkbox>
           </Form.Item>
         </Col>
         <Col span={12}>{/* Empty space */}</Col>
@@ -551,6 +576,35 @@ const BasicInformationWatch = () => {
           </Form.Item>
         </Col>
       </Row>
+      <Modal
+        open={openCheckAuthentication}
+        onOk={() => {
+          setOpenCheckAuthentication(false);
+        }}
+        onCancel={() => {
+          setOpenCheckAuthentication(false);
+        }}
+        title="ヒアリング項目"
+        okText="確認"
+        cancelText="キャンセル"
+        width={{
+          xs: "90%",
+          sm: "80%",
+          md: "70%",
+          lg: "60%",
+          xl: "50%",
+          xxl: "50%",
+        }}
+        footer={null}
+      >
+        <ModalAuthenticityCheck
+          cancel={() => setOpenCheckAuthentication(false)}
+          save={(data) => {
+            console.log("Checked data:", data);
+            setOpenCheckAuthentication(false);
+          }}
+        ></ModalAuthenticityCheck>
+      </Modal>
     </div>
   );
 };
