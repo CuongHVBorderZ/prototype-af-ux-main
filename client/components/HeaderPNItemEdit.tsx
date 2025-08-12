@@ -126,6 +126,8 @@ const HeaderPNItemEdit = ({
     navigate(`/${previousId}/detail`);
   };
 
+  const [editableStr, setEditableStr] = useState("エクスプローラー36 124270");
+
   return (
     <>
       <Row style={{ backgroundColor: "white", padding: "20px" }}>
@@ -172,13 +174,16 @@ const HeaderPNItemEdit = ({
             画像から特定
           </Button>
         </Col>
-        <Flex gap="middle">
+        <Flex gap="middle" style={{ width: "100%" }}>
           <span>no.1</span>
           <Flex>
-            <Title level={4} style={{ marginBottom: "0", marginRight: "5px" }}>
-              エクスプローラー36 124270
+            <Title
+              level={4}
+              style={{ marginBottom: "0", marginRight: "5px", width: "520px" }}
+              editable={{ onChange: setEditableStr }}
+            >
+              {editableStr}
             </Title>
-            <EditOutlined />
           </Flex>
         </Flex>
       </Row>

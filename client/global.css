@@ -350,3 +350,7 @@ body {
 .ant-layout-content {
   background-color: #e5e7eb;
 }
+
+.ant-input, .ant-select-selector {
+  border-radius: 0 !important;
+}
