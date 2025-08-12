@@ -45,6 +45,9 @@ import { useNavigate } from "react-router-dom";
 import MarketPrice from "./MarketPrice";
 import HearingInformation from "@/components/HearingInformation";
 import SaleInstruction from "@/components/SaleInstruction";
+import AuthenticityCheck from "@/components/feature/AuthenticityCheck";
+import ModalAuthenticityCheck from "@/components/ModalAuthenticityCheck";
+import StateDefinition from "@/components/feature/StateDefinition";
 
 const { Title, Paragraph, Text, Link } = Typography;
 
@@ -228,6 +231,16 @@ export default function Home() {
   const [hearingOpen, setHearingOpen] = useState(false);
   const [instructionOpen, setInstructionOpen] = useState(false);
 
+  const [openCheckAuthentication, setOpenCheckAuthentication] = useState(false);
+  const [openStateDefinition, setOpenStateDefinition] = useState(false);
+
+  const handleOnChangeStateDefinition = (e) => {
+    setOpenStateDefinition(true);
+  };
+  const handleOnChangeCheckAuthen = (e) => {
+    setOpenCheckAuthentication(true);
+  };
+
   const save = (key: string, dataIndex: keyof DataType, value: any) => {
     setDataSource((prev) =>
       prev.map((item) =>
@@ -353,7 +366,14 @@ export default function Home() {
       key: "vd_check",
       render: () => (
         <div style={{ textAlign: "center" }}>
-          <CheckCircleOutlined style={{ fontSize: "22px" }} />
+          <Checkbox
+            onChange={(e) => {
+              handleOnChangeCheckAuthen(e);
+            }}
+          ></Checkbox>
+          <CheckCircleOutlined
+            style={{ fontSize: "22px", marginLeft: "10px", marginTop: "3px" }}
+          />
         </div>
       ),
     },
@@ -362,7 +382,12 @@ export default function Home() {
       key: "status",
       render: () => (
         <div style={{ textAlign: "center" }}>
-          <span>A : 80</span>
+          <Checkbox
+            onChange={(e) => {
+              handleOnChangeStateDefinition(e);
+            }}
+          ></Checkbox>
+          <span style={{ marginLeft: "10px" }}>A : 80</span>
         </div>
       ),
     },
@@ -714,6 +739,58 @@ export default function Home() {
         />
         <HearingInformation open={hearingOpen} setOpen={setHearingOpen} />
         <SaleInstruction open={instructionOpen} setOpen={setInstructionOpen} />
+
+        <Modal
+          open={openCheckAuthentication}
+          onOk={() => {
+            setOpenCheckAuthentication(false);
+          }}
+          onCancel={() => {
+            setOpenCheckAuthentication(false);
+          }}
+          title="ヒアリング項目"
+          okText="確認"
+          cancelText="キャンセル"
+          width={{
+            xs: "90%",
+            sm: "80%",
+            md: "70%",
+            lg: "60%",
+            xl: "50%",
+            xxl: "50%",
+          }}
+          footer={null}
+        >
+          <ModalAuthenticityCheck
+            cancel={() => setOpenCheckAuthentication(false)}
+            save={(data) => {
+              console.log("Checked data:", data);
+              setOpenCheckAuthentication(false);
+            }}
+          ></ModalAuthenticityCheck>
+        </Modal>
+        <Modal
+          open={openStateDefinition}
+          onOk={() => {
+            setOpenStateDefinition(false);
+          }}
+          onCancel={() => {
+            setOpenStateDefinition(false);
+          }}
+          title="ヒアリング項目"
+          okText="確認"
+          cancelText="キャンセル"
+          width={{
+            xs: "90%",
+            sm: "80%",
+            md: "70%",
+            lg: "60%",
+            xl: "50%",
+            xxl: "50%",
+          }}
+        >
+          <StateDefinition></StateDefinition>
+        </Modal>
       </Content>
     </>
   );

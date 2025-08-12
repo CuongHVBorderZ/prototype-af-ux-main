@@ -24,6 +24,7 @@ import React from "react";
 import BasicInformationGold from "./BasicInformationGold";
 import BasicInformationBag from "./BasicInformationBag";
 import EstimatePrice from "./EstimatePrice";
+import FooterPNItemEdit from "./FooterPNItemEdit";
 const { Content } = Layout;
 const { Title, Paragraph, Text, Link } = Typography;
 
@@ -59,15 +60,7 @@ const PNItemEditBag = () => {
           </Col>
         </Row>
         {/* Action Buttons */}
-        <div>
-          <Flex gap="middle" justify="flex-end">
-            <Button style={{ width: "150px" }}>下書きを保存</Button>
-            <Button style={{ width: "150px" }}>クリア</Button>
-            <Button style={{ width: "150px" }} type="primary">
-              保存
-            </Button>
-          </Flex>
-        </div>
+        <FooterPNItemEdit></FooterPNItemEdit>
       </div>
     </>
   );

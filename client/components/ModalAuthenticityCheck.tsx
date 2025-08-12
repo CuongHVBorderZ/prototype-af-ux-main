@@ -9,7 +9,7 @@ type AuthenticityCheckProps = {
 };
 
 // eslint-disable-next-line react/prop-types
-const AuthenticityCheck: React.FC<AuthenticityCheckProps> = ({
+const ModalAuthenticityCheck: React.FC<AuthenticityCheckProps> = ({
   cancel,
   save,
 }) => {
@@ -485,4 +485,4 @@ const AuthenticityCheck: React.FC<AuthenticityCheckProps> = ({
   );
 };
 
-export default AuthenticityCheck;
+export default ModalAuthenticityCheck;

@@ -22,12 +22,13 @@ import {
 } from "antd";
 import React from "react";
 import EstimatePrice from "./EstimatePrice";
+import { useNavigate } from "react-router-dom";
+import FooterPNItemEdit from "./FooterPNItemEdit";
 const { Content } = Layout;
 const { Title, Paragraph, Text, Link } = Typography;
 
 // eslint-disable-next-line react/prop-types
 const PNItemEditWatch = () => {
-  const [api, contextHolder] = notification.useNotification();
   return (
     <>
       <div
@@ -56,15 +57,7 @@ const PNItemEditWatch = () => {
           </Col>
         </Row>
         {/* Action Buttons */}
-        <div>
-          <Flex gap="middle" justify="flex-end">
-            <Button style={{ width: "150px" }}>下書きを保存</Button>
-            <Button style={{ width: "150px" }}>クリア</Button>
-            <Button style={{ width: "150px" }} type="primary">
-              保存
-            </Button>
-          </Flex>
-        </div>
+        <FooterPNItemEdit></FooterPNItemEdit>
       </div>
     </>
   );
