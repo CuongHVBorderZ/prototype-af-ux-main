@@ -15,6 +15,7 @@ import {
   Modal,
   Menu,
   Dropdown,
+  Tooltip,
 } from "antd";
 import type { MenuProps, TableColumnsType } from "antd";
 
@@ -43,6 +44,7 @@ import {
   MessageOutlined,
   PlusOutlined,
   SearchOutlined,
+  WarningOutlined,
 } from "@ant-design/icons";
 import { createStyles } from "antd-style";
 import TableListFooter from "@/components/TableListFooter";
@@ -71,8 +73,8 @@ interface DataType {
   initial_offer_amount?: string;
   first_offer_price?: string;
   expected_price?: string;
-  final_gross_profit?: string;
-  final_rate?: string;
+  final_gross_profit?: number;
+  final_rate?: number;
   check_authen_checked?: boolean;
   check_state_definition?: boolean;
 }
@@ -103,16 +105,16 @@ const initialData: DataType[] = [
     key: "1",
     name: "エクスプローラー36 124270",
     age: 32,
-    address: "New York No. 1 Lake Park",
+    address: "",
     category: "時計 / 腕時計 / ロレックス",
     productnumber_weight: "",
-    serial_number: "SN001",
+    serial_number: "",
     note: "",
     initial_offer_amount: "¥ 1000",
     first_offer_price: "¥ 900",
-    expected_price: "¥ 950",
-    final_gross_profit: "¥ 100",
-    final_rate: "10%",
+    expected_price: "-",
+    final_gross_profit: 0,
+    final_rate: 0,
     check_authen_checked: true,
     check_state_definition: true,
   },
@@ -120,16 +122,16 @@ const initialData: DataType[] = [
     key: "2",
     name: "ヴィトン モノグラム ミニランノエリー M9268...",
     age: 42,
-    address: "London No. 1 Lake Park",
+    address: "",
     category: "バッグ / ハンドバッグ / ヴィトン",
-    productnumber_weight: "PN456 / 20g",
-    serial_number: "SN002",
+    productnumber_weight: "",
+    serial_number: "",
     note: "",
     initial_offer_amount: "¥ 1500",
-    first_offer_price: "¥ 1400",
-    expected_price: "¥ 1450",
-    final_gross_profit: "¥ 100",
-    final_rate: "¥ 7%",
+    first_offer_price: "-",
+    expected_price: "-",
+    final_gross_profit: 0,
+    final_rate: 0,
     check_authen_checked: true,
     check_state_definition: true,
   },
@@ -137,16 +139,84 @@ const initialData: DataType[] = [
     key: "3",
     name: "トラックトレイル レース スニーカー",
     age: 32,
-    address: "Sidney No. 1 Lake Park",
+    address: "",
     category: "アパレル・靴 / アウター / バレンシアガ",
-    productnumber_weight: "PN789 / 15g",
+    productnumber_weight: "",
     serial_number: "",
-    note: "Note 3",
+    note: "",
     initial_offer_amount: "¥ 2000",
     first_offer_price: "¥ 1900",
     expected_price: "¥ 1950",
-    final_gross_profit: "-¥ 100",
-    final_rate: "-5%",
+    final_gross_profit: -100,
+    final_rate: -20,
+    check_authen_checked: false,
+    check_state_definition: false,
+  },
+  {
+    key: "4",
+    name: "",
+    age: 42,
+    address: "",
+    category: "骨董品 / 現代アート / 村上隆",
+    productnumber_weight: "",
+    serial_number: "",
+    note: "",
+    initial_offer_amount: "¥ 1500",
+    first_offer_price: "-",
+    expected_price: "-",
+    final_gross_profit: 0,
+    final_rate: 0,
+    check_authen_checked: false,
+    check_state_definition: false,
+  },
+  {
+    key: "5",
+    name: "",
+    age: 42,
+    address: "",
+    category: "バッグ / ハンドバッグ / ヴィトン",
+    productnumber_weight: "",
+    serial_number: "",
+    note: "",
+    initial_offer_amount: "¥ 1500",
+    first_offer_price: "-",
+    expected_price: "-",
+    final_gross_profit: 0,
+    final_rate: 0,
+    check_authen_checked: false,
+    check_state_definition: false,
+  },
+  {
+    key: "6",
+    name: "",
+    age: 42,
+    address: "",
+    category: "地金 / 金 / 18K",
+    productnumber_weight: "PN456 / 20g",
+    serial_number: "",
+    note: "",
+    initial_offer_amount: "¥ 1500",
+    first_offer_price: "-",
+    expected_price: "-",
+    final_gross_profit: 0,
+    final_rate: 0,
+    check_authen_checked: false,
+    check_state_definition: false,
+  },
+  {
+    key: "7",
+    name: "",
+    age: 42,
+    address: "",
+    category: "バッグ / ハンドバッグ / ヴィトン",
+    productnumber_weight: "",
+    serial_number: "",
+    note: "",
+    initial_offer_amount: "¥ 1500",
+    first_offer_price: "-",
+    expected_price: "-",
+    final_gross_profit: 0,
+    final_rate: 0,
     check_authen_checked: false,
     check_state_definition: false,
   },
@@ -274,6 +344,14 @@ export default function Home() {
       width: 50,
       render: () => <DragHandle />,
       fixed: "left",
+    },
+    {
+      title: "No.",
+      dataIndex: "no",
+      key: "key",
+      width: 60,
+      align: "center",
+      render: (_, __, index) => index + 1,
     },
     // {
     //   title: "簡易査定",
@@ -477,37 +555,98 @@ export default function Home() {
           setEditingCell({ key: record.key, dataIndex: "expected_price" }),
       }),
     },
+    // {
+    //   title: "最終粗利",
+    //   key: "final_gross_profit",
+    //   dataIndex: "final_gross_profit",
+    //   width: 150,
+    //   onCell: (record) => ({
+    //     record,
+    //     dataIndex: "final_gross_profit",
+    //     editing:
+    //       editingCell?.key === record.key &&
+    //       editingCell?.dataIndex === "final_gross_profit",
+    //     onSave: save,
+    //     onClick: () =>
+    //       setEditingCell({ key: record.key, dataIndex: "final_gross_profit" }),
+    //   }),
+    // },
     {
       title: "最終粗利",
       key: "final_gross_profit",
-      dataIndex: "final_gross_profit",
-      width: 150,
-      onCell: (record) => ({
-        record,
-        dataIndex: "final_gross_profit",
-        editing:
-          editingCell?.key === record.key &&
-          editingCell?.dataIndex === "final_gross_profit",
-        onSave: save,
-        onClick: () =>
-          setEditingCell({ key: record.key, dataIndex: "final_gross_profit" }),
-      }),
+      width: 130,
+      render: (_, record, index) => {
+        const valueFinalProfit = Number(record.final_gross_profit);
+        const hasNegativeProfit = valueFinalProfit < 0;
+        let content = <></>;
+        if (valueFinalProfit < 0) {
+          content = (
+            <div
+              style={{
+                padding: "4px 8px",
+                display: "flex",
+                alignItems: "center",
+                gap: "4px",
+              }}
+            >
+              {hasNegativeProfit && (
+                <WarningOutlined
+                  style={{ color: "#F5222D", fontSize: "14px" }}
+                />
+              )}
+              <Text>¥ {valueFinalProfit}</Text>
+            </div>
+          );
+        }
+        return hasNegativeProfit ? (
+          <Tooltip title="赤字取引となる商品は買取できません。">
+            {content}
+          </Tooltip>
+        ) : valueFinalProfit ? (
+          valueFinalProfit
+        ) : (
+          "-"
+        );
+      },
     },
     {
       title: "最終粗利率",
       key: "final_rate",
       dataIndex: "final_rate",
-      width: 150,
-      onCell: (record) => ({
-        record,
-        dataIndex: "final_rate",
-        editing:
-          editingCell?.key === record.key &&
-          editingCell?.dataIndex === "final_rate",
-        onSave: save,
-        onClick: () =>
-          setEditingCell({ key: record.key, dataIndex: "final_rate" }),
-      }),
+      width: 130,
+      render: (_, record, index) => {
+        const valueFinalProfit = Number(record.final_rate);
+        const hasNegativeProfit = valueFinalProfit < 0;
+        let content = <></>;
+        if (valueFinalProfit < 0) {
+          content = (
+            <div
+              style={{
+                padding: "4px 8px",
+                display: "flex",
+                alignItems: "center",
+                gap: "4px",
+              }}
+            >
+              {hasNegativeProfit && (
+                <WarningOutlined
+                  style={{ color: "#F5222D", fontSize: "14px" }}
+                />
+              )}
+              <Text>{valueFinalProfit} %</Text>
+            </div>
+          );
+        }
+        return hasNegativeProfit ? (
+          <Tooltip title="赤字取引となる商品は買取できません。">
+            {content}
+          </Tooltip>
+        ) : valueFinalProfit ? (
+          valueFinalProfit
+        ) : (
+          "-"
+        );
+      },
     },
     {
       title: "成立",
