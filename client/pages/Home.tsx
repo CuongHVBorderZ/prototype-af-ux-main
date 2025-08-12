@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useState } from "react";
+import React, { useContext, useMemo, useRef, useState } from "react";
 import {
   Table,
   Button,
@@ -13,8 +13,10 @@ import {
   Popconfirm,
   Spin,
   Modal,
+  Menu,
+  Dropdown,
 } from "antd";
-import type { TableColumnsType } from "antd";
+import type { MenuProps, TableColumnsType } from "antd";
 
 import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
 import { DndContext, DragEndEvent } from "@dnd-kit/core";
@@ -26,11 +28,14 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import {
+  AreaChartOutlined,
   ArrowLeftOutlined,
   CheckCircleOutlined,
+  DatabaseFilled,
   DeleteOutlined,
   EditOutlined,
   ExclamationCircleFilled,
+  EyeOutlined,
   FormOutlined,
   HolderOutlined,
   InstagramOutlined,
@@ -68,6 +73,8 @@ interface DataType {
   expected_price?: string;
   final_gross_profit?: string;
   final_rate?: string;
+  check_authen_checked?: boolean;
+  check_state_definition?: boolean;
 }
 
 interface RowContextProps {
@@ -94,52 +101,56 @@ const DragHandle: React.FC = () => {
 const initialData: DataType[] = [
   {
     key: "1",
-    name: "John Brown",
+    name: "エクスプローラー36 124270",
     age: 32,
     address: "New York No. 1 Lake Park",
-    category: "Category A",
-    productnumber_weight: "PN123 / 10g",
+    category: "時計 / 腕時計 / ロレックス",
+    productnumber_weight: "",
     serial_number: "SN001",
-    note: "Note 1",
-    initial_offer_amount: "1000",
-    first_offer_price: "900",
-    expected_price: "950",
-    final_gross_profit: "100",
+    note: "",
+    initial_offer_amount: "¥ 1000",
+    first_offer_price: "¥ 900",
+    expected_price: "¥ 950",
+    final_gross_profit: "¥ 100",
     final_rate: "10%",
+    check_authen_checked: true,
+    check_state_definition: true,
   },
   {
     key: "2",
-    name: "Jim Green",
+    name: "ヴィトン モノグラム ミニランノエリー M9268...",
     age: 42,
     address: "London No. 1 Lake Park",
-    category: "Category B",
+    category: "バッグ / ハンドバッグ / ヴィトン",
     productnumber_weight: "PN456 / 20g",
     serial_number: "SN002",
-    note: "Note 2",
-    initial_offer_amount: "1500",
-    first_offer_price: "1400",
-    expected_price: "1450",
-    final_gross_profit: "100",
-    final_rate: "7%",
+    note: "",
+    initial_offer_amount: "¥ 1500",
+    first_offer_price: "¥ 1400",
+    expected_price: "¥ 1450",
+    final_gross_profit: "¥ 100",
+    final_rate: "¥ 7%",
+    check_authen_checked: true,
+    check_state_definition: true,
   },
   {
     key: "3",
-    name: "Joe Black",
+    name: "トラックトレイル レース スニーカー",
     age: 32,
     address: "Sidney No. 1 Lake Park",
-    category: "Category C",
+    category: "アパレル・靴 / アウター / バレンシアガ",
     productnumber_weight: "PN789 / 15g",
-    serial_number: "SN003",
+    serial_number: "",
     note: "Note 3",
-    initial_offer_amount: "2000",
-    first_offer_price: "1900",
-    expected_price: "1950",
-    final_gross_profit: "100",
-    final_rate: "5%",
+    initial_offer_amount: "¥ 2000",
+    first_offer_price: "¥ 1900",
+    expected_price: "¥ 1950",
+    final_gross_profit: "-¥ 100",
+    final_rate: "-5%",
+    check_authen_checked: false,
+    check_state_definition: false,
   },
 ];
-
-// Editable cell component trả về <td> đúng chuẩn bảng
 const EditableCell: React.FC<{
   editing: boolean;
   dataIndex?: keyof DataType;
@@ -166,8 +177,10 @@ const EditableCell: React.FC<{
     }
   }, [editing]);
 
+  const cssObj = {};
+
   return (
-    <td {...restProps}>
+    <td {...restProps} style={cssObj}>
       {editing ? (
         <Input
           ref={inputRef}
@@ -285,7 +298,7 @@ export default function Home() {
       title: "商品分類",
       key: "category",
       dataIndex: "category",
-      width: 250,
+      width: 300,
       onCell: (record) => ({
         record,
         dataIndex: "category",
@@ -302,7 +315,7 @@ export default function Home() {
       title: "型番 / 重量",
       key: "productnumber_weight",
       dataIndex: "productnumber_weight",
-      width: 250,
+      width: 150,
       onCell: (record) => ({
         record,
         dataIndex: "productnumber_weight",
@@ -321,7 +334,7 @@ export default function Home() {
       title: "商品名",
       key: "name",
       dataIndex: "name",
-      width: 280,
+      width: 350,
       onCell: (record) => ({
         record,
         dataIndex: "name",
@@ -335,7 +348,7 @@ export default function Home() {
       title: "シリアル",
       key: "serial_number",
       dataIndex: "serial_number",
-      width: 250,
+      width: 150,
       onCell: (record) => ({
         record,
         dataIndex: "serial_number",
@@ -364,30 +377,52 @@ export default function Home() {
     {
       title: "VD真贋",
       key: "vd_check",
-      render: () => (
-        <div style={{ textAlign: "center" }}>
+      render: (_, record, index) => (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+          }}
+        >
           <Checkbox
             onChange={(e) => {
               handleOnChangeCheckAuthen(e);
             }}
+            checked={record.check_authen_checked}
           ></Checkbox>
-          <CheckCircleOutlined
-            style={{ fontSize: "22px", marginLeft: "10px", marginTop: "3px" }}
-          />
+          {record.check_authen_checked ? (
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+              <circle
+                cx="7.5"
+                cy="7.5"
+                r="6.25"
+                stroke="black"
+                strokeWidth="2"
+              />
+            </svg>
+          ) : (
+            <span style={{ marginLeft: "0px" }}>未</span>
+          )}
         </div>
       ),
     },
     {
       title: "状態",
       key: "status",
-      render: () => (
+      render: (_, record, index) => (
         <div style={{ textAlign: "center" }}>
           <Checkbox
             onChange={(e) => {
               handleOnChangeStateDefinition(e);
             }}
+            checked={record.check_state_definition}
           ></Checkbox>
-          <span style={{ marginLeft: "10px" }}>A : 80</span>
+          {record.check_state_definition ? (
+            <span style={{ marginLeft: "10px" }}>A : 80</span>
+          ) : (
+            <span style={{ marginLeft: "10px" }}>未</span>
+          )}
         </div>
       ),
     },
@@ -604,6 +639,51 @@ export default function Home() {
       },
     });
   };
+  const [currentRecord, setCurrentRecord] = useState(null);
+  const [menuPosition, setMenuPosition] = useState({ x: 0, y: 0 });
+  const [menuVisible, setMenuVisible] = useState(false);
+  const subMenus = (
+    <Menu
+      items={[
+        {
+          key: "1",
+          icon: <EditOutlined />,
+          label: (
+            <div>
+              <span style={{ float: "left" }}>詳細を開く</span>
+              <span style={{ color: "#00000073", float: "right" }}>(F2)</span>
+            </div>
+          ),
+          onClick: () => handleEditRow(currentRecord.key),
+        },
+        {
+          key: "2",
+          icon: <AreaChartOutlined />,
+          label: (
+            <div>
+              <span style={{ float: "left" }}>見込価格計算</span>
+              <span style={{ color: "#00000073", float: "right" }}>(F3)</span>
+            </div>
+          ),
+          onClick: () => alert(`Xóa: ${currentRecord?.name}`),
+        },
+      ]}
+    />
+  );
+
+  const closeTimeout = useRef<NodeJS.Timeout | null>(null);
+  const handleMouseEnter = () => {
+    if (closeTimeout.current) {
+      clearTimeout(closeTimeout.current);
+      closeTimeout.current = null;
+    }
+  };
+
+  const handleMouseLeave = () => {
+    closeTimeout.current = setTimeout(() => {
+      setMenuVisible(false);
+    }, 1000);
+  };
 
   return (
     <>
@@ -629,7 +709,10 @@ export default function Home() {
         </div>
       )}
       {contextHolder}
-      <Content style={{ padding: 24, minHeight: 1280 }}>
+      <Content
+        style={{ padding: 24, minHeight: 1280 }}
+        onClick={() => setMenuVisible(false)}
+      >
         <Flex
           gap="middle"
           style={{
@@ -729,6 +812,17 @@ export default function Home() {
                 rowKey="key"
                 scroll={{ x: "max-content" }}
                 footer={TableListFooter}
+                onRow={(record, rowIndex) => {
+                  return {
+                    onContextMenu: (event) => {
+                      event.preventDefault();
+                      setCurrentRecord(record);
+                      setMenuPosition({ x: event.clientX, y: event.clientY });
+                      setMenuVisible(false);
+                      setTimeout(() => setMenuVisible(true), 10);
+                    },
+                  };
+                }}
               />
             </SortableContext>
           </DndContext>
@@ -791,6 +885,22 @@ export default function Home() {
         >
           <StateDefinition></StateDefinition>
         </Modal>
+        {menuVisible && (
+          <div
+            style={{
+              position: "fixed",
+              top: menuPosition.y,
+              left: menuPosition.x,
+              zIndex: 9999,
+            }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <Dropdown overlay={subMenus} visible>
+              <span />
+            </Dropdown>
+          </div>
+        )}
       </Content>
     </>
   );
