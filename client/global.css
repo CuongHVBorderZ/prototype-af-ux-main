@@ -169,14 +169,14 @@
   border-color: #23B7E5 !important;
   border-radius: 8px !important;
   height: 40px !important;
-  font-size: 16px !important;
+  /* font-size: 16px !important; */
   font-weight: 400 !important;
 }
 
 .ant-btn {
   border-radius: 8px !important;
   height: 40px !important;
-  font-size: 16px !important;
+  /* font-size: 16px !important; */
   font-weight: 400 !important;
 }
 
@@ -190,12 +190,12 @@
   border: 1px solid transparent !important;
   border-radius: 6px !important;
   padding: 1px 8px !important;
-  font-size: 16px !important;
+  /* font-size: 16px !important; */
   color: rgba(0, 0, 0, 0.88) !important;
 }
 
 .ant-checkbox-wrapper {
-  font-size: 16px !important;
+  /* font-size: 16px !important; */
   color: rgba(0, 0, 0, 0.88) !important;
 }
 
@@ -207,7 +207,7 @@
 }
 
 .ant-statistic .ant-statistic-content {
-  font-size: 24px !important;
+  /* font-size: 24px !important; */
   font-weight: 600 !important;
   color: rgba(0, 0, 0, 0.88) !important;
   font-family: 'Source Sans Pro', sans-serif !important;
@@ -283,7 +283,7 @@
 }
 
 .conditionAnomalyTable .ant-table-cell, .partsRankingTable .ant-table-cell  {
-  font-size:12px;
+  /* font-size:12px; */
   padding: 5px !important;
 }
 .ant-form-item .ant-form-item-label >label::after {
@@ -313,7 +313,7 @@
 }
 
 body {
-  font-size: 18px;
+  /* font-size: 18px; */
   font-family: Lato, "游ゴシック Medium", "游ゴシック体", "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 }
 
@@ -335,7 +335,7 @@ body {
 .ant-table-tbody > tr > td,
 .ant-table-footer {
   border-radius: 0 !important;
-  font-size: 16px !important;
+  /* font-size: 16px !important; */
 }
 
 .ant-statistic .ant-statistic-title {

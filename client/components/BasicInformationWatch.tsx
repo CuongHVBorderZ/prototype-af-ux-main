@@ -206,7 +206,6 @@ const BasicInformationWatch = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="ロレックス"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -233,7 +232,6 @@ const BasicInformationWatch = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="エクスプローラー36"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -258,7 +256,6 @@ const BasicInformationWatch = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="01445"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -318,7 +315,7 @@ const BasicInformationWatch = () => {
             name="serialNumber"
             style={{ marginBottom: "16px" }}
           >
-            <Input size="large" defaultValue="A123456" />
+            <Input size="large" />
           </Form.Item>
         </Col>
         <Col span={12}>
@@ -333,7 +330,6 @@ const BasicInformationWatch = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue="SS×YG"
             >
               <Option value="SS">SS</Option>
               <Option value="SS×YG">SS×YG</Option>
@@ -358,7 +354,6 @@ const BasicInformationWatch = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue="QZ"
             >
               <Option value="AT">AT</Option>
               <Option value="QZ">QZ</Option>
@@ -380,7 +375,6 @@ const BasicInformationWatch = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue="白ホリコン"
             >
               <Option value="白ホリコン">白ホリコン</Option>
               <Option value="シェリーライン">シェリーライン</Option>
@@ -405,7 +399,6 @@ const BasicInformationWatch = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue="バーインデックス"
             >
               <Option value="バーインデックス">バーインデックス</Option>
               <Option value="アラビアインデックス">アラビアインデックス</Option>
@@ -429,7 +422,6 @@ const BasicInformationWatch = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue="200タキメーター"
             >
               <Option value="200タキメーター">200タキメーター</Option>
               <Option value="6ドット">6ドット</Option>
@@ -488,7 +480,6 @@ const BasicInformationWatch = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="あまりゴマ１"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }

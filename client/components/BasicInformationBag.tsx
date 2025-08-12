@@ -202,7 +202,6 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="3.1フィリップリム"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -226,7 +225,7 @@ const BasicInformationBag = () => {
             name="modelName"
             style={{ marginBottom: "16px" }}
           >
-            <Input size="large" defaultValue="エクスプローラー36" />
+            <Input />
           </Form.Item>
         </Col>
       </Row>
@@ -239,7 +238,6 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="モデル名-1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -259,7 +257,6 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="型番-1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -304,7 +301,6 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="A:1997年"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -329,7 +325,6 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="A"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -352,7 +347,6 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="レナージュ"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -372,7 +366,6 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="サイズ-1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -395,7 +388,6 @@ const BasicInformationBag = () => {
           >
             <Select
               mode="multiple"
-              defaultValue={["箱"]}
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -439,7 +431,6 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="N"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -471,7 +462,6 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="無し"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -490,7 +480,6 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="無し"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -508,7 +497,6 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="無し"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -526,7 +514,6 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="無し"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -546,7 +533,6 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="無し"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -564,7 +550,6 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="無し"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -584,7 +569,6 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="無し"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -603,7 +587,6 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="無し"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -618,7 +601,6 @@ const BasicInformationBag = () => {
         <Col span={6}>
           <Form.Item label={<span>ベタ</span>} style={{ marginBottom: "16px" }}>
             <Select
-              defaultValue="無し"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -638,7 +620,6 @@ const BasicInformationBag = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="あり"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }

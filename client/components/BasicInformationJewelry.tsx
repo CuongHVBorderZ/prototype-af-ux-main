@@ -206,7 +206,6 @@ const BasicInformationJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="形状1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -229,7 +228,6 @@ const BasicInformationJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="カラー1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -269,7 +267,6 @@ const BasicInformationJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="カラーダイヤ1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -289,7 +286,6 @@ const BasicInformationJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="クラリティ1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -312,7 +308,6 @@ const BasicInformationJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="カット1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -332,7 +327,6 @@ const BasicInformationJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="蛍光性1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -354,7 +348,6 @@ const BasicInformationJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="処理1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -374,7 +367,6 @@ const BasicInformationJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="鑑定書1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -397,7 +389,6 @@ const BasicInformationJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="ポリッシュ1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -417,7 +408,6 @@ const BasicInformationJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="シンメトリ1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -440,7 +430,6 @@ const BasicInformationJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="ソーティングNo1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -460,7 +449,6 @@ const BasicInformationJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="サイズ1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
