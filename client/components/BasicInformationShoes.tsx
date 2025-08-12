@@ -202,7 +202,6 @@ const BasicInformationShoes = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="ブランド1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -227,7 +226,6 @@ const BasicInformationShoes = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="ライン1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -250,7 +248,6 @@ const BasicInformationShoes = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="モデル名-1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -270,7 +267,6 @@ const BasicInformationShoes = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="型番-1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -315,7 +311,6 @@ const BasicInformationShoes = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="年式1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -343,7 +338,6 @@ const BasicInformationShoes = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue="SS×YG"
             >
               <Option value="SS">SS</Option>
               <Option value="SS×YG">SS×YG</Option>
@@ -365,7 +359,6 @@ const BasicInformationShoes = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue="SS×YG"
             >
               <Option value="SS">SS</Option>
               <Option value="SS×YG">SS×YG</Option>
@@ -385,7 +378,6 @@ const BasicInformationShoes = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="A"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -405,7 +397,6 @@ const BasicInformationShoes = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="A"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -427,7 +418,6 @@ const BasicInformationShoes = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="サイズ-1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -447,7 +437,6 @@ const BasicInformationShoes = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="男性"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }

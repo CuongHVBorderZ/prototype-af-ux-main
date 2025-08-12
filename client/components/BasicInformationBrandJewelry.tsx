@@ -202,7 +202,6 @@ const BasicInformationBrandJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="ブランド1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -221,7 +220,7 @@ const BasicInformationBrandJewelry = () => {
             name="modelName"
             style={{ marginBottom: "16px" }}
           >
-            <Input size="large" defaultValue="" />
+            <Input />
           </Form.Item>
         </Col>
       </Row>
@@ -234,7 +233,6 @@ const BasicInformationBrandJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="形状1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -254,7 +252,6 @@ const BasicInformationBrandJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="シリアル1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -294,7 +291,6 @@ const BasicInformationBrandJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="宝石名1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -310,7 +306,6 @@ const BasicInformationBrandJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="宝石名2"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -329,7 +324,6 @@ const BasicInformationBrandJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="金証（メイン）"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -345,7 +339,6 @@ const BasicInformationBrandJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="金証（サブ）"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -364,7 +357,6 @@ const BasicInformationBrandJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="メインカラー"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -380,7 +372,6 @@ const BasicInformationBrandJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="サブカラー"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -398,7 +389,6 @@ const BasicInformationBrandJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="ポリッシュ"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -414,7 +404,6 @@ const BasicInformationBrandJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="シンメトリ"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -433,7 +422,6 @@ const BasicInformationBrandJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="サイズ"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -449,7 +437,6 @@ const BasicInformationBrandJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="重量"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -467,7 +454,6 @@ const BasicInformationBrandJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="石目1"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -483,7 +469,6 @@ const BasicInformationBrandJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="石目2"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -501,7 +486,6 @@ const BasicInformationBrandJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="クラリティ"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -517,7 +501,6 @@ const BasicInformationBrandJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="カット"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -535,7 +518,6 @@ const BasicInformationBrandJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="蛍光性"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -551,7 +533,6 @@ const BasicInformationBrandJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="性別"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -569,7 +550,6 @@ const BasicInformationBrandJewelry = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="鑑定書"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }

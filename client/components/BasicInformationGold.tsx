@@ -202,7 +202,6 @@ const BasicInformationGold = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="K24IG"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -226,7 +225,7 @@ const BasicInformationGold = () => {
             name="modelName"
             style={{ marginBottom: "16px" }}
           >
-            <Input size="large" defaultValue="" />
+            <Input />
           </Form.Item>
         </Col>
       </Row>
@@ -239,7 +238,6 @@ const BasicInformationGold = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue="田中貴金属工業"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
@@ -314,7 +312,7 @@ const BasicInformationGold = () => {
               <div>
                 <Flex vertical>
                   <span>見込価格</span>
-                  <Input size="small" prefix={"¥"} defaultValue="100,000" />
+                  <Input size="small" prefix={"¥"} />
                 </Flex>
               </div>
             </Flex>
