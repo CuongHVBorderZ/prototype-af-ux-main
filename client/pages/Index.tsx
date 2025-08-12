@@ -105,6 +105,7 @@ export default function Index() {
   const handleCloseDrawer = (isApplyItem: boolean = false) => {
     setIsMarketPriceOpen(false);
     if (isApplyItem) {
+      console.log("Apply item clicked");
       setActiveTab("商品情報");
       setTimeout(() => {
         basicInfoRef.current?.setValue("leaf1");

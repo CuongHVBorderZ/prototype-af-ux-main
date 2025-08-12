@@ -146,7 +146,7 @@ const PNItemEdit = () => {
         {value === "parent6" && <PNItemEditJewelry />}
         {value === "parent7" && <PNItemEditBrandJewelry />}
       </Content>
-      <MarketPrice isOpen={isMarketPriceOpen} setVisible={handleCloseDrawer} />
+      <MarketPrice isOpen={isMarketPriceOpen} setVisible={handleCloseDrawer} applyItem={id} />
     </>
   );
 };

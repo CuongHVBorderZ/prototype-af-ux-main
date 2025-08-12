@@ -26,11 +26,12 @@ import {
 import { Search } from "lucide-react";
 import Layout from "antd/es/layout/layout";
 import Dragger from "antd/es/upload/Dragger";
+import { useNavigate } from "react-router-dom";
 
 const { TabPane } = Tabs;
 const { Option } = Select;
 
-const MarketPrice = ({ isOpen, setVisible }) => {
+const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
   const [searchKeyword, setSearchKeyword] = useState("");
   const [excludeKeyword, setExcludeKeyword] = useState("");
   const [category, setCategory] = useState("");
@@ -50,6 +51,9 @@ const MarketPrice = ({ isOpen, setVisible }) => {
     "#F5222D",
   ];
 
+  console.log("MarketPrice component rendered with key:", applyItem);
+  
+
   // const { Header, Content, Sider } = Layout;
   const { Title, Text } = Typography;
   const { Option } = Select;
@@ -67,6 +71,8 @@ const MarketPrice = ({ isOpen, setVisible }) => {
     "https://www.analogshift.com/cdn/shop/files/AS08680_40991407_RICHARDMILLE_PLATINUMTOURBILLON_RM-002V1-lifestyle-4.jpg?v=1690984736&width=1500",
     "https://www.tagheuer.com/on/demandware.static/-/Library-Sites-TagHeuer-Shared/default/dw40ec1bf1/images/PLP/2024/aquaracer/plp-merchandize-landscape-aquaracer-diving.jpg?impolicy=resize&width=1800&height=900",
   ];
+
+  const navigate = useNavigate();
 
   const mockProducts = Array.from({ length: 6 }, (_, index) => ({
     id: index + 1,
@@ -478,7 +484,10 @@ const MarketPrice = ({ isOpen, setVisible }) => {
                             size="small"
                             className="hidden group-hover:inline-block transition-opacity"
                             onClick={() => {
-                              setVisible(true);
+                              setVisible(applyItem);
+                              if (applyItem !== null) {
+                                navigate('/?applyItem=' + applyItem)
+                              }
                             }}
                           >
                             決定

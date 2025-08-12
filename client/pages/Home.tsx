@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import {
   Table,
   Button,
@@ -41,7 +41,7 @@ import {
 } from "@ant-design/icons";
 import { createStyles } from "antd-style";
 import TableListFooter from "@/components/TableListFooter";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import MarketPrice from "./MarketPrice";
 import HearingInformation from "@/components/HearingInformation";
 import SaleInstruction from "@/components/SaleInstruction";
@@ -219,6 +219,7 @@ const Row: React.FC<
 };
 
 export default function Home() {
+  const [urlParams] = useSearchParams();
   const [api, contextHolder] = notification.useNotification();
 
   const [dataSource, setDataSource] = useState<DataType[]>(initialData);
@@ -246,14 +247,50 @@ export default function Home() {
       prev.map((item) =>
         item.key === key
           ? {
-              ...item,
-              [dataIndex]: value,
-            }
+            ...item,
+            [dataIndex]: value,
+          }
           : item,
       ),
     );
     setEditingCell(null);
   };
+
+  const applyItem = () => {
+    if (!urlParams.has("applyItem")) return;
+    const applyItem = parseParamValue(urlParams.get("applyItem")) || dataSource.length + 1;
+    if (applyItem) {
+      const id = parseInt(String(applyItem));
+      const newItem: DataType = {
+        key: id.toString(),
+        name: "ロレックス エクスプローラー36 124270 ステンレス ギャラなし 箱なし あまりコマなし",
+        age: 0,
+        address: "",
+        category: "時計",
+        productnumber_weight: "",
+        serial_number: "",
+        note: "",
+        initial_offer_amount: "",
+        first_offer_price: "",
+        expected_price: "",
+        final_gross_profit: "",
+        final_rate: "",
+      };
+      setDataSource((prevData) => {
+        const existingItemIndex = prevData.findIndex(
+          (item) => item.key === newItem.key,
+        );
+        if (existingItemIndex !== -1) {
+          const updatedData = [...prevData];
+          updatedData[existingItemIndex] = newItem;
+          return updatedData;
+        } else {
+          // Add new item
+          return [...prevData, newItem];
+        }
+      });
+    }
+  }
 
   const columns: TableColumnsType<DataType> = [
     {
@@ -526,24 +563,50 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const fakeApiCall = () => new Promise((resolve) => setTimeout(resolve, 500));
 
-  const handleCloseDrawer = (isApplyItem: boolean = false) => {
+  useEffect(() => {
+    applyItem();
+  }, []);
+
+  function parseParamValue(value) {
+    if (value === 'null') return null;
+    if (value.toLowerCase() === "true") return true;
+    if (value.toLowerCase() === "false") return false;
+    return value;
+  }
+
+  const handleCloseDrawer = (key: boolean = undefined) => {
     setIsMarketPriceOpen(false);
-    // if (isApplyItem) {
-    //   setActiveTab("商品情報");
-    //   setTimeout(() => {
-    //     basicInfoRef.current?.setValue("leaf1");
-    //   }, 0);
-    //   const selectedProduct = productList.find((p) => p.selected);
-    //   if (selectedProduct) {
-    //     selectedProduct.name =
-    //       "ロレックス エクスプローラー36 124270 ステンレス ギャラなし 箱なし あまりコマなし";
-    //     selectedProduct.price = "¥1,000,000";
-    //     selectedProduct.category = "時計";
-    //     updateProduct(selectedProduct);
-    //   } else {
-    //     handleAddProduct(true);
-    //   }
-    // }
+    if (key === null) {
+      const id = dataSource.length + 1;
+      const newItem: DataType = {
+        key: id.toString(),
+        name: "ロレックス エクスプローラー36 124270 ステンレス ギャラなし 箱なし あまりコマなし",
+        age: 0,
+        address: "",
+        category: "時計",
+        productnumber_weight: "",
+        serial_number: "",
+        note: "",
+        initial_offer_amount: "",
+        first_offer_price: "",
+        expected_price: "",
+        final_gross_profit: "",
+        final_rate: "",
+      };
+      setDataSource((prevData) => {
+        const existingItemIndex = prevData.findIndex(
+          (item) => item.key === newItem.key,
+        );
+        if (existingItemIndex !== -1) {
+          const updatedData = [...prevData];
+          updatedData[existingItemIndex] = newItem;
+          return updatedData;
+        } else {
+          // Add new item
+          return [...prevData, newItem];
+        }
+      });
+    }
   };
 
   const onFinish = async () => {
@@ -736,6 +799,7 @@ export default function Home() {
         <MarketPrice
           isOpen={isMarketPriceOpen}
           setVisible={handleCloseDrawer}
+          applyItem={null}
         />
         <HearingInformation open={hearingOpen} setOpen={setHearingOpen} />
         <SaleInstruction open={instructionOpen} setOpen={setInstructionOpen} />
