@@ -31,6 +31,7 @@ import { CSS } from "@dnd-kit/utilities";
 import {
   AreaChartOutlined,
   ArrowLeftOutlined,
+  ArrowRightOutlined,
   CheckCircleOutlined,
   DashOutlined,
   DatabaseFilled,
@@ -43,6 +44,7 @@ import {
   InstagramOutlined,
   LoadingOutlined,
   MessageOutlined,
+  PercentageOutlined,
   PlusOutlined,
   SearchOutlined,
   SmileOutlined,
@@ -339,6 +341,7 @@ export default function Home() {
 
   const [openCheckAuthentication, setOpenCheckAuthentication] = useState(false);
   const [openStateDefinition, setOpenStateDefinition] = useState(false);
+  const [openGoldEstimatePrice, setOpenGoldEstimatePrice] = useState(false);
 
   const [selectedRow, setSelectedRow] = useState<DataType>();
 
@@ -919,7 +922,7 @@ export default function Home() {
               <span style={{ color: "#00000073", float: "right" }}>(F3)</span>
             </div>
           ),
-          onClick: () => alert(`Xóa: ${currentRecord?.name}`),
+          onClick: () => setOpenGoldEstimatePrice(true),
         },
       ]}
     />
@@ -1223,6 +1226,87 @@ export default function Home() {
           }}
         >
           <StateDefinition updateStatusAssessed={undefined}></StateDefinition>
+        </Modal>
+        <Modal
+          open={openGoldEstimatePrice}
+          onOk={() => {
+            setOpenGoldEstimatePrice(false);
+          }}
+          onCancel={() => {
+            setOpenGoldEstimatePrice(false);
+          }}
+          title=""
+          okText="確認"
+          cancelText="キャンセル"
+          // width={{
+          //   xs: "90%",
+          //   sm: "80%",
+          //   md: "70%",
+          //   lg: "60%",
+          //   xl: "50%",
+          //   xxl: "50%",
+          // }}
+          width={750}
+        >
+          <Title
+            level={4}
+            style={{
+              lineHeight: "28px",
+              marginBottom: "20px",
+            }}
+          >
+            見込価格計算
+          </Title>
+          <Flex vertical>
+            <Flex>
+              <div style={{ width: "120px" }}>
+                <span>相場</span>
+              </div>
+              <div>
+                <span>2025年07月18日 現在</span>
+              </div>
+            </Flex>
+            <Flex>
+              <div style={{ width: "120px" }}>
+                <span>グラム単価</span>
+              </div>
+              <div>
+                <span>¥7,284/g</span>
+              </div>
+            </Flex>
+            <Flex>
+              <div style={{ width: "120px" }}>
+                <span>上限買取価格</span>
+              </div>
+              <div>
+                <span>¥72,840</span>
+              </div>
+            </Flex>
+            <Flex style={{ margin: "20px 0 0 0" }}>
+              <div style={{ width: "120px", margin: "30px 0" }}>
+                <span>見込価格計算</span>
+              </div>
+              <div>
+                <Flex>
+                  <div>
+                    <Flex vertical>
+                      <span>見込粗利率</span>
+                      <Input size="small" suffix={<PercentageOutlined />} />
+                    </Flex>
+                  </div>
+                  <div style={{ margin: "30px 10px" }}>
+                    <ArrowRightOutlined />
+                  </div>
+                  <div>
+                    <Flex vertical>
+                      <span>見込価格</span>
+                      <Input size="small" prefix={"¥"} />
+                    </Flex>
+                  </div>
+                </Flex>
+              </div>
+            </Flex>
+          </Flex>
         </Modal>
         {menuVisible && (
           <div

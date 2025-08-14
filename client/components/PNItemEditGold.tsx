@@ -55,7 +55,7 @@ const PNItemEditGold = () => {
               paddingLeft: "20px",
             }}
           >
-            <EstimatePrice></EstimatePrice>
+            <EstimatePrice updateStatusAssessed={undefined}></EstimatePrice>
           </Col>
         </Row>
         {/* Action Buttons */}
