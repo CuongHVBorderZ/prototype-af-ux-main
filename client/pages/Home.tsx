@@ -716,7 +716,7 @@ export default function Home() {
                   style={{ color: "#F5222D", fontSize: "14px" }}
                 />
               )}
-              <Text>{Number(valueFinalProfit).toLocaleString("en-US")} %</Text>
+              <Text>{Number(valueFinalProfit).toLocaleString("en-US")}%</Text>
             </div>
           );
         }
@@ -725,7 +725,7 @@ export default function Home() {
             {content}
           </Tooltip>
         ) : valueFinalProfit ? (
-          Number(valueFinalProfit).toLocaleString("en-US")
+          valueFinalProfit + "%"
         ) : (
           "-"
         );
