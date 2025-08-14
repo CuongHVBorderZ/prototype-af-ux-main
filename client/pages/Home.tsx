@@ -16,6 +16,7 @@ import {
   Menu,
   Dropdown,
   Tooltip,
+  Cascader,
 } from "antd";
 import type { MenuProps, TableColumnsType } from "antd";
 
@@ -110,7 +111,7 @@ const initialData: DataType[] = [
     name: "エクスプローラー36 124270",
     age: 32,
     address: "",
-    category: "時計 / 腕時計 / ロレックス",
+    category: "時計/腕時計/ロレックス",
     productnumber_weight: "",
     serial_number: "",
     note: "",
@@ -127,7 +128,7 @@ const initialData: DataType[] = [
     name: "ヴィトン モノグラム ミニランノエリー M9268...",
     age: 42,
     address: "",
-    category: "バッグ / ハンドバッグ / ヴィトン",
+    category: "地金/金",
     productnumber_weight: "",
     serial_number: "",
     note: "",
@@ -147,7 +148,7 @@ const initialData: DataType[] = [
     name: "トラックトレイル レース スニーカー",
     age: 32,
     address: "",
-    category: "アパレル・靴 / アウター / バレンシアガ",
+    category: "バッグ/ハンドバッグ/エルメス",
     productnumber_weight: "",
     serial_number: "",
     note: "",
@@ -164,7 +165,7 @@ const initialData: DataType[] = [
     name: "",
     age: 42,
     address: "",
-    category: "骨董品 / 現代アート / 村上隆",
+    category: "アパレル・靴/靴",
     productnumber_weight: "",
     serial_number: "",
     note: "",
@@ -184,7 +185,7 @@ const initialData: DataType[] = [
     name: "",
     age: 42,
     address: "",
-    category: "バッグ / ハンドバッグ / ヴィトン",
+    category: "ジュエリー",
     productnumber_weight: "",
     serial_number: "",
     note: "",
@@ -201,7 +202,7 @@ const initialData: DataType[] = [
     name: "",
     age: 42,
     address: "",
-    category: "地金 / 金 / 18K",
+    category: "ブランドジュエリー",
     productnumber_weight: "PN456 / 20g",
     serial_number: "",
     initial_offer_amount: 0,
@@ -217,7 +218,7 @@ const initialData: DataType[] = [
     name: "",
     age: 42,
     address: "",
-    category: "バッグ / ハンドバッグ / ヴィトン",
+    category: "バッグ/ハンドバッグ/ヴィトン",
     productnumber_weight: "",
     serial_number: "",
     note: "",
@@ -271,17 +272,146 @@ const EditableCell: React.FC<{
         : "";
     customDisplayedText = true;
   }
+
+  const treeData = [
+    {
+      value: "parent1",
+      label: "時計",
+      // disabled: true,
+      children: [
+        {
+          value: "parent10",
+          label: "腕時計",
+          // disabled: true,
+          children: [
+            {
+              value: "leaf1",
+              label: "ロレックス",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      value: "parent2",
+      label: "地金",
+      // disabled: true,
+      children: [
+        {
+          value: "leaf21",
+          label: "金",
+        },
+      ],
+    },
+    {
+      value: "parent3",
+      label: "バッグ",
+      // disabled: true,
+      children: [
+        {
+          value: "leaf31",
+          label: "ハンドバッグ",
+          // disabled: true,
+          children: [
+            {
+              value: "leaf311",
+              label: "エルメス",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      value: "parent4",
+      label: "アパレル・靴",
+      // disabled: true,
+      children: [
+        {
+          value: "leaf41",
+          label: "靴",
+        },
+      ],
+    },
+    {
+      value: "parent5",
+      label: "アクセサリー・小物",
+    },
+    {
+      value: "parent6",
+      label: "ジュエリー",
+    },
+    {
+      value: "parent7",
+      label: "ブランドジュエリー",
+    },
+  ];
+
+  // xxx
+
+  const getValuesFromLabelPath = (tree: any[], labelPath: string): string[] => {
+    const labels = labelPath.split("/").map((l) => l.trim());
+    const values: string[] = [];
+
+    let currentLevel = tree;
+    for (const label of labels) {
+      const found = currentLevel.find((item) => item.label === label);
+      if (!found) break;
+      values.push(found.value);
+      currentLevel = found.children || [];
+    }
+
+    return values;
+  };
+
+  const getValueText = (tree: any[], values: string[]): string => {
+    const labels: string[] = [];
+
+    let currentLevel = tree;
+    for (const v of values) {
+      const found = currentLevel.find((item) => item.value === v);
+      if (!found) break; // không tìm thấy -> dừng
+      labels.push(found.label);
+      currentLevel = found.children || [];
+    }
+
+    return labels.join("/");
+  };
+
+  let categoryValues = [];
+  if (dataIndex == "category") {
+    categoryValues = getValuesFromLabelPath(treeData, value);
+  }
+
+  const [category, setCategory] = useState(categoryValues);
+  const onCategoryChange = (newValue) => {
+    setCategory(newValue);
+    const newValueText = getValueText(treeData, newValue);
+    onSave(record!.key, dataIndex!, newValueText);
+  };
   return (
     <td {...restProps} style={cssObj}>
       {editing ? (
-        <Input
-          ref={inputRef}
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          onPressEnter={() => onSave(record!.key, dataIndex!, value)}
-          onBlur={() => onSave(record!.key, dataIndex!, value)}
-          style={{ width: width ?? "100%" }}
-        />
+        dataIndex != "category" ? (
+          <Input
+            ref={inputRef}
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            onPressEnter={() => onSave(record!.key, dataIndex!, value)}
+            onBlur={() => onSave(record!.key, dataIndex!, value)}
+            style={{ width: width ?? "100%" }}
+          />
+        ) : (
+          <Cascader
+            showSearch
+            style={{ width: width ?? "100%" }}
+            // value={categoryValues}
+            value={category}
+            placeholder="選択してください"
+            allowClear
+            onChange={onCategoryChange}
+            options={treeData}
+          />
+        )
       ) : (
         <div ref={cellRef}>
           {customDisplayedText ? displayedText : children}

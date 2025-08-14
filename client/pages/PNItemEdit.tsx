@@ -74,7 +74,6 @@ const PNItemEdit = () => {
   }, [id]);
 
   const handleCategoryChange = async (value) => {
-    console.log(value);
     setCategory(value);
     fetchData();
     let newValue = null;
@@ -146,7 +145,11 @@ const PNItemEdit = () => {
         {value === "parent6" && <PNItemEditJewelry />}
         {value === "parent7" && <PNItemEditBrandJewelry />}
       </Content>
-      <MarketPrice isOpen={isMarketPriceOpen} setVisible={handleCloseDrawer} applyItem={id} />
+      <MarketPrice
+        isOpen={isMarketPriceOpen}
+        setVisible={handleCloseDrawer}
+        applyItem={id}
+      />
     </>
   );
 };
