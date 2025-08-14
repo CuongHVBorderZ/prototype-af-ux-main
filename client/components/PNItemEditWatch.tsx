@@ -52,8 +52,8 @@ const PNItemEditWatch = () => {
               paddingLeft: "20px",
             }}
           >
-            <StateDefinition></StateDefinition>
-            <EstimatePrice></EstimatePrice>
+            <StateDefinition updateStatusAssessed={undefined}></StateDefinition>
+            <EstimatePrice updateStatusAssessed={undefined}></EstimatePrice>
           </Col>
         </Row>
         {/* Action Buttons */}

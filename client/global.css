@@ -369,3 +369,7 @@ body {
 .ant-btn {
   border-radius: 0 !important;
 }
+.ant-cascader-menu {
+  height: 280px !important;
+  min-width: 150px !important;
+}

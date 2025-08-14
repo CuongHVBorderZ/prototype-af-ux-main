@@ -31,6 +31,8 @@ const HeaderPNItemEdit = ({
   category,
   onCategoryChange,
   onOpenSearchDrawer,
+  editableStr,
+  setEditableStr,
 }) => {
   interface Option {
     value: string;
@@ -125,8 +127,6 @@ const HeaderPNItemEdit = ({
     const previousId = Number(id) > 1 ? Number(id) - 1 : 5;
     navigate(`/${previousId}/detail`);
   };
-
-  const [editableStr, setEditableStr] = useState("エクスプローラー36 124270");
 
   return (
     <>

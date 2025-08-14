@@ -87,23 +87,16 @@ const PNItemEdit = () => {
 
   const handleCloseDrawer = (isApplyItem: boolean = false) => {
     setIsMarketPriceOpen(false);
-    // if (isApplyItem) {
-    //   setActiveTab("商品情報");
-    //   setTimeout(() => {
-    //     basicInfoRef.current?.setValue("leaf1");
-    //   }, 0);
-    //   const selectedProduct = productList.find((p) => p.selected);
-    //   if (selectedProduct) {
-    //     selectedProduct.name =
-    //       "ロレックス エクスプローラー36 124270 ステンレス ギャラなし 箱なし あまりコマなし";
-    //     selectedProduct.price = "¥1,000,000";
-    //     selectedProduct.category = "時計";
-    //     updateProduct(selectedProduct);
-    //   } else {
-    //     handleAddProduct(true);
-    //   }
-    // }
+    if (isApplyItem) {
+      setCategory(["parent1", "parent10", "leaf1"]);
+      setEditableStr(
+        "ロレックス デイトナ 16523G U608028 SS×YG AT シャンパン文字盤 あまりごまなし",
+      );
+      setValue("leaf1");
+    }
   };
+
+  const [editableStr, setEditableStr] = useState("エクスプローラー36 124270");
 
   return (
     <>
@@ -136,6 +129,8 @@ const PNItemEdit = () => {
           onOpenSearchDrawer={() => {
             setIsMarketPriceOpen(true);
           }}
+          editableStr={editableStr}
+          setEditableStr={setEditableStr}
         ></HeaderPNItemEdit>
         {value === "leaf1" && <PNItemEditWatch />}
         {value === "leaf21" && <PNItemEditGold />}

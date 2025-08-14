@@ -283,9 +283,10 @@ const BasicInformationWatch = () => {
             style={{ marginBottom: "16px" }}
           >
             <Checkbox
-              onChange={(e) => {
+              onClick={(e) => {
                 handleOnChangeCheckAuthen(e);
               }}
+              checked={true}
             >
               VD真贋チェック
             </Checkbox>

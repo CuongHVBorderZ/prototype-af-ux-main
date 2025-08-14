@@ -634,9 +634,6 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
                             className="hidden group-hover:inline-block transition-opacity"
                             onClick={() => {
                               setVisible(applyItem);
-                              if (applyItem !== null) {
-                                navigate("/?applyItem=" + applyItem);
-                              }
                             }}
                           >
                             決定
