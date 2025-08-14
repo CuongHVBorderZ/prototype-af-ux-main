@@ -205,6 +205,7 @@ const BasicInformationBag = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"1フィリップリム"}
             >
               <Option value="3.1フィリップリム">3.1フィリップリム</Option>
               <Option value="3.ADMJ">3.ADMJ</Option>
@@ -225,7 +226,7 @@ const BasicInformationBag = () => {
             name="modelName"
             style={{ marginBottom: "16px" }}
           >
-            <Input />
+            <Input value={"ライン"} />
           </Form.Item>
         </Col>
       </Row>
@@ -241,6 +242,7 @@ const BasicInformationBag = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"モデル名-1"}
             >
               <Option value="モデル名-1">モデル名-1</Option>
               <Option value="モデル名-2">モデル名-2</Option>
@@ -260,6 +262,7 @@ const BasicInformationBag = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"型番-1"}
             >
               <Option value="型番-1">型番-1</Option>
               <Option value="型番-2">型番-2</Option>
@@ -304,6 +307,7 @@ const BasicInformationBag = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"A:1997年"}
             >
               <Option value="A:1997年">A:1997年</Option>
               <Option value="A:1996年">A:1996年</Option>
@@ -328,6 +332,7 @@ const BasicInformationBag = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"A"}
             >
               <Option value="A">A</Option>
               <Option value="B">B</Option>
@@ -350,6 +355,7 @@ const BasicInformationBag = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"レナージュ"}
             >
               <Option value="レナージュ">レナージュ</Option>
               <Option value="ロシアンセーブル">ロシアンセーブル</Option>
@@ -369,6 +375,7 @@ const BasicInformationBag = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"サイズ-1"}
             >
               <Option value="サイズ-1">サイズ-1</Option>
               <Option value="サイズ-2">サイズ-2</Option>
@@ -391,6 +398,7 @@ const BasicInformationBag = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"箱"}
             >
               <Option value="箱">箱</Option>
               <Option value="ギャランティ">ギャランティ</Option>
@@ -434,6 +442,7 @@ const BasicInformationBag = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"N"}
             >
               <Option value="N">N</Option>
               <Option value="S">S</Option>
@@ -465,6 +474,7 @@ const BasicInformationBag = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"無し"}
             >
               <Option value="無し">無し</Option>
               <Option value="極小">極小</Option>
@@ -483,6 +493,7 @@ const BasicInformationBag = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"無し"}
             >
               <Option value="無し">無し</Option>
               <Option value="小">小</Option>
@@ -500,6 +511,7 @@ const BasicInformationBag = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"無し"}
             >
               <Option value="無し">無し</Option>
               <Option value="小">小</Option>
@@ -517,6 +529,7 @@ const BasicInformationBag = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"無し"}
             >
               <Option value="無し">無し</Option>
               <Option value="小">小</Option>
@@ -536,6 +549,7 @@ const BasicInformationBag = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"無し"}
             >
               <Option value="無し">無し</Option>
               <Option value="小">小</Option>
@@ -553,6 +567,7 @@ const BasicInformationBag = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"無し"}
             >
               <Option value="無し">無し</Option>
               <Option value="小">小</Option>
@@ -572,6 +587,7 @@ const BasicInformationBag = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"無し"}
             >
               <Option value="無し">無し</Option>
               <Option value="極小">極小</Option>
@@ -590,6 +606,7 @@ const BasicInformationBag = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"無し"}
             >
               <Option value="無し">無し</Option>
               <Option value="小">小</Option>
@@ -604,6 +621,7 @@ const BasicInformationBag = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"無し"}
             >
               <Option value="無し">無し</Option>
               <Option value="小">小</Option>
@@ -623,6 +641,7 @@ const BasicInformationBag = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"あり"}
             >
               <Option value="あり">あり</Option>
               <Option value="なし">なし</Option>

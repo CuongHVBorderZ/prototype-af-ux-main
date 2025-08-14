@@ -196,7 +196,7 @@ const BasicInformationJewelry = () => {
             name="brand"
             style={{ marginBottom: "16px" }}
           >
-            <Input />
+            <Input defaultValue={"重量-1"} />
           </Form.Item>
         </Col>
         <Col span={12}>
@@ -209,6 +209,7 @@ const BasicInformationJewelry = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"形状1"}
             >
               <Option value="形状1">形状1</Option>
               <Option value="形状2">形状2</Option>
@@ -231,6 +232,7 @@ const BasicInformationJewelry = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"カラー1"}
             >
               <Option value="カラー1">カラー1</Option>
               <Option value="カラー2">カラー2</Option>
@@ -270,6 +272,7 @@ const BasicInformationJewelry = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"カラーダイヤ1"}
             >
               <Option value="カラーダイヤ1">カラーダイヤ1</Option>
               <Option value="カラーダイヤ2">カラーダイヤ2</Option>
@@ -289,6 +292,7 @@ const BasicInformationJewelry = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"クラリティ1"}
             >
               <Option value="クラリティ1">クラリティ1</Option>
               <Option value="クラリティ2">クラリティ2</Option>
@@ -311,6 +315,7 @@ const BasicInformationJewelry = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"カット1"}
             >
               <Option value="カット1">カット1</Option>
               <Option value="カット2">カット2</Option>
@@ -330,6 +335,7 @@ const BasicInformationJewelry = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"蛍光性1"}
             >
               <Option value="蛍光性1">蛍光性1</Option>
               <Option value="蛍光性2">蛍光性2</Option>
@@ -351,6 +357,7 @@ const BasicInformationJewelry = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"処理1"}
             >
               <Option value="処理1">処理1</Option>
               <Option value="処理2">処理2</Option>
@@ -370,6 +377,7 @@ const BasicInformationJewelry = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"鑑定書1"}
             >
               <Option value="鑑定書1">鑑定書1</Option>
               <Option value="鑑定書2">鑑定書2</Option>
@@ -392,6 +400,7 @@ const BasicInformationJewelry = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"ポリッシュ1"}
             >
               <Option value="ポリッシュ1">ポリッシュ1</Option>
               <Option value="ポリッシュ2">ポリッシュ2</Option>
@@ -411,6 +420,7 @@ const BasicInformationJewelry = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"シンメトリ1"}
             >
               <Option value="シンメトリ1">シンメトリ1</Option>
               <Option value="シンメトリ2">シンメトリ2</Option>
@@ -433,6 +443,7 @@ const BasicInformationJewelry = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"ソーティングNo1"}
             >
               <Option value="ソーティングNo1">ソーティングNo1</Option>
               <Option value="ソーティングNo2">ソーティングNo2</Option>
@@ -452,6 +463,7 @@ const BasicInformationJewelry = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"サイズ1"}
             >
               <Option value="サイズ1">サイズ1</Option>
               <Option value="サイズ2">サイズ2</Option>

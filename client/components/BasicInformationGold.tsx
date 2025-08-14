@@ -205,6 +205,7 @@ const BasicInformationGold = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"K24IG"}
             >
               <Option value="K24IG">K24IG</Option>
               <Option value="K24IG（500g以下）">K24IG（500g以下）</Option>
@@ -225,7 +226,7 @@ const BasicInformationGold = () => {
             name="modelName"
             style={{ marginBottom: "16px" }}
           >
-            <Input />
+            <Input defaultValue={"グラム"} />
           </Form.Item>
         </Col>
       </Row>
@@ -241,6 +242,7 @@ const BasicInformationGold = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"田中貴金属工業"}
             >
               <Option value="田中貴金属工業">田中貴金属工業</Option>
               <Option value="三菱マテリアル">三菱マテリアル</Option>
@@ -303,7 +305,7 @@ const BasicInformationGold = () => {
               <div>
                 <Flex vertical>
                   <span>見込粗利率</span>
-                  <Input size="small" suffix={<PercentageOutlined />} />
+                  <Input suffix={<PercentageOutlined />} />
                 </Flex>
               </div>
               <div style={{ margin: "30px 10px" }}>
@@ -312,7 +314,7 @@ const BasicInformationGold = () => {
               <div>
                 <Flex vertical>
                   <span>見込価格</span>
-                  <Input size="small" prefix={"¥"} />
+                  <Input prefix={"¥"} />
                 </Flex>
               </div>
             </Flex>

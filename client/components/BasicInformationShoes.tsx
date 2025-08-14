@@ -205,6 +205,7 @@ const BasicInformationShoes = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"ブランド1"}
             >
               <Option value="ブランド1">ブランド1</Option>
               <Option value="ブランド2">ブランド2</Option>
@@ -229,6 +230,7 @@ const BasicInformationShoes = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"ライン1"}
             >
               <Option value="ライン1">ライン1</Option>
               <Option value="ライン2">ライン2</Option>
@@ -251,6 +253,7 @@ const BasicInformationShoes = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"モデル名-1"}
             >
               <Option value="モデル名-1">モデル名-1</Option>
               <Option value="モデル名-2">モデル名-2</Option>
@@ -270,6 +273,7 @@ const BasicInformationShoes = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"型番-1"}
             >
               <Option value="型番-1">型番-1</Option>
               <Option value="型番-2">型番-2</Option>
@@ -314,6 +318,7 @@ const BasicInformationShoes = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"年式1"}
             >
               <Option value="年式1">年式1</Option>
               <Option value="年式2">年式2</Option>
@@ -333,7 +338,7 @@ const BasicInformationShoes = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              size="large"
+              defaultValue={"SS"}
               placeholder="未選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
@@ -354,7 +359,7 @@ const BasicInformationShoes = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              size="large"
+              defaultValue={"SS"}
               placeholder="未選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
@@ -381,6 +386,7 @@ const BasicInformationShoes = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"A"}
             >
               <Option value="A">A</Option>
               <Option value="B">B</Option>
@@ -400,6 +406,7 @@ const BasicInformationShoes = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"A"}
             >
               <Option value="A">A</Option>
               <Option value="B">B</Option>
@@ -421,6 +428,7 @@ const BasicInformationShoes = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"サイズ-1"}
             >
               <Option value="サイズ-1">サイズ-1</Option>
               <Option value="サイズ-2">サイズ-2</Option>
@@ -440,6 +448,7 @@ const BasicInformationShoes = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"男性"}
             >
               <Option value="男性">男性</Option>
               <Option value="女性">女性</Option>

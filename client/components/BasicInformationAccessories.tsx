@@ -205,6 +205,7 @@ const BasicInformationAccessories = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"ピアジェ"}
             >
               <Option value="ピアジェ">ピアジェ</Option>
             </Select>
@@ -223,6 +224,7 @@ const BasicInformationAccessories = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"パゴダ"}
             >
               <Option value="パゴダ">パゴダ</Option>
             </Select>
@@ -238,6 +240,7 @@ const BasicInformationAccessories = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"94024NK81"}
             >
               <Option value="94024NK81">94024NK81</Option>
               <Option value="94024NK82">94024NK82</Option>
@@ -273,7 +276,7 @@ const BasicInformationAccessories = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              size="large"
+              defaultValue={"SS"}
               placeholder="未選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
@@ -294,7 +297,7 @@ const BasicInformationAccessories = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              size="large"
+              defaultValue={"AT"}
               placeholder="未選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
@@ -318,7 +321,7 @@ const BasicInformationAccessories = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              size="large"
+              defaultValue={"白ホリコン"}
               placeholder="��選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
@@ -342,6 +345,7 @@ const BasicInformationAccessories = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"N"}
             >
               <Option value="N">N</Option>
               <Option value="S">S</Option>
@@ -363,6 +367,7 @@ const BasicInformationAccessories = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"S"}
             >
               <Option value="S">S</Option>
               <Option value="M">M</Option>
@@ -382,6 +387,7 @@ const BasicInformationAccessories = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"男性"}
             >
               <Option value="男性">男性</Option>
               <Option value="女性">女性</Option>

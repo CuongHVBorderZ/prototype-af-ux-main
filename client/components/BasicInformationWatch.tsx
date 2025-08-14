@@ -209,6 +209,7 @@ const BasicInformationWatch = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"ロレックス"}
             >
               <Option value="ロレックス">ロレックス</Option>
               <Option value="オメガ">オメガ</Option>
@@ -235,6 +236,7 @@ const BasicInformationWatch = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"エクスプローラー36"}
             >
               <Option value="エクスプローラー36">エクスプローラー36</Option>
               <Option value="デイトジャスト41">デイトジャスト41</Option>
@@ -259,6 +261,7 @@ const BasicInformationWatch = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"01445"}
             >
               <Option value="01445">01445</Option>
               <Option value="00.10615.08.13.21">00.10615.08.13.21</Option>
@@ -315,7 +318,7 @@ const BasicInformationWatch = () => {
             name="serialNumber"
             style={{ marginBottom: "16px" }}
           >
-            <Input size="large" />
+            <Input defaultValue={"製造番号"} />
           </Form.Item>
         </Col>
         <Col span={12}>
@@ -325,11 +328,11 @@ const BasicInformationWatch = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              size="large"
               placeholder="未選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"SS"}
             >
               <Option value="SS">SS</Option>
               <Option value="SS×YG">SS×YG</Option>
@@ -349,11 +352,11 @@ const BasicInformationWatch = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              size="large"
               placeholder="未選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"AT"}
             >
               <Option value="AT">AT</Option>
               <Option value="QZ">QZ</Option>
@@ -370,7 +373,7 @@ const BasicInformationWatch = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              size="large"
+              defaultValue={"白ホリコン"}
               placeholder="��選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
@@ -394,7 +397,7 @@ const BasicInformationWatch = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              size="large"
+              defaultValue={"バーインデックス"}
               placeholder="未選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
@@ -417,7 +420,7 @@ const BasicInformationWatch = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              size="large"
+              defaultValue={"200タキメーター"}
               placeholder="未選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
@@ -483,6 +486,7 @@ const BasicInformationWatch = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
+              defaultValue={"あまりゴマ１"}
             >
               <Option value="あまりゴマ１">あまりゴマ１</Option>
               <Option value="あまりゴマ2">あまりゴマ2</Option>
