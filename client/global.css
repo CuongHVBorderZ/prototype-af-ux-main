@@ -363,4 +363,9 @@ body {
 .cell-yellow {
   background-color: #fff7e6 !important;
 }
-
+.ant-collapse-header {
+  padding: 12px 0 !important;
+}
+.ant-btn {
+  border-radius: 0 !important;
+}

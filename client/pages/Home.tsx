@@ -32,6 +32,7 @@ import {
   AreaChartOutlined,
   ArrowLeftOutlined,
   CheckCircleOutlined,
+  DashOutlined,
   DatabaseFilled,
   DeleteOutlined,
   EditOutlined,
@@ -44,6 +45,7 @@ import {
   MessageOutlined,
   PlusOutlined,
   SearchOutlined,
+  SmileOutlined,
   WarningOutlined,
 } from "@ant-design/icons";
 import { createStyles } from "antd-style";
@@ -115,8 +117,8 @@ const initialData: DataType[] = [
     expected_price: 0,
     final_gross_profit: 0,
     final_rate: 0,
-    check_authen_checked: true,
-    check_state_definition: true,
+    check_authen_checked: false,
+    check_state_definition: false,
   },
   {
     key: "2",
@@ -135,8 +137,8 @@ const initialData: DataType[] = [
     final_gross_profit:
       Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
     final_rate: 20,
-    check_authen_checked: true,
-    check_state_definition: true,
+    check_authen_checked: false,
+    check_state_definition: false,
   },
   {
     key: "3",
@@ -338,6 +340,8 @@ export default function Home() {
   const [openCheckAuthentication, setOpenCheckAuthentication] = useState(false);
   const [openStateDefinition, setOpenStateDefinition] = useState(false);
 
+  const [selectedRow, setSelectedRow] = useState<DataType>();
+
   const handleOnChangeStateDefinition = (e) => {
     setOpenStateDefinition(true);
   };
@@ -524,6 +528,7 @@ export default function Home() {
           <Checkbox
             onChange={(e) => {
               handleOnChangeCheckAuthen(e);
+              setSelectedRow(record);
             }}
             checked={record.check_authen_checked}
           ></Checkbox>
@@ -551,6 +556,7 @@ export default function Home() {
           <Checkbox
             onChange={(e) => {
               handleOnChangeStateDefinition(e);
+              setSelectedRow(record);
             }}
             checked={record.check_state_definition}
           ></Checkbox>
@@ -971,6 +977,43 @@ export default function Home() {
     setStatisticValues(newStatisticValues);
   }, [dataSource]);
 
+  const items: MenuProps["items"] = [
+    {
+      key: "1",
+      label: <a href="#">商品を追加</a>,
+    },
+    {
+      key: "2",
+      label: <a href="#">簡易査定商品を追加</a>,
+    },
+    {
+      key: "3",
+      label: <a href="#">山仕切り商品を追加</a>,
+    },
+  ];
+
+  const handleSaveCheckAuthentication = () => {
+    setOpenCheckAuthentication(false);
+    setDataSource((prev) =>
+      prev.map((item) =>
+        item.key === selectedRow.key
+          ? { ...item, check_authen_checked: true }
+          : item,
+      ),
+    );
+  };
+
+  const handleSaveStateDefinition = () => {
+    setOpenStateDefinition(false);
+    setDataSource((prev) =>
+      prev.map((item) =>
+        item.key === selectedRow.key
+          ? { ...item, check_state_definition: true }
+          : item,
+      ),
+    );
+  };
+
   return (
     <>
       {loading && (
@@ -1067,14 +1110,23 @@ export default function Home() {
             >
               画像から特定
             </Button>
-            <Button
-              icon={<PlusOutlined />}
-              onClick={() => {
-                addNewitem();
-              }}
-            >
-              商品を追加
-            </Button>
+            <div>
+              <Button
+                icon={<PlusOutlined />}
+                onClick={() => {
+                  addNewitem();
+                }}
+                style={{ borderRadius: 0 }}
+              >
+                商品を追加
+              </Button>
+              <Dropdown menu={{ items }}>
+                <Button
+                  icon={<DashOutlined />}
+                  onClick={(e) => e.preventDefault()}
+                />
+              </Dropdown>
+            </div>
           </Flex>
           <DndContext
             modifiers={[restrictToVerticalAxis]}
@@ -1146,14 +1198,14 @@ export default function Home() {
           <ModalAuthenticityCheck
             cancel={() => setOpenCheckAuthentication(false)}
             save={(data) => {
-              setOpenCheckAuthentication(false);
+              handleSaveCheckAuthentication();
             }}
           ></ModalAuthenticityCheck>
         </Modal>
         <Modal
           open={openStateDefinition}
           onOk={() => {
-            setOpenStateDefinition(false);
+            handleSaveStateDefinition();
           }}
           onCancel={() => {
             setOpenStateDefinition(false);
@@ -1170,7 +1222,7 @@ export default function Home() {
             xxl: "50%",
           }}
         >
-          <StateDefinition></StateDefinition>
+          <StateDefinition updateStatusAssessed={undefined}></StateDefinition>
         </Modal>
         {menuVisible && (
           <div

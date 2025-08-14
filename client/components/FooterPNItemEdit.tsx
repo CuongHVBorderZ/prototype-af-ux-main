@@ -53,14 +53,6 @@ const FooterPNItemEdit = () => {
               backToHome();
             }}
           >
-            下書きを保存
-          </Button>
-          <Button
-            style={{ width: "150px" }}
-            onClick={() => {
-              backToHome();
-            }}
-          >
             クリア
           </Button>
           <Button

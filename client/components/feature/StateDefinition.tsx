@@ -14,6 +14,8 @@ import {
   Button,
   Divider,
   notification,
+  Collapse,
+  CollapseProps,
 } from "antd";
 
 const { Title } = Typography;
@@ -449,11 +451,41 @@ const StateDefinition = ({ updateStatusAssessed }) => {
     // }, 700);
   };
 
+  const items: CollapseProps["items"] = [
+    {
+      key: "1",
+      label: "総合ランクの評価基準",
+      children: (
+        <Table
+          columns={overallRankingColumns}
+          dataSource={overallRankingData}
+          pagination={false}
+          size="small"
+          bordered
+        />
+      ),
+    },
+    {
+      key: "2",
+      label: "状態ランクの評価基準",
+      children: (
+        <Table
+          columns={conditionRankingColumns}
+          dataSource={conditionRankingData}
+          pagination={false}
+          size="small"
+          bordered
+        />
+      ),
+    },
+  ];
+
   return (
     <div style={{ padding: "20px 24px 24px 24px" }}>
       {contextHolder}
+      <Collapse ghost items={items} />
       {/* 状態異常・ダメージなしの総合ランク */}
-      <div style={{ marginBottom: 10 }}>
+      <div style={{ marginTop: 10 }}>
         <Title level={5} style={{ marginBottom: 16 }}>
           状態異常・ダメージなしの総合ランク
         </Title>
@@ -556,32 +588,6 @@ const StateDefinition = ({ updateStatusAssessed }) => {
             </Form.Item>
           </Col>
         </Row>
-      </div>
-
-      <div style={{ marginBottom: 32 }}>
-        <Title level={5} style={{ marginBottom: 5 }}>
-          総合ランクの評価基準
-        </Title>
-        <Table
-          columns={overallRankingColumns}
-          dataSource={overallRankingData}
-          pagination={false}
-          size="small"
-          bordered
-        />
-      </div>
-
-      <div style={{ marginBottom: 32 }}>
-        <Title level={5} style={{ marginBottom: 5 }}>
-          状態ランクの評価基準
-        </Title>
-        <Table
-          columns={conditionRankingColumns}
-          dataSource={conditionRankingData}
-          pagination={false}
-          size="small"
-          bordered
-        />
       </div>
     </div>
   );
