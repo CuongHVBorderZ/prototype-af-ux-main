@@ -1,5 +1,14 @@
 import React from "react";
-import { Typography, Checkbox, Select, Row, Col, Button, Card } from "antd";
+import {
+  Typography,
+  Checkbox,
+  Select,
+  Row,
+  Col,
+  Button,
+  Card,
+  Image,
+} from "antd";
 
 const { Title, Text } = Typography;
 
@@ -78,11 +87,18 @@ const ModalAuthenticityCheck: React.FC<AuthenticityCheckProps> = ({
                 <div
                   style={{
                     height: "200px",
-                    background: "#F5F5F5",
-                    marginBottom: "16px",
-                    borderRadius: "4px",
                   }}
-                />
+                >
+                  <Image
+                    src="https://res.cloudinary.com/wc-photo/image/upload/v1698408531/cms/Authenticity_Guarantee/4_Bezel_Inspection_fe6242847d.jpg"
+                    width="100%"
+                    height="200px"
+                    style={{
+                      objectFit: "contain",
+                      backgroundColor: "#f0f0f0",
+                    }}
+                  />
+                </div>
                 <div
                   style={{
                     borderTop: "1px solid #CCC",
@@ -133,11 +149,18 @@ const ModalAuthenticityCheck: React.FC<AuthenticityCheckProps> = ({
                 <div
                   style={{
                     height: "200px",
-                    background: "#F5F5F5",
-                    marginBottom: "16px",
-                    borderRadius: "4px",
                   }}
-                />
+                >
+                  <Image
+                    src="https://asset.bucherer.com/image/upload/v1677491877/Marketing%20Content/Campaigns/CPO/Imagery/CPO_Service_2_2023_4x5.jpg"
+                    width="100%"
+                    height="200px"
+                    style={{
+                      objectFit: "contain",
+                      backgroundColor: "#f0f0f0",
+                    }}
+                  />
+                </div>
                 <div
                   style={{
                     borderTop: "1px solid #CCC",
@@ -231,11 +254,18 @@ const ModalAuthenticityCheck: React.FC<AuthenticityCheckProps> = ({
                 <div
                   style={{
                     height: "200px",
-                    background: "#F5F5F5",
-                    marginBottom: "16px",
-                    borderRadius: "4px",
                   }}
-                />
+                >
+                  <Image
+                    src="https://i.ebayimg.com/images/g/ROoAAOSwJDhgJ97Z/s-l1200.jpg"
+                    width="100%"
+                    height="200px"
+                    style={{
+                      objectFit: "contain",
+                      backgroundColor: "#f0f0f0",
+                    }}
+                  />
+                </div>
                 <div
                   style={{
                     borderTop: "1px solid #CCC",
@@ -286,11 +316,18 @@ const ModalAuthenticityCheck: React.FC<AuthenticityCheckProps> = ({
                 <div
                   style={{
                     height: "200px",
-                    background: "#F5F5F5",
-                    marginBottom: "16px",
-                    borderRadius: "4px",
                   }}
-                />
+                >
+                  <Image
+                    src="https://cdn.ecommercedns.uk/files/7/260267/0/47992090/20241029-153320405-ios.jpg"
+                    width="100%"
+                    height="200px"
+                    style={{
+                      objectFit: "contain",
+                      backgroundColor: "#f0f0f0",
+                    }}
+                  />
+                </div>
                 <div
                   style={{
                     borderTop: "1px solid #CCC",
