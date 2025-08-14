@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Typography,
   Table,
@@ -12,11 +12,13 @@ import {
   Input,
   Flex,
   Button,
+  Divider,
+  notification,
 } from "antd";
 
 const { Title } = Typography;
 
-const StateDefinition: React.FC = () => {
+const StateDefinition = ({ updateStatusAssessed }) => {
   // 状態ランクの評価基準データ
   const conditionRankingData = [
     {
@@ -126,7 +128,7 @@ const StateDefinition: React.FC = () => {
   ];
 
   // 大分類状態ランクチェックデータ
-  const partsRankingData = [
+  const [partsRankingData, setPartsRankingData] = useState([
     {
       key: "case",
       part: "ケース",
@@ -227,7 +229,31 @@ const StateDefinition: React.FC = () => {
       BC: false,
       C: false,
     },
-  ];
+  ]);
+
+  const handleCheckboxChange = (
+    recordKey: string,
+    field: string,
+    checked: boolean,
+  ) => {
+    setPartsRankingData((prev) =>
+      prev.map((item) => {
+        if (item.key === recordKey) {
+          return {
+            key: item.key,
+            part: item.part,
+            S: checked && field === "S",
+            A: checked && field === "A",
+            AB: checked && field === "AB",
+            B: checked && field === "B",
+            BC: checked && field === "BC",
+            C: checked && field === "C",
+          };
+        }
+        return item;
+      }),
+    );
+  };
 
   const conditionRankingColumns = [
     {
@@ -280,40 +306,39 @@ const StateDefinition: React.FC = () => {
       key: "selected",
       width: 60,
       align: "center" as const,
-      render: (_: any, record: any) => <Checkbox checked={record.selected} />,
+      render: (_: any, record: any) => <Checkbox />,
     },
     {
       title: "該当部位",
       key: "parts",
       width: 250,
-      render: (_: any, record: any) =>
-        record.key === "4" ? (
-          <Select
-            placeholder="Select"
-            style={{
-              width: "100%",
-              maxWidth: "250px",
-              minWidth: "200px",
-              minHeight: "38px",
-              padding: "0px!important",
-              margin: "0px",
-            }}
-            // size="small"
-            mode="multiple"
-            options={[
-              { label: "ケース", value: "ケース" },
-              { label: "ベゼル", value: "ベゼル" },
-              { label: "文字盤", value: "文字盤" },
-              { label: "針", value: "針" },
-              { label: "風防", value: "風防" },
-              { label: "ベルト", value: "ベルト" },
-              { label: "バックル/尾錠", value: "バックル/尾錠" },
-              { label: "リューズ", value: "リューズ" },
-              { label: "裏蓋", value: "裏蓋" },
-              { label: "内部(裏スケ)", value: "内部(裏スケ)" },
-            ]}
-          />
-        ) : null,
+      maxWidth: 250,
+      render: (_: any, record: any) => (
+        <Select
+          placeholder="Select"
+          maxTagCount={2}
+          style={{
+            width: "100%",
+            maxWidth: "300px",
+            padding: "0px!important",
+            margin: "0px",
+          }}
+          // size="small"
+          mode="multiple"
+          options={[
+            { label: "ケース", value: "ケース" },
+            { label: "ベゼル", value: "ベゼル" },
+            { label: "文字盤", value: "文字盤" },
+            { label: "針", value: "針" },
+            { label: "風防", value: "風防" },
+            { label: "ベルト", value: "ベルト" },
+            { label: "バックル/尾錠", value: "バックル/尾錠" },
+            { label: "リューズ", value: "リューズ" },
+            { label: "裏蓋", value: "裏蓋" },
+            { label: "内部(裏スケ)", value: "内部(裏スケ)" },
+          ]}
+        />
+      ),
     },
   ];
 
@@ -332,6 +357,9 @@ const StateDefinition: React.FC = () => {
       render: (_: any, record: any) => (
         <Checkbox
           checked={record.S}
+          onChange={(e) =>
+            handleCheckboxChange(record.key, "S", e.target.checked)
+          }
           disabled={["case", "bezel"].includes(record.key)}
         />
       ),
@@ -344,6 +372,9 @@ const StateDefinition: React.FC = () => {
       render: (_: any, record: any) => (
         <Checkbox
           checked={record.A}
+          onChange={(e) =>
+            handleCheckboxChange(record.key, "A", e.target.checked)
+          }
           disabled={["case", "bezel"].includes(record.key)}
         />
       ),
@@ -353,33 +384,74 @@ const StateDefinition: React.FC = () => {
       key: "AB",
       width: 80,
       align: "center" as const,
-      render: (_: any, record: any) => <Checkbox checked={record.AB} />,
+      render: (_: any, record: any) => (
+        <Checkbox
+          checked={record.AB}
+          onChange={(e) =>
+            handleCheckboxChange(record.key, "AB", e.target.checked)
+          }
+        />
+      ),
     },
     {
       title: "B(中)",
       key: "B",
       width: 80,
       align: "center" as const,
-      render: (_: any, record: any) => <Checkbox checked={record.B} />,
+      render: (_: any, record: any) => (
+        <Checkbox
+          checked={record.B}
+          onChange={(e) =>
+            handleCheckboxChange(record.key, "B", e.target.checked)
+          }
+        />
+      ),
     },
     {
       title: "BC(大)",
       key: "BC",
       width: 80,
       align: "center" as const,
-      render: (_: any, record: any) => <Checkbox checked={record.BC} />,
+      render: (_: any, record: any) => (
+        <Checkbox
+          checked={record.BC}
+          onChange={(e) =>
+            handleCheckboxChange(record.key, "BC", e.target.checked)
+          }
+        />
+      ),
     },
     {
       title: "C(特大)",
       key: "C",
       width: 80,
       align: "center" as const,
-      render: (_: any, record: any) => <Checkbox checked={record.C} />,
+      render: (_: any, record: any) => (
+        <Checkbox
+          checked={record.C}
+          onChange={(e) =>
+            handleCheckboxChange(record.key, "C", e.target.checked)
+          }
+        />
+      ),
     },
   ];
 
+  const [api, contextHolder] = notification.useNotification();
+  const onFinish = () => {
+    updateStatusAssessed(true);
+    api.success({
+      message: "成功",
+      description: "データが正常に保存されました",
+    });
+    // setTimeout(() => {
+    //   navigate("/");
+    // }, 700);
+  };
+
   return (
-    <div>
+    <div style={{ padding: "20px 24px 24px 24px" }}>
+      {contextHolder}
       {/* 状態異常・ダメージなしの総合ランク */}
       <div style={{ marginBottom: 10 }}>
         <Title level={5} style={{ marginBottom: 16 }}>
@@ -395,8 +467,8 @@ const StateDefinition: React.FC = () => {
           </Space>
         </div>
 
-        <Row gutter={24}>
-          <Col span={12}>
+        <Row gutter={24} style={{ marginBottom: 24 }}>
+          <Col xxl={12} span={24}>
             <Title level={5} style={{ marginBottom: 5 }}>
               状態異常チェック
             </Title>
@@ -411,8 +483,10 @@ const StateDefinition: React.FC = () => {
               />
             </div>
           </Col>
-
-          <Col span={12}>
+          <Col xxl={0} span={24}>
+            <div style={{ margin: "30px 0" }} />
+          </Col>
+          <Col xxl={12} span={24}>
             <Title level={5} style={{ marginBottom: 5 }}>
               大分類状態ランクチェック
             </Title>
@@ -450,6 +524,7 @@ const StateDefinition: React.FC = () => {
             <Form.Item label="総合ランク判定">
               <Input
                 value="BC"
+                disabled
                 style={{ width: "100%", padding: "4px 11px" }}
               />
             </Form.Item>

@@ -30,7 +30,7 @@ const items: MenuProps["items"] = [
   },
 ];
 // eslint-disable-next-line react/prop-types
-const TableListFooter = () => {
+const TableListFooter = (statisticValues) => {
   const { token } = useToken();
   const contentStyle: React.CSSProperties = {
     backgroundColor: token.colorBgElevated,
@@ -71,12 +71,16 @@ const TableListFooter = () => {
         </Dropdown>
       </div>
       <Flex justify="space-between">
-        <Statistic title="総見込売価" value={"¥1,200,000"} />
-        <Statistic title="成立した見込売価" value={"¥1,200,000"} />
-        <Statistic title="仕入高" value={"¥1,200,000"} />
-        <Statistic title="見込粗利高" value={"¥1,200,000"} />
-        <Statistic title="見込粗利率" value={"20.00%"} />
-        <Statistic title="成約率" value={"83.33%"} />
+        <Statistic title="総見込売価" value={statisticValues.a} prefix="¥" />
+        <Statistic
+          title="成立した見込売価"
+          value={statisticValues.b}
+          prefix="¥"
+        />
+        <Statistic title="仕入高" value={statisticValues.c} prefix="¥" />
+        <Statistic title="見込粗利高" value={statisticValues.d} prefix="¥" />
+        <Statistic title="見込粗利率" value={statisticValues.e} prefix="¥" />
+        <Statistic title="成約率" value={statisticValues.f} prefix="¥" />
       </Flex>
     </>
   );

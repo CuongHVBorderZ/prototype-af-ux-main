@@ -1,4 +1,9 @@
-import React, { forwardRef, useImperativeHandle, useState, useEffect } from "react";
+import React, {
+  forwardRef,
+  useImperativeHandle,
+  useState,
+  useEffect,
+} from "react";
 import {
   Form,
   Input,
@@ -65,7 +70,11 @@ const BasicInformation = forwardRef((props, ref) => {
   useImperativeHandle(ref, () => ({
     setValue: (val) => {
       setValue(val);
-      form.setFieldsValue({ item_name: "ロレックス エクスプローラー36 124270 ステンレス ギャラなし 箱なし あまりコマなし", category: val });
+      form.setFieldsValue({
+        item_name:
+          "ロレックス エクスプローラー36 124270 ステンレス ギャラなし 箱なし あまりコマなし",
+        category: val,
+      });
     },
   }));
 
@@ -255,7 +264,6 @@ const BasicInformation = forwardRef((props, ref) => {
       {/* Action Buttons */}
       <div>
         <Flex gap="middle">
-          <Button style={{ width: "150px" }}>下書きを保存</Button>
           <Button style={{ width: "150px" }}>クリア</Button>
           <Button style={{ width: "150px" }} type="primary" onClick={onFinish}>
             保存

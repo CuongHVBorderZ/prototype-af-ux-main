@@ -70,9 +70,9 @@ interface DataType {
   productnumber_weight?: string;
   serial_number?: string;
   note?: string;
-  initial_offer_amount?: string;
-  first_offer_price?: string;
-  expected_price?: string;
+  initial_offer_amount?: number;
+  first_offer_price?: number;
+  expected_price?: number;
   final_gross_profit?: number;
   final_rate?: number;
   check_authen_checked?: boolean;
@@ -110,9 +110,9 @@ const initialData: DataType[] = [
     productnumber_weight: "",
     serial_number: "",
     note: "",
-    initial_offer_amount: "¥ 1000",
-    first_offer_price: "¥ 900",
-    expected_price: "",
+    initial_offer_amount: 0,
+    first_offer_price: 0,
+    expected_price: 0,
     final_gross_profit: 0,
     final_rate: 0,
     check_authen_checked: true,
@@ -127,11 +127,14 @@ const initialData: DataType[] = [
     productnumber_weight: "",
     serial_number: "",
     note: "",
-    initial_offer_amount: "¥ 1500",
-    first_offer_price: "",
-    expected_price: "",
-    final_gross_profit: 0,
-    final_rate: 0,
+    initial_offer_amount:
+      Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
+    first_offer_price:
+      Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
+    expected_price: Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
+    final_gross_profit:
+      Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
+    final_rate: 20,
     check_authen_checked: true,
     check_state_definition: true,
   },
@@ -144,11 +147,11 @@ const initialData: DataType[] = [
     productnumber_weight: "",
     serial_number: "",
     note: "",
-    initial_offer_amount: "¥ 2000",
-    first_offer_price: "¥ 1900",
-    expected_price: "¥ 1950",
-    final_gross_profit: -100,
-    final_rate: -20,
+    initial_offer_amount: 0,
+    first_offer_price: 0,
+    expected_price: 0,
+    final_gross_profit: 0,
+    final_rate: 0,
     check_authen_checked: false,
     check_state_definition: false,
   },
@@ -161,11 +164,14 @@ const initialData: DataType[] = [
     productnumber_weight: "",
     serial_number: "",
     note: "",
-    initial_offer_amount: "¥ 1500",
-    first_offer_price: "",
-    expected_price: "",
-    final_gross_profit: 0,
-    final_rate: 0,
+    initial_offer_amount:
+      Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
+    first_offer_price:
+      Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
+    expected_price: Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
+    final_gross_profit:
+      -1 * (Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000),
+    final_rate: -10,
     check_authen_checked: false,
     check_state_definition: false,
   },
@@ -178,9 +184,9 @@ const initialData: DataType[] = [
     productnumber_weight: "",
     serial_number: "",
     note: "",
-    initial_offer_amount: "¥ 1500",
-    first_offer_price: "",
-    expected_price: "",
+    initial_offer_amount: 0,
+    first_offer_price: 0,
+    expected_price: 0,
     final_gross_profit: 0,
     final_rate: 0,
     check_authen_checked: false,
@@ -194,10 +200,9 @@ const initialData: DataType[] = [
     category: "地金 / 金 / 18K",
     productnumber_weight: "PN456 / 20g",
     serial_number: "",
-    note: "",
-    initial_offer_amount: "¥ 1500",
-    first_offer_price: "",
-    expected_price: "",
+    initial_offer_amount: 0,
+    first_offer_price: 0,
+    expected_price: 0,
     final_gross_profit: 0,
     final_rate: 0,
     check_authen_checked: false,
@@ -212,9 +217,9 @@ const initialData: DataType[] = [
     productnumber_weight: "",
     serial_number: "",
     note: "",
-    initial_offer_amount: "¥ 1500",
-    first_offer_price: "",
-    expected_price: "",
+    initial_offer_amount: 0,
+    first_offer_price: 0,
+    expected_price: 0,
     final_gross_profit: 0,
     final_rate: 0,
     check_authen_checked: false,
@@ -249,6 +254,19 @@ const EditableCell: React.FC<{
 
   const cssObj = {};
 
+  let customDisplayedText = false;
+  let displayedText = null;
+  if (
+    dataIndex == "initial_offer_amount" ||
+    dataIndex == "first_offer_price" ||
+    dataIndex == "expected_price"
+  ) {
+    displayedText =
+      Number(record?.[dataIndex!]) > 0
+        ? "¥ " + Number(record?.[dataIndex!]).toLocaleString("en-US")
+        : "";
+    customDisplayedText = true;
+  }
   return (
     <td {...restProps} style={cssObj}>
       {editing ? (
@@ -261,7 +279,9 @@ const EditableCell: React.FC<{
           style={{ width: width ?? "100%" }}
         />
       ) : (
-        <div ref={cellRef}>{children}</div>
+        <div ref={cellRef}>
+          {customDisplayedText ? displayedText : children}
+        </div>
       )}
     </td>
   );
@@ -354,9 +374,9 @@ export default function Home() {
         productnumber_weight: "",
         serial_number: "",
         note: "",
-        initial_offer_amount: "",
-        first_offer_price: "",
-        expected_price: "",
+        initial_offer_amount: 0,
+        first_offer_price: 0,
+        expected_price: 0,
         final_gross_profit: 0,
         final_rate: 0,
       };
@@ -624,7 +644,7 @@ export default function Home() {
     {
       title: "最終粗利",
       key: "final_gross_profit",
-      width: 130,
+      width: 160,
       render: (_, record, index) => {
         const valueFinalProfit = Number(record.final_gross_profit);
         const hasNegativeProfit = valueFinalProfit < 0;
@@ -644,7 +664,7 @@ export default function Home() {
                   style={{ color: "#F5222D", fontSize: "14px" }}
                 />
               )}
-              <Text>¥ {valueFinalProfit}</Text>
+              <Text>¥ {Number(valueFinalProfit).toLocaleString("en-US")}</Text>
             </div>
           );
         }
@@ -653,7 +673,7 @@ export default function Home() {
             {content}
           </Tooltip>
         ) : valueFinalProfit ? (
-          valueFinalProfit
+          "¥ " + Number(valueFinalProfit).toLocaleString("en-US")
         ) : (
           "-"
         );
@@ -669,7 +689,7 @@ export default function Home() {
       title: "最終粗利率",
       key: "final_rate",
       dataIndex: "final_rate",
-      width: 130,
+      width: 140,
       className: "final_rate",
       render: (_, record, index) => {
         const valueFinalProfit = Number(record.final_rate);
@@ -690,7 +710,7 @@ export default function Home() {
                   style={{ color: "#F5222D", fontSize: "14px" }}
                 />
               )}
-              <Text>{valueFinalProfit} %</Text>
+              <Text>{Number(valueFinalProfit).toLocaleString("en-US")} %</Text>
             </div>
           );
         }
@@ -699,7 +719,7 @@ export default function Home() {
             {content}
           </Tooltip>
         ) : valueFinalProfit ? (
-          valueFinalProfit
+          Number(valueFinalProfit).toLocaleString("en-US")
         ) : (
           "-"
         );
@@ -787,11 +807,11 @@ export default function Home() {
         productnumber_weight: "",
         serial_number: "",
         note: "",
-        initial_offer_amount: "",
-        first_offer_price: "",
-        expected_price: "",
-        final_gross_profit: "",
-        final_rate: "",
+        initial_offer_amount: 0,
+        first_offer_price: 0,
+        expected_price: 0,
+        final_gross_profit: 0,
+        final_rate: 0,
       };
       setDataSource((prevData) => {
         const existingItemIndex = prevData.findIndex(
@@ -810,7 +830,7 @@ export default function Home() {
   };
 
   const onFinish = async () => {
-    if (dataSource.length >= 4) {
+    if (dataSource.length >= 8) {
       api.error({
         message: "山仕切りの買取上限額を超過しました",
         description: "¥5,000を超える山仕切りは個別に商品を登録してください。",
@@ -845,9 +865,9 @@ export default function Home() {
       productnumber_weight: "",
       serial_number: "",
       note: "",
-      initial_offer_amount: "0",
-      first_offer_price: "0",
-      expected_price: "0",
+      initial_offer_amount: 0,
+      first_offer_price: 0,
+      expected_price: 0,
       final_gross_profit: 0,
       final_rate: 0,
     };
@@ -912,6 +932,44 @@ export default function Home() {
       setMenuVisible(false);
     }, 1000);
   };
+
+  const [statisticValues, setStatisticValues] = useState({
+    a: 0,
+    b: 0,
+    c: 0,
+    d: 0,
+    e: 0,
+    f: 0,
+  });
+
+  useEffect(() => {
+    const newStatisticValues = {
+      a: 0,
+      b: 0,
+      c: 0,
+      d: 0,
+      e: 0,
+      f: 0,
+    };
+
+    newStatisticValues.a = dataSource.reduce((sum, item) => {
+      const amount = Number(item.initial_offer_amount) || 0;
+      return sum + amount;
+    }, 0);
+    newStatisticValues.b = dataSource.reduce((sum, item) => {
+      const amount = Number(item.first_offer_price) || 0;
+      return sum + amount;
+    }, 0);
+    newStatisticValues.c = dataSource.reduce((sum, item) => {
+      const amount = Number(item.expected_price) || 0;
+      return sum + amount;
+    }, 0);
+    newStatisticValues.d = dataSource.reduce((sum, item) => {
+      const amount = Number(item.final_gross_profit) || 0;
+      return sum + amount;
+    }, 0);
+    setStatisticValues(newStatisticValues);
+  }, [dataSource]);
 
   return (
     <>
@@ -1040,7 +1098,7 @@ export default function Home() {
                 }}
                 rowKey="key"
                 scroll={{ x: "max-content" }}
-                footer={TableListFooter}
+                footer={() => TableListFooter(statisticValues)}
                 onRow={(record, rowIndex) => {
                   return {
                     onContextMenu: (event) => {
@@ -1088,7 +1146,6 @@ export default function Home() {
           <ModalAuthenticityCheck
             cancel={() => setOpenCheckAuthentication(false)}
             save={(data) => {
-              console.log("Checked data:", data);
               setOpenCheckAuthentication(false);
             }}
           ></ModalAuthenticityCheck>

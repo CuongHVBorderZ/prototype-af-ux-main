@@ -336,14 +336,6 @@ const AuthenticityCheck: React.FC<AuthenticityCheckProps> = ({
       >
         <div style={{ display: "flex", gap: "16px" }}>
           <Button
-            style={{ width: "150px" }}
-            onClick={() => {
-              cancel();
-            }}
-          >
-            下書きを保存
-          </Button>
-          <Button
             style={{ width: "150px", display: "none" }}
             onClick={() => {
               cancel();
@@ -358,7 +350,7 @@ const AuthenticityCheck: React.FC<AuthenticityCheckProps> = ({
               save();
             }}
           >
-            保存
+            真贋判定を確定
           </Button>
         </div>
 

@@ -21,6 +21,7 @@ import {
   Tag,
   Pagination,
   Flex,
+  notification,
 } from "antd";
 import {
   SearchOutlined,
@@ -34,13 +35,54 @@ import {
   BookOutlined,
   BarChartOutlined,
 } from "@ant-design/icons";
+import PriceInput from "./feature/PriceInput";
 const { Title, Text } = Typography;
 const { Option } = Select;
 
 // eslint-disable-next-line react/prop-types
-const EstimatePrice = () => {
+const EstimatePrice = ({ updateStatusAssessed }) => {
+  const [priceData, setPriceData] = useState({
+    initial: 1150000,
+    final: 1180000,
+    expected: 1280000,
+    finalProfit: 100000,
+    finalProfitRate: "10％",
+    established: true,
+  });
+
+  const updateProfit = (key, value) => {
+    setPriceData((prev) => ({
+      ...prev,
+      [key]: value,
+    }));
+  };
+
+  const numberFormatter = (value) => {
+    return value
+      ? `￥${value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
+      : "";
+  };
+
+  const percentageFormatter = (value) => {
+    const roundedValue = Math.round(value * 100);
+    return value ? `${roundedValue}%` : "";
+  };
+
+  const [api, contextHolder] = notification.useNotification();
+  const onFinish = () => {
+    updateStatusAssessed(true);
+    api.success({
+      message: "成功",
+      description: "データが正常に保存されました",
+    });
+    // setTimeout(() => {
+    //   navigate("/");
+    // }, 700);
+  };
+
   return (
-    <div>
+    <div style={{ padding: "20px" }}>
+      {contextHolder}
       {/* Price Information Summary Table */}
       <div
         style={{
@@ -51,17 +93,7 @@ const EstimatePrice = () => {
         }}
       >
         <Table
-          dataSource={[
-            {
-              key: "1",
-              initial: "¥ 1,150,000",
-              final: "¥ 1,180,000",
-              expected: "¥ 1,280,000",
-              finalProfit: "¥ 100,000",
-              finalProfitRate: "10％",
-              established: true,
-            },
-          ]}
+          dataSource={priceData ? [priceData] : []}
           columns={[
             {
               title: "初回提示金額",
@@ -69,15 +101,25 @@ const EstimatePrice = () => {
               key: "initial",
               width: 179,
               align: "center",
-              render: (text) => <Text>{text}</Text>,
+              render: (text) => (
+                <PriceInput
+                  value={text}
+                  onChange={(value) => updateProfit("initial", value)}
+                />
+              ),
             },
             {
-              title: "最終提示金額 - xxxx",
+              title: "最終提示金額",
               dataIndex: "final",
               key: "final",
               width: 179,
               align: "center",
-              render: (text) => <Text>{text}</Text>,
+              render: (text) => (
+                <PriceInput
+                  value={text}
+                  onChange={(value) => updateProfit("final", value)}
+                />
+              ),
             },
             {
               title: "見込価格",
@@ -85,7 +127,12 @@ const EstimatePrice = () => {
               key: "expected",
               width: 179,
               align: "center",
-              render: (text) => <Text>{text}</Text>,
+              render: (text) => (
+                <PriceInput
+                  value={text}
+                  onChange={(value) => updateProfit("expected", value)}
+                />
+              ),
             },
             {
               title: "最終粗利",
@@ -93,7 +140,11 @@ const EstimatePrice = () => {
               key: "finalProfit",
               width: 179,
               align: "center",
-              render: (text) => <Text>{text}</Text>,
+              render: (text) => (
+                <Text>
+                  {numberFormatter(priceData.expected - priceData.final)}
+                </Text>
+              ),
             },
             {
               title: "最終粗利率",
@@ -101,7 +152,13 @@ const EstimatePrice = () => {
               key: "finalProfitRate",
               width: 179,
               align: "center",
-              render: (text) => <Text>{text}</Text>,
+              render: (text) => (
+                <Text>
+                  {percentageFormatter(
+                    (priceData.expected - priceData.final) / priceData.initial,
+                  )}
+                </Text>
+              ),
             },
             {
               title: "成立",
@@ -134,6 +191,7 @@ const EstimatePrice = () => {
             fontSize: "20px",
             color: "rgba(0, 0, 0, 0.88)",
             marginBottom: "20px",
+            paddingLeft: "16px",
           }}
         >
           見込粗利率一覧
@@ -144,6 +202,7 @@ const EstimatePrice = () => {
           style={{
             display: "flex",
             gap: "24px",
+            padding: "0 16px",
             marginBottom: "20px",
           }}
         >
@@ -268,5 +327,4 @@ const EstimatePrice = () => {
     </div>
   );
 };
-
 export default EstimatePrice;
