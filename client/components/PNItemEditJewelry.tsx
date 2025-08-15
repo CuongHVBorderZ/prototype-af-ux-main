@@ -67,8 +67,6 @@ const PNItemEditJewelry = () => {
             <EstimatePrice updateStatusAssessed={undefined}></EstimatePrice>
           </Col>
         </Row>
-        {/* Action Buttons */}
-        <FooterPNItemEdit></FooterPNItemEdit>
       </div>
     </>
   );

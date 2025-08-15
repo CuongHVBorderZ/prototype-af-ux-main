@@ -23,6 +23,7 @@ import {
   Divider,
   Drawer,
   Flex,
+  Form,
   Layout,
   notification,
   Row,
@@ -30,17 +31,18 @@ import {
   Typography,
 } from "antd";
 import React, { useEffect, useState } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import MarketPrice from "./MarketPrice";
 import HearingInformation from "@/components/HearingInformation";
 import SaleInstruction from "@/components/SaleInstruction";
+import FooterPNItemEdit from "@/components/FooterPNItemEdit";
 const { Content } = Layout;
 const { Title, Paragraph, Text, Link } = Typography;
 
 // eslint-disable-next-line react/prop-types
 const PNItemEdit = () => {
   const [api, contextHolder] = notification.useNotification();
-
+  const [form] = Form.useForm();
   const categories = [
     ["parent1", "parent10", "leaf1"],
     ["parent5"],
@@ -103,6 +105,17 @@ const PNItemEdit = () => {
     mode == "new" ? "" : "エクスプローラー36 124270",
   );
 
+  const navigate = useNavigate();
+  const onFinish = () => {
+    api.success({
+      message: "成功",
+      description: "データが正常に保存されました",
+    });
+    setTimeout(() => {
+      navigate("/?applyItem=" + id);
+    }, 700);
+  };
+
   return (
     <>
       {loading && (
@@ -128,22 +141,26 @@ const PNItemEdit = () => {
       )}
       {contextHolder}
       <Content style={{ padding: 24, minHeight: 1280 }}>
-        <HeaderPNItemEdit
-          category={category}
-          onCategoryChange={handleCategoryChange}
-          onOpenSearchDrawer={() => {
-            setIsMarketPriceOpen(true);
-          }}
-          editableStr={editableStr}
-          setEditableStr={setEditableStr}
-        ></HeaderPNItemEdit>
-        {value === "leaf1" && <PNItemEditWatch />}
-        {value === "leaf21" && <PNItemEditGold />}
-        {value === "leaf311" && <PNItemEditBag />}
-        {value === "leaf41" && <PNItemEditShoes />}
-        {value === "parent5" && <PNItemEditAccessories />}
-        {value === "parent6" && <PNItemEditJewelry />}
-        {value === "parent7" && <PNItemEditBrandJewelry />}
+        <Form form={form} layout="vertical">
+          <HeaderPNItemEdit
+            category={category}
+            onCategoryChange={handleCategoryChange}
+            onOpenSearchDrawer={() => {
+              setIsMarketPriceOpen(true);
+            }}
+            editableStr={editableStr}
+            setEditableStr={setEditableStr}
+          ></HeaderPNItemEdit>
+          {value === "leaf1" && <PNItemEditWatch />}
+          {value === "leaf21" && <PNItemEditGold />}
+          {value === "leaf311" && <PNItemEditBag />}
+          {value === "leaf41" && <PNItemEditShoes />}
+          {value === "parent5" && <PNItemEditAccessories />}
+          {value === "parent6" && <PNItemEditJewelry />}
+          {value === "parent7" && <PNItemEditBrandJewelry />}
+          {/* Action Buttons */}
+          <FooterPNItemEdit></FooterPNItemEdit>
+        </Form>
       </Content>
       <MarketPrice
         isOpen={isMarketPriceOpen}

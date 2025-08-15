@@ -505,18 +505,24 @@ export default function Home() {
       const id = parseInt(String(applyItem));
       const newItem: DataType = {
         key: id.toString(),
-        name: "ロレックス エクスプローラー36 124270 ステンレス ギャラなし 箱なし あまりコマなし",
+        name: "エクスプローラー35 324270",
         age: 0,
         address: "",
-        category: "時計",
+        category: "時計/腕時計/ロレックス",
         productnumber_weight: "",
         serial_number: "",
         note: "",
-        initial_offer_amount: 0,
-        first_offer_price: 0,
-        expected_price: 0,
-        final_gross_profit: 0,
-        final_rate: 0,
+        initial_offer_amount:
+          Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
+        first_offer_price:
+          Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
+        expected_price:
+          Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
+        final_gross_profit:
+          Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
+        final_rate: 10,
+        check_authen_checked: true,
+        check_state_definition: true,
       };
       setDataSource((prevData) => {
         const existingItemIndex = prevData.findIndex(
@@ -944,10 +950,10 @@ export default function Home() {
       const id = dataSource.length + 1;
       const newItem: DataType = {
         key: id.toString(),
-        name: "ロレックス エクスプローラー36 124270 ステンレス ギャラなし 箱なし あまりコマなし",
+        name: "エクスプローラー35 324270",
         age: 0,
         address: "",
-        category: "時計",
+        category: "時計/腕時計/ロレックス",
         productnumber_weight: "",
         serial_number: "",
         note: "",

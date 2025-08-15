@@ -29,6 +29,7 @@ const { Title, Paragraph, Text, Link } = Typography;
 // eslint-disable-next-line react/prop-types
 const FooterPNItemEdit = () => {
   const [api, contextHolder] = notification.useNotification();
+  const { id } = useParams();
   const navigate = useNavigate();
   const onFinish = () => {
     api.success({
@@ -36,7 +37,7 @@ const FooterPNItemEdit = () => {
       description: "データが正常に保存されました",
     });
     setTimeout(() => {
-      navigate("/");
+      navigate("/?applyItem=" + id);
     }, 700);
   };
   const backToHome = () => {
@@ -45,7 +46,7 @@ const FooterPNItemEdit = () => {
   return (
     <>
       {contextHolder}
-      <div>
+      <div style={{ backgroundColor: "white", padding: "20px" }}>
         <Flex gap="middle" justify="flex-end">
           <Button
             style={{ width: "150px" }}

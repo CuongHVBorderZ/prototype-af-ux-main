@@ -14,6 +14,8 @@ import {
   theme,
 } from "antd";
 import React from "react";
+import { FilterDropdown } from "./FiterDropdown";
+import { Title } from "@radix-ui/react-alert-dialog";
 const { useToken } = theme;
 const items: MenuProps["items"] = [
   {
@@ -44,31 +46,8 @@ const TableListFooter = (statisticValues) => {
   return (
     <>
       <div style={{ marginBottom: "20px", fontSize: "22px" }}>
-        <Dropdown
-          menu={{ items }}
-          trigger={["click"]}
-          popupRender={(menu) => (
-            <div style={contentStyle}>
-              {React.cloneElement(
-                menu as React.ReactElement<{
-                  style: React.CSSProperties;
-                }>,
-                { style: menuStyle },
-              )}
-              <Flex justify="flex-end">
-                <Button type="primary" style={{ margin: "10px" }} size="small">
-                  OK
-                </Button>
-              </Flex>
-            </div>
-          )}
-        >
-          <a onClick={(e) => e.preventDefault()}>
-            <span>
-              査定結果 <FilterOutlined></FilterOutlined>{" "}
-            </span>
-          </a>
-        </Dropdown>
+        <span style={{ marginRight: "10px" }}>査定結果</span>
+        <FilterDropdown></FilterDropdown>
       </div>
       <Flex justify="space-between">
         <Statistic title="総見込売価" value={statisticValues.a} prefix="¥" />
