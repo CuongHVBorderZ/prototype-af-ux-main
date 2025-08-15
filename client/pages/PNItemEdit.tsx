@@ -96,10 +96,12 @@ const PNItemEdit = () => {
     }
   };
 
-  const [editableStr, setEditableStr] = useState("エクスプローラー36 124270");
-
   const [searchParams] = useSearchParams();
-  const type = searchParams.get("type");
+  const mode = searchParams.get("mode");
+
+  const [editableStr, setEditableStr] = useState(
+    mode == "new" ? "" : "エクスプローラー36 124270",
+  );
 
   return (
     <>

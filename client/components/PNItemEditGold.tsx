@@ -24,12 +24,16 @@ import React from "react";
 import BasicInformationGold from "./BasicInformationGold";
 import EstimatePrice from "./EstimatePrice";
 import FooterPNItemEdit from "./FooterPNItemEdit";
+import { useSearchParams } from "react-router-dom";
+import BasicInformationGoldEmpty from "./BasicInformationGoldEmpty";
 const { Content } = Layout;
 const { Title, Paragraph, Text, Link } = Typography;
 
 // eslint-disable-next-line react/prop-types
 const PNItemEditGold = () => {
   const [api, contextHolder] = notification.useNotification();
+  const [searchParams] = useSearchParams();
+  const mode = searchParams.get("mode");
   return (
     <>
       <div
@@ -44,7 +48,11 @@ const PNItemEditGold = () => {
               paddingRight: "20px",
             }}
           >
-            <BasicInformationGold></BasicInformationGold>
+            {mode == "new" ? (
+              <BasicInformationGoldEmpty></BasicInformationGoldEmpty>
+            ) : (
+              <BasicInformationGold></BasicInformationGold>
+            )}
           </Col>
           <Col
             span={12}

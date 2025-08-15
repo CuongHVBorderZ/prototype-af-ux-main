@@ -44,7 +44,7 @@ import type { TreeSelectProps } from "antd";
 import TextArea from "antd/es/input/TextArea";
 
 // eslint-disable-next-line react/prop-types
-const BasicInformationAccessories = () => {
+const BasicInformationJewelryEmpty = () => {
   const [form] = Form.useForm();
   const [accessories, setAccessories] = useState([
     "あまりゴマ",
@@ -192,22 +192,29 @@ const BasicInformationAccessories = () => {
       <Row gutter={24}>
         <Col span={12}>
           <Form.Item
-            label={
-              <span>
-                <span style={{ color: "#FF4D4F", marginRight: "4px" }}>*</span>
-                ブランド
-              </span>
-            }
+            label={<span>重量</span>}
             name="brand"
+            style={{ marginBottom: "16px" }}
+          >
+            <Input />
+          </Form.Item>
+        </Col>
+        <Col span={12}>
+          <Form.Item
+            label={<span>形状</span>}
+            name="modelName"
             style={{ marginBottom: "16px" }}
           >
             <Select
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue={"ピアジェ"}
             >
-              <Option value="ピアジェ">ピアジェ</Option>
+              <Option value="形状1">形状1</Option>
+              <Option value="形状2">形状2</Option>
+              <Option value="形状3">形状3</Option>
+              <Option value="形状4">形状4</Option>
+              <Option value="形状5">形状5</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -216,7 +223,7 @@ const BasicInformationAccessories = () => {
       <Row gutter={16}>
         <Col span={12}>
           <Form.Item
-            label={<span>モデル名</span>}
+            label={<span>カラー</span>}
             name="modelNumber"
             style={{ marginBottom: "16px" }}
           >
@@ -224,28 +231,12 @@ const BasicInformationAccessories = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue={"パゴダ"}
             >
-              <Option value="パゴダ">パゴダ</Option>
-            </Select>
-          </Form.Item>
-        </Col>
-        <Col span={12}>
-          <Form.Item
-            label={<span>型番</span>}
-            name="modelNumber"
-            style={{ marginBottom: "16px" }}
-          >
-            <Select
-              suffixIcon={
-                <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
-              }
-              defaultValue={"94024NK81"}
-            >
-              <Option value="94024NK81">94024NK81</Option>
-              <Option value="94024NK82">94024NK82</Option>
-              <Option value="94024NK83">94024NK83</Option>
-              <Option value="94024NK84">94024NK84</Option>
+              <Option value="カラー1">カラー1</Option>
+              <Option value="カラー2">カラー2</Option>
+              <Option value="カラー3">カラー3</Option>
+              <Option value="カラー4">カラー4</Option>
+              <Option value="カラー5">カラー5</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -268,46 +259,42 @@ const BasicInformationAccessories = () => {
         詳細情報
       </Title>
 
-      <Row gutter={24}>
+      <Row gutter={16}>
         <Col span={12}>
           <Form.Item
-            label={<span>素材（メイン）</span>}
-            name="brand"
+            label={<span>カラーダイヤ</span>}
+            name="modelNumber"
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue={"SS"}
-              placeholder="未選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="SS">SS</Option>
-              <Option value="SS×YG">SS×YG</Option>
-              <Option value="SS×WG">SS×WG</Option>
-              <Option value="SS×PT">SS×PT</Option>
-              <Option value="SS×PG">SS×PG</Option>
+              <Option value="カラーダイヤ1">カラーダイヤ1</Option>
+              <Option value="カラーダイヤ2">カラーダイヤ2</Option>
+              <Option value="カラーダイヤ3">カラーダイヤ3</Option>
+              <Option value="カラーダイヤ4">カラーダイヤ4</Option>
+              <Option value="カラーダイヤ5">カラーダイヤ5</Option>
             </Select>
           </Form.Item>
         </Col>
         <Col span={12}>
           <Form.Item
-            label={<span>ムーブメント</span>}
+            label={<span>クラリティ</span>}
             name="modelNumber"
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue={"AT"}
-              placeholder="未選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="AT">AT</Option>
-              <Option value="QZ">QZ</Option>
-              <Option value="ソーラー">ソーラー</Option>
-              <Option value="トゥールビヨン">トゥールビヨン</Option>
-              <Option value="手巻き">手巻き</Option>
+              <Option value="クラリティ1">クラリティ1</Option>
+              <Option value="クラリティ2">クラリティ2</Option>
+              <Option value="クラリティ3">クラリティ3</Option>
+              <Option value="クラリティ4">クラリティ4</Option>
+              <Option value="クラリティ5">クラリティ5</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -316,28 +303,26 @@ const BasicInformationAccessories = () => {
       <Row gutter={16}>
         <Col span={12}>
           <Form.Item
-            label={<span>色（メイン）</span>}
+            label={<span>カット</span>}
             name="modelNumber"
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue={"白ホリコン"}
-              placeholder="選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
             >
-              <Option value="白ホリコン">白ホリコン</Option>
-              <Option value="シェリーライン">シェリーライン</Option>
-              <Option value="ゴールド">ゴールド</Option>
-              <Option value="ブルーグラデーション">ブルーグラデーション</Option>
-              <Option value="ルーレット">ルーレット</Option>
+              <Option value="カット1">カット1</Option>
+              <Option value="カット2">カット2</Option>
+              <Option value="カット3">カット3</Option>
+              <Option value="カット4">カット4</Option>
+              <Option value="カット5">カット5</Option>
             </Select>
           </Form.Item>
         </Col>
         <Col span={12}>
           <Form.Item
-            label={<span>ランク</span>}
+            label={<span>蛍光性</span>}
             name="modelNumber"
             style={{ marginBottom: "16px" }}
           >
@@ -345,18 +330,118 @@ const BasicInformationAccessories = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue={"N"}
             >
-              <Option value="N">N</Option>
-              <Option value="S">S</Option>
-              <Option value="A">A</Option>
-              <Option value="SA">SA</Option>
+              <Option value="蛍光性1">蛍光性1</Option>
+              <Option value="蛍光性2">蛍光性2</Option>
+              <Option value="蛍光性3">蛍光性3</Option>
+              <Option value="蛍光性4">蛍光性4</Option>
+              <Option value="蛍光性5">蛍光性5</Option>
+            </Select>
+          </Form.Item>
+        </Col>
+      </Row>
+      <Row gutter={16}>
+        <Col span={12}>
+          <Form.Item
+            label={<span>処理</span>}
+            name="modelNumber"
+            style={{ marginBottom: "16px" }}
+          >
+            <Select
+              suffixIcon={
+                <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
+              }
+            >
+              <Option value="処理1">処理1</Option>
+              <Option value="処理2">処理2</Option>
+              <Option value="処理3">処理3</Option>
+              <Option value="処理4">処理4</Option>
+              <Option value="処理5">処理5</Option>
+            </Select>
+          </Form.Item>
+        </Col>
+        <Col span={12}>
+          <Form.Item
+            label={<span>鑑定書</span>}
+            name="modelNumber"
+            style={{ marginBottom: "16px" }}
+          >
+            <Select
+              suffixIcon={
+                <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
+              }
+            >
+              <Option value="鑑定書1">鑑定書1</Option>
+              <Option value="鑑定書2">鑑定書2</Option>
+              <Option value="鑑定書3">鑑定書3</Option>
+              <Option value="鑑定書4">鑑定書4</Option>
+              <Option value="鑑定書5">鑑定書5</Option>
             </Select>
           </Form.Item>
         </Col>
       </Row>
 
       <Row gutter={16}>
+        <Col span={12}>
+          <Form.Item
+            label={<span>ポリッシュ</span>}
+            name="modelNumber"
+            style={{ marginBottom: "16px" }}
+          >
+            <Select
+              suffixIcon={
+                <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
+              }
+            >
+              <Option value="ポリッシュ1">ポリッシュ1</Option>
+              <Option value="ポリッシュ2">ポリッシュ2</Option>
+              <Option value="ポリッシュ3">ポリッシュ3</Option>
+              <Option value="ポリッシュ4">ポリッシュ4</Option>
+              <Option value="ポリッシュ5">ポリッシュ5</Option>
+            </Select>
+          </Form.Item>
+        </Col>
+        <Col span={12}>
+          <Form.Item
+            label={<span>シンメトリ</span>}
+            name="modelNumber"
+            style={{ marginBottom: "16px" }}
+          >
+            <Select
+              suffixIcon={
+                <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
+              }
+            >
+              <Option value="シンメトリ1">シンメトリ1</Option>
+              <Option value="シンメトリ2">シンメトリ2</Option>
+              <Option value="シンメトリ3">シンメトリ3</Option>
+              <Option value="シンメトリ4">シンメトリ4</Option>
+              <Option value="シンメトリ5">シンメトリ5</Option>
+            </Select>
+          </Form.Item>
+        </Col>
+      </Row>
+
+      <Row gutter={16}>
+        <Col span={12}>
+          <Form.Item
+            label={<span>ソーティングNo</span>}
+            name="modelNumber"
+            style={{ marginBottom: "16px" }}
+          >
+            <Select
+              suffixIcon={
+                <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
+              }
+            >
+              <Option value="ソーティングNo1">ソーティングNo1</Option>
+              <Option value="ソーティングNo2">ソーティングNo2</Option>
+              <Option value="ソーティングNo3">ソーティングNo3</Option>
+              <Option value="ソーティングNo4">ソーティングNo4</Option>
+              <Option value="ソーティングNo5">ソーティングNo5</Option>
+            </Select>
+          </Form.Item>
+        </Col>
         <Col span={12}>
           <Form.Item
             label={<span>サイズ</span>}
@@ -367,30 +452,12 @@ const BasicInformationAccessories = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue={"S"}
             >
-              <Option value="S">S</Option>
-              <Option value="M">M</Option>
-              <Option value="L">L</Option>
-              <Option value="XL">XL</Option>
-              <Option value="XXL">XXL</Option>
-            </Select>
-          </Form.Item>
-        </Col>
-        <Col span={12}>
-          <Form.Item
-            label={<span>性別</span>}
-            name="modelNumber"
-            style={{ marginBottom: "16px" }}
-          >
-            <Select
-              suffixIcon={
-                <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
-              }
-              defaultValue={"男性"}
-            >
-              <Option value="男性">男性</Option>
-              <Option value="女性">女性</Option>
+              <Option value="サイズ1">サイズ1</Option>
+              <Option value="サイズ2">サイズ2</Option>
+              <Option value="サイズ3">サイズ3</Option>
+              <Option value="サイズ4">サイズ4</Option>
+              <Option value="サイズ5">サイズ5</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -422,4 +489,4 @@ const BasicInformationAccessories = () => {
   );
 };
 
-export default BasicInformationAccessories;
+export default BasicInformationJewelryEmpty;

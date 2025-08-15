@@ -25,12 +25,16 @@ import BasicInformationGold from "./BasicInformationGold";
 import EstimatePrice from "./EstimatePrice";
 import BasicInformationJewelry from "./BasicInformationJewelry";
 import FooterPNItemEdit from "./FooterPNItemEdit";
+import { useSearchParams } from "react-router-dom";
+import BasicInformationJewelryEmpty from "./BasicInformationJewelryEmpty";
 const { Content } = Layout;
 const { Title, Paragraph, Text, Link } = Typography;
 
 // eslint-disable-next-line react/prop-types
 const PNItemEditJewelry = () => {
   const [api, contextHolder] = notification.useNotification();
+  const [searchParams] = useSearchParams();
+  const mode = searchParams.get("mode");
   return (
     <>
       <div
@@ -45,7 +49,11 @@ const PNItemEditJewelry = () => {
               paddingRight: "20px",
             }}
           >
-            <BasicInformationJewelry></BasicInformationJewelry>
+            {mode == "new" ? (
+              <BasicInformationJewelryEmpty></BasicInformationJewelryEmpty>
+            ) : (
+              <BasicInformationJewelry></BasicInformationJewelry>
+            )}
           </Col>
           <Col
             span={12}
@@ -56,7 +64,7 @@ const PNItemEditJewelry = () => {
               paddingLeft: "20px",
             }}
           >
-            <EstimatePrice></EstimatePrice>
+            <EstimatePrice updateStatusAssessed={undefined}></EstimatePrice>
           </Col>
         </Row>
         {/* Action Buttons */}

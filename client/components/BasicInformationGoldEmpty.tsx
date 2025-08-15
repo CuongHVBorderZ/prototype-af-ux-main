@@ -44,7 +44,7 @@ import type { TreeSelectProps } from "antd";
 import TextArea from "antd/es/input/TextArea";
 
 // eslint-disable-next-line react/prop-types
-const BasicInformationAccessories = () => {
+const BasicInformationGoldEmpty = () => {
   const [form] = Form.useForm();
   const [accessories, setAccessories] = useState([
     "あまりゴマ",
@@ -195,7 +195,7 @@ const BasicInformationAccessories = () => {
             label={
               <span>
                 <span style={{ color: "#FF4D4F", marginRight: "4px" }}>*</span>
-                ブランド
+                貴金属種別
               </span>
             }
             name="brand"
@@ -205,10 +205,27 @@ const BasicInformationAccessories = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue={"ピアジェ"}
             >
-              <Option value="ピアジェ">ピアジェ</Option>
+              <Option value="K24IG">K24IG</Option>
+              <Option value="K24IG（500g以下）">K24IG（500g以下）</Option>
+              <Option value="K24 S">K24 S</Option>
+              <Option value="K22 S">K22 S</Option>
+              <Option value="K21.6 S">K21.6 S</Option>
             </Select>
+          </Form.Item>
+        </Col>
+        <Col span={12}>
+          <Form.Item
+            label={
+              <span>
+                <span style={{ color: "#FF4D4F", marginRight: "4px" }}>*</span>
+                グラム
+              </span>
+            }
+            name="modelName"
+            style={{ marginBottom: "16px" }}
+          >
+            <Input />
           </Form.Item>
         </Col>
       </Row>
@@ -216,7 +233,7 @@ const BasicInformationAccessories = () => {
       <Row gutter={16}>
         <Col span={12}>
           <Form.Item
-            label={<span>モデル名</span>}
+            label={<span>バーブランド</span>}
             name="modelNumber"
             style={{ marginBottom: "16px" }}
           >
@@ -224,31 +241,28 @@ const BasicInformationAccessories = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue={"パゴダ"}
             >
-              <Option value="パゴダ">パゴダ</Option>
+              <Option value="田中貴金属工業">田中貴金属工業</Option>
+              <Option value="三菱マテリアル">三菱マテリアル</Option>
+              <Option value="三井金属鉱業">三井金属鉱業</Option>
+              <Option value="住友金属工業">住友金属工業</Option>
+              <Option value="日鉱金属">日鉱金属</Option>
             </Select>
           </Form.Item>
         </Col>
+        <Col span={12}>{/* Empty space */}</Col>
+      </Row>
+      <Row gutter={16}>
         <Col span={12}>
           <Form.Item
-            label={<span>型番</span>}
+            label="&nbsp;"
             name="modelNumber"
             style={{ marginBottom: "16px" }}
           >
-            <Select
-              suffixIcon={
-                <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
-              }
-              defaultValue={"94024NK81"}
-            >
-              <Option value="94024NK81">94024NK81</Option>
-              <Option value="94024NK82">94024NK82</Option>
-              <Option value="94024NK83">94024NK83</Option>
-              <Option value="94024NK84">94024NK84</Option>
-            </Select>
+            <Checkbox>刻印確認済み</Checkbox>
           </Form.Item>
         </Col>
+        <Col span={12}>{/* Empty space */}</Col>
       </Row>
 
       <Divider
@@ -265,137 +279,58 @@ const BasicInformationAccessories = () => {
           marginBottom: "20px",
         }}
       >
-        詳細情報
+        見込価格計算
       </Title>
-
-      <Row gutter={24}>
-        <Col span={12}>
-          <Form.Item
-            label={<span>素材（メイン）</span>}
-            name="brand"
-            style={{ marginBottom: "16px" }}
-          >
-            <Select
-              defaultValue={"SS"}
-              placeholder="未選択"
-              suffixIcon={
-                <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
-              }
-            >
-              <Option value="SS">SS</Option>
-              <Option value="SS×YG">SS×YG</Option>
-              <Option value="SS×WG">SS×WG</Option>
-              <Option value="SS×PT">SS×PT</Option>
-              <Option value="SS×PG">SS×PG</Option>
-            </Select>
-          </Form.Item>
-        </Col>
-        <Col span={12}>
-          <Form.Item
-            label={<span>ムーブメント</span>}
-            name="modelNumber"
-            style={{ marginBottom: "16px" }}
-          >
-            <Select
-              defaultValue={"AT"}
-              placeholder="未選択"
-              suffixIcon={
-                <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
-              }
-            >
-              <Option value="AT">AT</Option>
-              <Option value="QZ">QZ</Option>
-              <Option value="ソーラー">ソーラー</Option>
-              <Option value="トゥールビヨン">トゥールビヨン</Option>
-              <Option value="手巻き">手巻き</Option>
-            </Select>
-          </Form.Item>
-        </Col>
-      </Row>
-
-      <Row gutter={16}>
-        <Col span={12}>
-          <Form.Item
-            label={<span>色（メイン）</span>}
-            name="modelNumber"
-            style={{ marginBottom: "16px" }}
-          >
-            <Select
-              defaultValue={"白ホリコン"}
-              placeholder="選択"
-              suffixIcon={
-                <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
-              }
-            >
-              <Option value="白ホリコン">白ホリコン</Option>
-              <Option value="シェリーライン">シェリーライン</Option>
-              <Option value="ゴールド">ゴールド</Option>
-              <Option value="ブルーグラデーション">ブルーグラデーション</Option>
-              <Option value="ルーレット">ルーレット</Option>
-            </Select>
-          </Form.Item>
-        </Col>
-        <Col span={12}>
-          <Form.Item
-            label={<span>ランク</span>}
-            name="modelNumber"
-            style={{ marginBottom: "16px" }}
-          >
-            <Select
-              suffixIcon={
-                <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
-              }
-              defaultValue={"N"}
-            >
-              <Option value="N">N</Option>
-              <Option value="S">S</Option>
-              <Option value="A">A</Option>
-              <Option value="SA">SA</Option>
-            </Select>
-          </Form.Item>
-        </Col>
-      </Row>
-
-      <Row gutter={16}>
-        <Col span={12}>
-          <Form.Item
-            label={<span>サイズ</span>}
-            name="modelNumber"
-            style={{ marginBottom: "16px" }}
-          >
-            <Select
-              suffixIcon={
-                <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
-              }
-              defaultValue={"S"}
-            >
-              <Option value="S">S</Option>
-              <Option value="M">M</Option>
-              <Option value="L">L</Option>
-              <Option value="XL">XL</Option>
-              <Option value="XXL">XXL</Option>
-            </Select>
-          </Form.Item>
-        </Col>
-        <Col span={12}>
-          <Form.Item
-            label={<span>性別</span>}
-            name="modelNumber"
-            style={{ marginBottom: "16px" }}
-          >
-            <Select
-              suffixIcon={
-                <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
-              }
-              defaultValue={"男性"}
-            >
-              <Option value="男性">男性</Option>
-              <Option value="女性">女性</Option>
-            </Select>
-          </Form.Item>
-        </Col>
-      </Row>
-
+      <Flex vertical>
+        <Flex>
+          <div style={{ width: "120px" }}>
+            <span>相場</span>
+          </div>
+          <div>
+            <span>2025年07月18日 現在</span>
+          </div>
+        </Flex>
+        <Flex>
+          <div style={{ width: "120px" }}>
+            <span>グラム単価</span>
+          </div>
+          <div>
+            <span>¥7,284/g</span>
+          </div>
+        </Flex>
+        <Flex>
+          <div style={{ width: "120px" }}>
+            <span>上限買取価格</span>
+          </div>
+          <div>
+            <span>¥72,840</span>
+          </div>
+        </Flex>
+        <Flex style={{ margin: "20px 0 0 0" }}>
+          <div style={{ width: "120px", margin: "30px 0" }}>
+            <span>見込価格計算</span>
+          </div>
+          <div>
+            <Flex>
+              <div>
+                <Flex vertical>
+                  <span>見込粗利率</span>
+                  <Input suffix={<PercentageOutlined />} />
+                </Flex>
+              </div>
+              <div style={{ margin: "30px 10px" }}>
+                <ArrowRightOutlined />
+              </div>
+              <div>
+                <Flex vertical>
+                  <span>見込価格</span>
+                  <Input prefix={"¥"} />
+                </Flex>
+              </div>
+            </Flex>
+          </div>
+        </Flex>
+      </Flex>
       <Divider
         style={{
           borderColor: "rgba(230, 230, 230, 0.6)",
@@ -422,4 +357,4 @@ const BasicInformationAccessories = () => {
   );
 };
 
-export default BasicInformationAccessories;
+export default BasicInformationGoldEmpty;

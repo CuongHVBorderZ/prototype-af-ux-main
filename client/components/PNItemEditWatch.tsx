@@ -22,13 +22,16 @@ import {
 } from "antd";
 import React from "react";
 import EstimatePrice from "./EstimatePrice";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import FooterPNItemEdit from "./FooterPNItemEdit";
+import BasicInformationWatchEmpty from "./BasicInformationWatchEmpty";
 const { Content } = Layout;
 const { Title, Paragraph, Text, Link } = Typography;
 
 // eslint-disable-next-line react/prop-types
 const PNItemEditWatch = () => {
+  const [searchParams] = useSearchParams();
+  const mode = searchParams.get("mode");
   return (
     <>
       <div
@@ -42,7 +45,11 @@ const PNItemEditWatch = () => {
               paddingRight: "20px",
             }}
           >
-            <BasicInformationWatch></BasicInformationWatch>
+            {mode == "new" ? (
+              <BasicInformationWatchEmpty></BasicInformationWatchEmpty>
+            ) : (
+              <BasicInformationWatch></BasicInformationWatch>
+            )}
           </Col>
           <Col
             span={12}

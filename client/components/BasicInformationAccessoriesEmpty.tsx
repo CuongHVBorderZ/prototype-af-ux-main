@@ -44,7 +44,7 @@ import type { TreeSelectProps } from "antd";
 import TextArea from "antd/es/input/TextArea";
 
 // eslint-disable-next-line react/prop-types
-const BasicInformationAccessories = () => {
+const BasicInformationAccessoriesEmpty = () => {
   const [form] = Form.useForm();
   const [accessories, setAccessories] = useState([
     "あまりゴマ",
@@ -205,7 +205,6 @@ const BasicInformationAccessories = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue={"ピアジェ"}
             >
               <Option value="ピアジェ">ピアジェ</Option>
             </Select>
@@ -224,7 +223,6 @@ const BasicInformationAccessories = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue={"パゴダ"}
             >
               <Option value="パゴダ">パゴダ</Option>
             </Select>
@@ -240,7 +238,6 @@ const BasicInformationAccessories = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue={"94024NK81"}
             >
               <Option value="94024NK81">94024NK81</Option>
               <Option value="94024NK82">94024NK82</Option>
@@ -276,7 +273,6 @@ const BasicInformationAccessories = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue={"SS"}
               placeholder="未選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
@@ -297,7 +293,6 @@ const BasicInformationAccessories = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue={"AT"}
               placeholder="未選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
@@ -321,7 +316,6 @@ const BasicInformationAccessories = () => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue={"白ホリコン"}
               placeholder="選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
@@ -345,7 +339,6 @@ const BasicInformationAccessories = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue={"N"}
             >
               <Option value="N">N</Option>
               <Option value="S">S</Option>
@@ -367,7 +360,6 @@ const BasicInformationAccessories = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue={"S"}
             >
               <Option value="S">S</Option>
               <Option value="M">M</Option>
@@ -387,7 +379,6 @@ const BasicInformationAccessories = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue={"男性"}
             >
               <Option value="男性">男性</Option>
               <Option value="女性">女性</Option>
@@ -422,4 +413,4 @@ const BasicInformationAccessories = () => {
   );
 };
 
-export default BasicInformationAccessories;
+export default BasicInformationAccessoriesEmpty;

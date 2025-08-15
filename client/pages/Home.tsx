@@ -891,7 +891,7 @@ export default function Home() {
           <Button
             shape="circle"
             icon={<EditOutlined />}
-            onClick={() => handleEditRow(record.key)}
+            onClick={() => handleEditRow(record)}
           />
 
           <Button
@@ -915,8 +915,12 @@ export default function Home() {
     }
   };
   const navigate = useNavigate();
-  const handleEditRow = (id) => {
-    navigate("/" + id + "/detail");
+  const handleEditRow = (record) => {
+    if (!record.name) {
+      navigate(`/${record.key}/detail?mode=new`);
+    } else {
+      navigate(`/${record.key}/detail`);
+    }
   };
 
   const [isMarketPriceOpen, setIsMarketPriceOpen] = useState(false);
@@ -1042,7 +1046,7 @@ export default function Home() {
               <span style={{ color: "#00000073", float: "right" }}>(F2)</span>
             </div>
           ),
-          onClick: () => handleEditRow(currentRecord.key),
+          onClick: () => handleEditRow(currentRecord),
         },
         {
           key: "2",

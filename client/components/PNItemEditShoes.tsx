@@ -25,12 +25,16 @@ import BasicInformationGold from "./BasicInformationGold";
 import EstimatePrice from "./EstimatePrice";
 import BasicInformationShoes from "./BasicInformationShoes";
 import FooterPNItemEdit from "./FooterPNItemEdit";
+import { useSearchParams } from "react-router-dom";
+import BasicInformationShoesEmpty from "./BasicInformationShoesEmpty";
 const { Content } = Layout;
 const { Title, Paragraph, Text, Link } = Typography;
 
 // eslint-disable-next-line react/prop-types
 const PNItemEditShoes = () => {
   const [api, contextHolder] = notification.useNotification();
+  const [searchParams] = useSearchParams();
+  const mode = searchParams.get("mode");
   return (
     <>
       <div
@@ -45,7 +49,11 @@ const PNItemEditShoes = () => {
               paddingRight: "20px",
             }}
           >
-            <BasicInformationShoes></BasicInformationShoes>
+            {mode == "new" ? (
+              <BasicInformationShoesEmpty></BasicInformationShoesEmpty>
+            ) : (
+              <BasicInformationShoes></BasicInformationShoes>
+            )}
           </Col>
           <Col
             span={12}
@@ -56,7 +64,7 @@ const PNItemEditShoes = () => {
               paddingLeft: "20px",
             }}
           >
-            <EstimatePrice></EstimatePrice>
+            <EstimatePrice updateStatusAssessed={undefined}></EstimatePrice>
           </Col>
         </Row>
         {/* Action Buttons */}

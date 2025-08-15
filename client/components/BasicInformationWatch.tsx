@@ -375,7 +375,7 @@ const BasicInformationWatch = () => {
           >
             <Select
               defaultValue={"白ホリコン"}
-              placeholder="��選択"
+              placeholder="選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
