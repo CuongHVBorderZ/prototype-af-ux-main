@@ -16,6 +16,7 @@ import {
   Space,
   Typography,
   Image,
+  Divider,
 } from "antd";
 import {
   FileImageOutlined,
@@ -28,6 +29,7 @@ import { Search } from "lucide-react";
 import Layout from "antd/es/layout/layout";
 import Dragger from "antd/es/upload/Dragger";
 import { useNavigate } from "react-router-dom";
+import HeaderPNItemEdit from "@/components/HeaderPNItemEdit";
 
 const { TabPane } = Tabs;
 const { Option } = Select;
@@ -35,7 +37,6 @@ const { Option } = Select;
 const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
   const [searchKeyword, setSearchKeyword] = useState("");
   const [excludeKeyword, setExcludeKeyword] = useState("");
-  const [category, setCategory] = useState("");
   const [conditionRank, setConditionRank] = useState("");
   const [salesPeriod, setSalesPeriod] = useState("直近1ヶ月");
   const [sortBy, setSortBy] = useState("実売日: 降順");
@@ -501,6 +502,8 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
     );
   };
 
+  const [editableStr, setEditableStr] = useState("エクスプローラー36 124270");
+  const [category, setCategory] = useState(["parent1", "parent10", "leaf1"]);
   return (
     <Drawer
       open={isOpen}
@@ -515,6 +518,14 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
             "Source Sans Pro, -apple-system, Roboto, Helvetica, sans-serif",
         }}
       >
+        <HeaderPNItemEdit
+          category={category}
+          onCategoryChange={undefined}
+          onOpenSearchDrawer={undefined}
+          editableStr={editableStr}
+          setEditableStr={setEditableStr}
+        ></HeaderPNItemEdit>
+        <Divider />
         <div className="flex w-full">
           {/* Left Sidebar */}
           <div className="w-96 p-6 bg-white border-r border-gray-200 flex-shrink-0">

@@ -481,7 +481,7 @@ const StateDefinition = ({ updateStatusAssessed }) => {
   ];
 
   return (
-    <div style={{ padding: "20px 24px 24px 24px" }}>
+    <div style={{ padding: "20px" }}>
       {contextHolder}
       <Collapse ghost items={items} />
       {/* 状態異常・ダメージなしの総合ランク */}

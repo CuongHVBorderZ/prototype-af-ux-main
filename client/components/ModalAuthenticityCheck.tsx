@@ -27,6 +27,16 @@ const ModalAuthenticityCheck: React.FC<AuthenticityCheckProps> = ({
       <div>
         {/* Check Item 1 */}
         <div style={{ marginBottom: "24px" }}>
+          {/* <Text
+            style={{
+              color: "#666",
+              fontSize: "22px",
+              fontFamily: "Source Sans Pro",
+            }}
+          >
+            VD真贋チェック
+          </Text> */}
+
           <div
             style={{
               display: "flex",

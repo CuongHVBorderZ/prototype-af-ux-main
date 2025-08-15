@@ -1311,7 +1311,17 @@ export default function Home() {
         <HearingInformation open={hearingOpen} setOpen={setHearingOpen} />
         <SaleInstruction open={instructionOpen} setOpen={setInstructionOpen} />
 
-        {type === "modal" ? (
+        {type === "drawer" ? (
+          <DrawerCheckAuthentication
+            isOpen={openCheckAuthentication}
+            onClose={() => {
+              setOpenCheckAuthentication(false);
+            }}
+            onSave={() => {
+              handleSaveCheckAuthentication();
+            }}
+          ></DrawerCheckAuthentication>
+        ) : (
           <Modal
             open={openCheckAuthentication}
             onOk={() => {
@@ -1341,17 +1351,6 @@ export default function Home() {
               }}
             ></ModalAuthenticityCheck>
           </Modal>
-          
-        ) : (
-          <DrawerCheckAuthentication
-            isOpen={openCheckAuthentication}
-            onClose={() => {
-              setOpenCheckAuthentication(false);
-            }}
-            onSave={() => {
-              handleSaveCheckAuthentication();
-            }}
-          ></DrawerCheckAuthentication>
         )}
         <Modal
           open={openStateDefinition}

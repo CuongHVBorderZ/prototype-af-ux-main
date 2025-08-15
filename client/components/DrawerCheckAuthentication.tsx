@@ -1,4 +1,4 @@
-import { Drawer } from "antd";
+import { Divider, Drawer } from "antd";
 import React, { useState } from "react";
 import ModalAuthenticityCheck from "./ModalAuthenticityCheck";
 import HeaderPNItemEdit from "./HeaderPNItemEdit";
@@ -16,7 +16,14 @@ const DrawerCheckAuthentication = ({ isOpen, onClose, onSave }) => {
       width="100%"
       title="VD真贋チェック"
     >
-      
+      {/* <HeaderPNItemEdit
+        category={category}
+        onCategoryChange={undefined}
+        onOpenSearchDrawer={undefined}
+        editableStr={editableStr}
+        setEditableStr={setEditableStr}
+      ></HeaderPNItemEdit> */}
+      {/* <Divider /> */}
       <ModalAuthenticityCheck
         cancel={() => {
           onClose();
