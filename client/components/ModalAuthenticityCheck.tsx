@@ -64,6 +64,7 @@ const ModalAuthenticityCheck: React.FC<AuthenticityCheckProps> = ({
                 style={{
                   border: "1px solid #52C41A",
                   borderRadius: "8px",
+                  width: "100%",
                 }}
               >
                 <div
@@ -126,6 +127,7 @@ const ModalAuthenticityCheck: React.FC<AuthenticityCheckProps> = ({
                 style={{
                   border: "1px solid #F5222D",
                   borderRadius: "8px",
+                  width: "100%",
                 }}
               >
                 <div
@@ -231,6 +233,7 @@ const ModalAuthenticityCheck: React.FC<AuthenticityCheckProps> = ({
                 style={{
                   border: "1px solid #52C41A",
                   borderRadius: "8px",
+                  width: "100%",
                 }}
               >
                 <div
@@ -293,6 +296,7 @@ const ModalAuthenticityCheck: React.FC<AuthenticityCheckProps> = ({
                 style={{
                   border: "1px solid #F5222D",
                   borderRadius: "8px",
+                  width: "100%",
                 }}
               >
                 <div
@@ -374,28 +378,20 @@ const ModalAuthenticityCheck: React.FC<AuthenticityCheckProps> = ({
         <div style={{ display: "flex", gap: "16px" }}>
           <Button
             style={{ width: "150px" }}
-            onClick={() => {
-              cancel();
-            }}
-          >
-            下書きを保存
-          </Button>
-          <Button
-            style={{ width: "150px", display: "none" }}
-            onClick={() => {
-              cancel();
-            }}
-          >
-            クリア
-          </Button>
-          <Button
-            style={{ width: "150px" }}
             type="primary"
             onClick={() => {
               save();
             }}
           >
-            保存
+            確定
+          </Button>
+          <Button
+            style={{ width: "150px" }}
+            onClick={() => {
+              cancel();
+            }}
+          >
+            キャンセル
           </Button>
         </div>
 
@@ -423,6 +419,7 @@ const ModalAuthenticityCheck: React.FC<AuthenticityCheckProps> = ({
                 strokeWidth="2"
               />
             </svg>
+            <span>真贋問題なし、対象外の項目</span>
           </div>
           <div
             style={{
@@ -439,6 +436,7 @@ const ModalAuthenticityCheck: React.FC<AuthenticityCheckProps> = ({
                 strokeWidth="2"
               />
             </svg>
+            <span>判断に迷う、確認不可</span>
           </div>
           <div
             style={{
@@ -452,6 +450,7 @@ const ModalAuthenticityCheck: React.FC<AuthenticityCheckProps> = ({
               <path d="M13.5 4.5L4.5 13.5" stroke="black" strokeWidth="2" />
               <path d="M4.5 4.5L13.5 13.5" stroke="black" strokeWidth="2" />
             </svg>
+            <span>規定外の疑いあり</span>
           </div>
         </div>
 

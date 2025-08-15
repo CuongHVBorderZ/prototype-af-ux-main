@@ -254,6 +254,18 @@ const BasicInformationGold = () => {
         </Col>
         <Col span={12}>{/* Empty space */}</Col>
       </Row>
+      <Row gutter={16}>
+        <Col span={12}>
+          <Form.Item
+            label="&nbsp;"
+            name="modelNumber"
+            style={{ marginBottom: "16px" }}
+          >
+            <Checkbox>刻印確認済み</Checkbox>
+          </Form.Item>
+        </Col>
+        <Col span={12}>{/* Empty space */}</Col>
+      </Row>
 
       <Divider
         style={{

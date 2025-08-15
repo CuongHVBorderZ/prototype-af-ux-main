@@ -30,7 +30,7 @@ import {
   Typography,
 } from "antd";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import MarketPrice from "./MarketPrice";
 import HearingInformation from "@/components/HearingInformation";
 import SaleInstruction from "@/components/SaleInstruction";
@@ -97,6 +97,9 @@ const PNItemEdit = () => {
   };
 
   const [editableStr, setEditableStr] = useState("エクスプローラー36 124270");
+
+  const [searchParams] = useSearchParams();
+  const type = searchParams.get("type");
 
   return (
     <>

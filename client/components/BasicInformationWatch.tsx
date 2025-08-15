@@ -47,7 +47,7 @@ const BasicInformationWatch = () => {
   const [form] = Form.useForm();
   const [accessories, setAccessories] = useState([
     "あまりゴマ",
-    "��",
+    "あま",
     "並行ギャラ",
   ]);
 
@@ -278,7 +278,7 @@ const BasicInformationWatch = () => {
       <Row gutter={16}>
         <Col span={12}>
           <Form.Item
-            label=""
+            label="&nbsp;"
             name="modelNumber"
             style={{ marginBottom: "16px" }}
           >
@@ -580,18 +580,19 @@ const BasicInformationWatch = () => {
         onCancel={() => {
           setOpenCheckAuthentication(false);
         }}
-        title="ヒアリング項目"
+        title="VD真贋チェック"
         okText="確認"
         cancelText="キャンセル"
         width={{
           xs: "90%",
           sm: "80%",
           md: "70%",
-          lg: "60%",
-          xl: "50%",
-          xxl: "50%",
+          lg: "70%",
+          xl: "70%",
+          xxl: "70%",
         }}
         footer={null}
+        style={{ top: 20 }}
       >
         <ModalAuthenticityCheck
           cancel={() => setOpenCheckAuthentication(false)}
