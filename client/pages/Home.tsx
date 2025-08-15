@@ -60,6 +60,7 @@ import SaleInstruction from "@/components/SaleInstruction";
 import AuthenticityCheck from "@/components/feature/AuthenticityCheck";
 import ModalAuthenticityCheck from "@/components/ModalAuthenticityCheck";
 import StateDefinition from "@/components/feature/StateDefinition";
+import DrawerCheckAuthentication from "@/components/DrawerCheckAuthentication";
 
 const { Title, Paragraph, Text, Link } = Typography;
 
@@ -1147,6 +1148,9 @@ export default function Home() {
     );
   };
 
+  const [searchParams] = useSearchParams();
+  const type = searchParams.get("type");
+
   return (
     <>
       {loading && (
@@ -1307,35 +1311,48 @@ export default function Home() {
         <HearingInformation open={hearingOpen} setOpen={setHearingOpen} />
         <SaleInstruction open={instructionOpen} setOpen={setInstructionOpen} />
 
-        <Modal
-          open={openCheckAuthentication}
-          onOk={() => {
-            setOpenCheckAuthentication(false);
-          }}
-          onCancel={() => {
-            setOpenCheckAuthentication(false);
-          }}
-          title="VD真贋チェック"
-          okText="確認"
-          cancelText="キャンセル"
-          width={{
-            xs: "90%",
-            sm: "80%",
-            md: "70%",
-            lg: "70%",
-            xl: "70%",
-            xxl: "70%",
-          }}
-          footer={null}
-          style={{ top: 20 }}
-        >
-          <ModalAuthenticityCheck
-            cancel={() => setOpenCheckAuthentication(false)}
-            save={(data) => {
+        {type === "modal" ? (
+          <Modal
+            open={openCheckAuthentication}
+            onOk={() => {
+              setOpenCheckAuthentication(false);
+            }}
+            onCancel={() => {
+              setOpenCheckAuthentication(false);
+            }}
+            title="VD真贋チェック"
+            okText="確認"
+            cancelText="キャンセル"
+            width={{
+              xs: "90%",
+              sm: "80%",
+              md: "70%",
+              lg: "70%",
+              xl: "70%",
+              xxl: "70%",
+            }}
+            footer={null}
+            style={{ top: 20 }}
+          >
+            <ModalAuthenticityCheck
+              cancel={() => setOpenCheckAuthentication(false)}
+              save={(data) => {
+                handleSaveCheckAuthentication();
+              }}
+            ></ModalAuthenticityCheck>
+          </Modal>
+          
+        ) : (
+          <DrawerCheckAuthentication
+            isOpen={openCheckAuthentication}
+            onClose={() => {
+              setOpenCheckAuthentication(false);
+            }}
+            onSave={() => {
               handleSaveCheckAuthentication();
             }}
-          ></ModalAuthenticityCheck>
-        </Modal>
+          ></DrawerCheckAuthentication>
+        )}
         <Modal
           open={openStateDefinition}
           onOk={() => {
