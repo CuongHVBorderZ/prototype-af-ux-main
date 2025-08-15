@@ -518,14 +518,6 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
             "Source Sans Pro, -apple-system, Roboto, Helvetica, sans-serif",
         }}
       >
-        <HeaderPNItemEdit
-          category={category}
-          onCategoryChange={undefined}
-          onOpenSearchDrawer={undefined}
-          editableStr={editableStr}
-          setEditableStr={setEditableStr}
-        ></HeaderPNItemEdit>
-        <Divider />
         <div className="flex w-full">
           {/* Left Sidebar */}
           <div className="w-96 p-6 bg-white border-r border-gray-200 flex-shrink-0">
