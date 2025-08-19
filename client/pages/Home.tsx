@@ -122,19 +122,19 @@ interface DataType {
   _comment: string;
   check_state_definition: boolean;
   check_authen_checked: boolean;
+  deal_closed: boolean;
 }
 const initialData: DataType[] = [
   {
     key: "1",
     id: 1,
-    manage_no: "A3793665",
-    product_name:
-      "ロレックス コスモグラフデイトナ 116500LN T5J78405 SS SS AT 黒文字盤 あまりごまなし",
-    purchase_price: 3395000,
-    prospective_selling_price: 3500000,
-    price_gross_profit: 105000,
-    final_gross_profit: 105000,
-    final_gross_profit_rate: 3,
+    manage_no: "",
+    product_name: "4℃ ダイヤ リング K10(PG) 1.4g",
+    purchase_price: 0,
+    prospective_selling_price: 0,
+    price_gross_profit: 0,
+    final_gross_profit: 0,
+    final_gross_profit_rate: 0,
     overseas_sale_price: 0,
     overseas_sale_price_date: null,
     overseas_sale_price_staff: null,
@@ -142,23 +142,24 @@ const initialData: DataType[] = [
     purchase_method: "0.店頭買取",
     shop_name: "33.NANBOYA姫路店_W",
     purchase_date: "2025-07-10",
-    category: "時計/腕時計/ロレックス",
+    category: "ブランドジュエリー",
     first_category: "時計",
     second_category: "腕時計",
     brand_category: "ロレックス",
-    production_number: "T5J78405",
+    production_number: "",
     face: "黒",
     material: null,
     watch_power: null,
     accessories_remainder_watch_band: null,
     reference_list_price: null,
-    serial_number: "T5J78405",
+    serial_number: "",
     model_name: "",
     model_number: "",
     rank: "",
     _comment: "",
     check_state_definition: false,
     check_authen_checked: false,
+    deal_closed: false,
   },
 ];
 const EditableCell: React.FC<{
@@ -421,15 +422,47 @@ export default function Home() {
 
   const save = (key: string, dataIndex: keyof DataType, value: any) => {
     setDataSource((prev) =>
-      prev.map((item) =>
-        item.key === key
-          ? {
-              ...item,
-              [dataIndex]: value,
-            }
-          : item,
-      ),
+      prev.map((item) => {
+        if (item.key !== key) return item;
+
+        let updates: Partial<DataType> = {
+          [dataIndex]: value,
+        };
+
+        if (dataIndex === "prospective_selling_price") {
+          const purchasePrice = Number(value);
+          const sellingPrice = Number(item.price_gross_profit || 0);
+          const newFGBValue = sellingPrice - purchasePrice;
+          const newFGBRateValue = purchasePrice
+            ? (newFGBValue * 100) / purchasePrice
+            : 0;
+
+          updates = {
+            ...updates,
+            final_gross_profit: newFGBValue,
+            final_gross_profit_rate: newFGBRateValue,
+          };
+        }
+
+        if (dataIndex === "price_gross_profit") {
+          const sellingPrice = Number(value);
+          const purchasePrice = Number(item.prospective_selling_price || 0);
+          const newFGBValue = sellingPrice - purchasePrice;
+          const newFGBRateValue = purchasePrice
+            ? (newFGBValue * 100) / purchasePrice
+            : 0;
+
+          updates = {
+            ...updates,
+            final_gross_profit: newFGBValue,
+            final_gross_profit_rate: newFGBRateValue,
+          };
+        }
+
+        return { ...item, ...updates };
+      }),
     );
+
     setEditingCell(null);
   };
 
@@ -474,6 +507,7 @@ export default function Home() {
         _comment: "",
         check_state_definition: false,
         check_authen_checked: false,
+        deal_closed: false,
       };
       setDataSource((prevData) => {
         const existingItemIndex = prevData.findIndex(
@@ -779,7 +813,7 @@ export default function Home() {
         ) : valueFinalProfit ? (
           "¥ " + Number(valueFinalProfit).toLocaleString("en-US")
         ) : (
-          "-"
+          "¥ 0"
         );
       },
       onCell: (record, rowIndex) => ({
@@ -823,14 +857,14 @@ export default function Home() {
             {content}
           </Tooltip>
         ) : valueFinalProfit ? (
-          valueFinalProfit + "%"
+          Number(valueFinalProfit.toFixed(2)) + "%"
         ) : (
-          "-"
+          "0%"
         );
       },
       onCell: (record, rowIndex) => ({
         className:
-          record.final_rate < 0
+          record.final_gross_profit_rate < 0
             ? "cell-red no-hover-cell"
             : "cell-normal no-hover-cell",
       }),
@@ -907,13 +941,14 @@ export default function Home() {
   };
 
   const onFinish = async () => {
-    if (dataSource.length >= 8) {
-      api.error({
-        message: "山仕切りの買取上限額を超過しました",
-        description: "¥5,000を超える山仕切りは個別に商品を登録してください。",
-      });
-      return;
-    }
+    localStorage.removeItem("listItems");
+    // if (dataSource.length >= 8) {
+    //   api.error({
+    //     message: "山仕切りの買取上限額を超過しました",
+    //     description: "¥5,000を超える山仕切りは個別に商品を登録してください。",
+    //   });
+    //   return;
+    // }
     setLoading(true);
     try {
       await fakeApiCall();
@@ -969,6 +1004,7 @@ export default function Home() {
       _comment: "",
       check_state_definition: false,
       check_authen_checked: false,
+      deal_closed: false,
     };
     if (id == "leaf1-1") {
       newItem = {
@@ -1006,6 +1042,7 @@ export default function Home() {
         _comment: "",
         check_state_definition: false,
         check_authen_checked: false,
+        deal_closed: false,
       };
     } else if (id == "leaf311-1") {
       newItem = {
@@ -1043,6 +1080,7 @@ export default function Home() {
         _comment: "",
         check_state_definition: false,
         check_authen_checked: false,
+        deal_closed: false,
       };
     }
     setDataSource((prev) => [...prev, newItem]);

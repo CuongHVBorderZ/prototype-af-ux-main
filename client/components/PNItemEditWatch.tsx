@@ -29,7 +29,12 @@ const { Content } = Layout;
 const { Title, Paragraph, Text, Link } = Typography;
 
 // eslint-disable-next-line react/prop-types
-const PNItemEditWatch = ({ handleChangePrice }) => {
+const PNItemEditWatch = ({
+  pnDetail,
+  handleChangePrice,
+  hasCheckAuthen,
+  upPNItem,
+}) => {
   const [searchParams] = useSearchParams();
   const mode = searchParams.get("mode");
   return (
@@ -48,7 +53,10 @@ const PNItemEditWatch = ({ handleChangePrice }) => {
             {mode == "new" ? (
               <BasicInformationWatchEmpty></BasicInformationWatchEmpty>
             ) : (
-              <BasicInformationWatch></BasicInformationWatch>
+              <BasicInformationWatch
+                hasCheckAuthen={hasCheckAuthen}
+                upPNItem={upPNItem}
+              ></BasicInformationWatch>
             )}
           </Col>
           <Col
@@ -61,6 +69,7 @@ const PNItemEditWatch = ({ handleChangePrice }) => {
           >
             <StateDefinition updateStatusAssessed={undefined}></StateDefinition>
             <EstimatePrice
+              pnDetail={pnDetail}
               updateStatusAssessed={undefined}
               handleChangePrice={handleChangePrice}
             ></EstimatePrice>

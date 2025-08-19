@@ -40,13 +40,17 @@ const { Title, Text } = Typography;
 const { Option } = Select;
 
 // eslint-disable-next-line react/prop-types
-const EstimatePrice = ({ updateStatusAssessed, handleChangePrice }) => {
+const EstimatePrice = ({
+  pnDetail,
+  updateStatusAssessed,
+  handleChangePrice,
+}) => {
   const [priceData, setPriceData] = useState({
-    initial: 0,
-    final: 0,
-    expected: 0,
-    finalProfit: 0,
-    finalProfitRate: "0",
+    initial: pnDetail.purchase_price,
+    final: pnDetail.prospective_selling_price,
+    expected: pnDetail.price_gross_profit,
+    finalProfit: pnDetail.final_gross_profit,
+    finalProfitRate: pnDetail.final_gross_profit_rate,
     established: true,
   });
 
@@ -60,12 +64,12 @@ const EstimatePrice = ({ updateStatusAssessed, handleChangePrice }) => {
   const numberFormatter = (value) => {
     return value
       ? `￥${value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
-      : "";
+      : "0";
   };
 
   const percentageFormatter = (value) => {
     const roundedValue = Math.round(value * 100);
-    return value ? `${roundedValue}%` : "";
+    return value ? `${roundedValue}%` : "0%";
   };
 
   const [api, contextHolder] = notification.useNotification();
@@ -75,9 +79,6 @@ const EstimatePrice = ({ updateStatusAssessed, handleChangePrice }) => {
       message: "成功",
       description: "データが正常に保存されました",
     });
-    // setTimeout(() => {
-    //   navigate("/");
-    // }, 700);
   };
 
   return (
@@ -164,7 +165,7 @@ const EstimatePrice = ({ updateStatusAssessed, handleChangePrice }) => {
               render: (text) => (
                 <Text>
                   {percentageFormatter(
-                    (priceData.expected - priceData.final) / priceData.initial,
+                    (priceData.expected - priceData.final) / priceData.final,
                   )}
                 </Text>
               ),

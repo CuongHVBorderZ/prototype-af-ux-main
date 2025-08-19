@@ -43,7 +43,7 @@ import TextArea from "antd/es/input/TextArea";
 import ModalAuthenticityCheck from "./ModalAuthenticityCheck";
 
 // eslint-disable-next-line react/prop-types
-const BasicInformationWatch = () => {
+const BasicInformationWatch = ({ hasCheckAuthen, upPNItem }) => {
   const [form] = Form.useForm();
   const [accessories, setAccessories] = useState([
     "あまりゴマ",
@@ -286,7 +286,7 @@ const BasicInformationWatch = () => {
               onClick={(e) => {
                 handleOnChangeCheckAuthen(e);
               }}
-              checked={true}
+              checked={hasCheckAuthen}
             >
               VD真贋チェック
             </Checkbox>
@@ -597,7 +597,7 @@ const BasicInformationWatch = () => {
         <ModalAuthenticityCheck
           cancel={() => setOpenCheckAuthentication(false)}
           save={(data) => {
-            console.log("Checked data:", data);
+            upPNItem("check_authen_checked", true);
             setOpenCheckAuthentication(false);
           }}
         ></ModalAuthenticityCheck>

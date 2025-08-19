@@ -272,41 +272,74 @@ const PNItemEdit = () => {
   const navigate = useNavigate();
   const onFinish = () => {
     savePNItem();
+
     api.success({
       message: "成功",
       description: "データが正常に保存されました",
     });
-    // setTimeout(() => {
-    //   navigate("/?applyItem=" + id);
-    // }, 700);
     setTimeout(() => {
       navigate("/");
     }, 700);
   };
 
   const savePNItem = () => {
-    if (pnDetail) {
-      const listItems = localStorage.getItem("listItems");
-      console.log(listItems);
-      let newList: DataType[] = [];
-      if (listItems) {
-        const parsed: DataType[] = JSON.parse(listItems);
-        newList = parsed.map((item) =>
-          item.key === pnDetail.key ? pnDetail : item,
-        );
-      } else {
-        newList = [pnDetail];
-      }
-      console.log(newList);
-      localStorage.setItem("listItems", JSON.stringify(newList));
+    if (!pnDetail) return;
+
+    const purchasePrice = Number(pnDetail.prospective_selling_price || 0);
+    const sellingPrice = Number(pnDetail.price_gross_profit || 0);
+
+    const finalProfit = sellingPrice - purchasePrice;
+    const finalProfitRate = purchasePrice
+      ? (finalProfit * 100) / purchasePrice
+      : 0;
+
+    const updatedPnDetail: DataType = {
+      ...pnDetail,
+      check_state_definition: true,
+      final_gross_profit: finalProfit,
+      final_gross_profit_rate: finalProfitRate,
+    };
+
+    const listItems = localStorage.getItem("listItems");
+    let newList: DataType[] = [];
+
+    if (listItems) {
+      const parsed: DataType[] = JSON.parse(listItems);
+      newList = parsed.map((item) =>
+        item.key === updatedPnDetail.key ? updatedPnDetail : item,
+      );
+    } else {
+      newList = [updatedPnDetail];
     }
+
+    localStorage.setItem("listItems", JSON.stringify(newList));
   };
 
   const handleChangePrice = (priceKey, priceValue) => {
     if (!pnDetail) return;
-    setPnDetail({
+
+    const updatedPNDetail = {
       ...pnDetail,
       [priceKey]: priceValue,
+    };
+
+    const finalProfit =
+      pnDetail.price_gross_profit - pnDetail.prospective_selling_price;
+    const finalProfitRate =
+      (finalProfit * 100) / pnDetail.prospective_selling_price;
+
+    setPnDetail({
+      ...updatedPNDetail,
+      final_gross_profit: finalProfit,
+      final_gross_profit_rate: Number(finalProfitRate),
+    });
+  };
+
+  const upPNItem = (key, value) => {
+    if (!pnDetail) return;
+    setPnDetail({
+      ...pnDetail,
+      [key]: value,
     });
   };
 
@@ -346,25 +379,48 @@ const PNItemEdit = () => {
             pnDetail={pnDetail}
           ></HeaderPNItemEdit>
           {value === "leaf1" && (
-            <PNItemEditWatch handleChangePrice={handleChangePrice} />
+            <PNItemEditWatch
+              pnDetail={pnDetail}
+              handleChangePrice={handleChangePrice}
+              hasCheckAuthen={pnDetail.check_authen_checked}
+              upPNItem={upPNItem}
+            />
           )}
           {value === "leaf21" && (
-            <PNItemEditGold handleChangePrice={handleChangePrice} />
+            <PNItemEditGold
+              pnDetail={pnDetail}
+              handleChangePrice={handleChangePrice}
+            />
           )}
           {value === "leaf311" && (
-            <PNItemEditBag handleChangePrice={handleChangePrice} />
+            <PNItemEditBag
+              pnDetail={pnDetail}
+              handleChangePrice={handleChangePrice}
+            />
           )}
           {value === "leaf41" && (
-            <PNItemEditShoes handleChangePrice={handleChangePrice} />
+            <PNItemEditShoes
+              pnDetail={pnDetail}
+              handleChangePrice={handleChangePrice}
+            />
           )}
           {value === "parent5" && (
-            <PNItemEditAccessories handleChangePrice={handleChangePrice} />
+            <PNItemEditAccessories
+              pnDetail={pnDetail}
+              handleChangePrice={handleChangePrice}
+            />
           )}
           {value === "parent6" && (
-            <PNItemEditJewelry handleChangePrice={handleChangePrice} />
+            <PNItemEditJewelry
+              pnDetail={pnDetail}
+              handleChangePrice={handleChangePrice}
+            />
           )}
           {value === "parent7" && (
-            <PNItemEditBrandJewelry handleChangePrice={handleChangePrice} />
+            <PNItemEditBrandJewelry
+              pnDetail={pnDetail}
+              handleChangePrice={handleChangePrice}
+            />
           )}
           {/* Action Buttons */}
           <FooterPNItemEdit onFinish={onFinish}></FooterPNItemEdit>

@@ -31,7 +31,7 @@ const { Content } = Layout;
 const { Title, Paragraph, Text, Link } = Typography;
 
 // eslint-disable-next-line react/prop-types
-const PNItemEditBag = ({ handleChangePrice }) => {
+const PNItemEditBag = ({ pnDetail, handleChangePrice }) => {
   const [api, contextHolder] = notification.useNotification();
   const [searchParams] = useSearchParams();
   const mode = searchParams.get("mode");
@@ -65,6 +65,7 @@ const PNItemEditBag = ({ handleChangePrice }) => {
             }}
           >
             <EstimatePrice
+              pnDetail={pnDetail}
               updateStatusAssessed={undefined}
               handleChangePrice={handleChangePrice}
             ></EstimatePrice>
