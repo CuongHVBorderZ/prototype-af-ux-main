@@ -967,14 +967,14 @@ export default function Home() {
   };
 
   const handleAddNewItem = (id) => {
-    const newId = Math.max(...dataSource.map((p) => Number(p.key))) + 1;
-    let newItem = {
-      key: newId + "",
+    const newId = Math.max(...dataSource.map((p) => Number(p.key)), 0) + 1;
+
+    // Base item chung
+    const baseItem = {
+      key: String(newId),
       id: newId,
-      manage_no: id ? "A3793665" : "",
-      product_name: id
-        ? "ロレックス コスモグラフデイトナ 116500LN T5J78405 SS SS AT 黒文字盤 あまりごまなし"
-        : "",
+      manage_no: "",
+      product_name: "",
       purchase_price: 0,
       prospective_selling_price: 0,
       price_gross_profit: 0,
@@ -984,20 +984,20 @@ export default function Home() {
       overseas_sale_price_date: null,
       overseas_sale_price_staff: null,
       high_price_check_by_name: null,
-      purchase_method: id ? "0.店頭買取" : 0,
-      shop_name: id ? "33.NANBOYA姫路店_W" : 0,
-      purchase_date: id ? "2025-07-10" : 0,
-      category: id ? "時計/腕時計/ロレックス" : "",
-      first_category: id ? "時計" : "",
-      second_category: id ? "腕時計" : "",
-      brand_category: id ? "ロレックス" : "",
-      production_number: id ? "T5J78405" : "",
-      face: id ? "黒" : "",
+      purchase_method: 0,
+      shop_name: 0,
+      purchase_date: 0,
+      category: "",
+      first_category: "",
+      second_category: "",
+      brand_category: "",
+      production_number: "",
+      face: "",
       material: null,
       watch_power: null,
       accessories_remainder_watch_band: null,
       reference_list_price: null,
-      serial_number: id ? "T5J78405" : "",
+      serial_number: "",
       model_name: "",
       model_number: "",
       rank: "",
@@ -1006,22 +1006,28 @@ export default function Home() {
       check_authen_checked: false,
       deal_closed: false,
     };
-    if (id == "leaf1-1") {
-      newItem = {
-        key: newId + "",
-        id: newId,
+
+    const overrides = {
+      default: id
+        ? {
+            manage_no: "",
+            product_name: "ダイヤ ネックレス Pt900×Pt850 13.9g 1.62",
+            purchase_method: "0.店頭買取",
+            shop_name: "33.NANBOYA姫路店_W",
+            purchase_date: "2025-07-10",
+            category: "ジュエリー",
+            first_category: "時計",
+            second_category: "腕時計",
+            brand_category: "ロレックス",
+            production_number: "",
+            face: "黒",
+            serial_number: "",
+          }
+        : {},
+      "leaf1-1": {
         manage_no: "A3793665",
         product_name:
           "ロレックス コスモグラフデイトナ 116500LN T5J78405 SS SS AT 黒文字盤 あまりごまなし",
-        purchase_price: 0,
-        prospective_selling_price: 0,
-        price_gross_profit: 0,
-        final_gross_profit: 0,
-        final_gross_profit_rate: 0,
-        overseas_sale_price: 0,
-        overseas_sale_price_date: null,
-        overseas_sale_price_staff: null,
-        high_price_check_by_name: null,
         purchase_method: "0.店頭買取",
         shop_name: "33.NANBOYA姫路店_W",
         purchase_date: "2025-07-10",
@@ -1031,35 +1037,12 @@ export default function Home() {
         brand_category: "ロレックス",
         production_number: "T5J78405",
         face: "黒",
-        material: null,
-        watch_power: null,
-        accessories_remainder_watch_band: null,
-        reference_list_price: null,
         serial_number: "T5J78405",
-        model_name: "",
-        model_number: "",
-        rank: "",
-        _comment: "",
-        check_state_definition: false,
-        check_authen_checked: false,
-        deal_closed: false,
-      };
-    } else if (id == "leaf311-1") {
-      newItem = {
-        key: newId + "",
-        id: newId,
+      },
+      "leaf311-1": {
         manage_no: "DP019614",
         product_name:
           "エルメス バーキン30 ルトゥルネ トゴ ブラック ゴールド金具 □H:2004年",
-        purchase_price: 0,
-        prospective_selling_price: 0,
-        price_gross_profit: 0,
-        final_gross_profit: 0,
-        final_gross_profit_rate: 0,
-        overseas_sale_price: 0,
-        overseas_sale_price_date: null,
-        overseas_sale_price_staff: null,
-        high_price_check_by_name: null,
         purchase_method: "0.店頭買取",
         shop_name: "69.NANBOYA天満橋京阪シティモール店_W",
         purchase_date: "2025-06-29",
@@ -1069,20 +1052,16 @@ export default function Home() {
         brand_category: "エルメス",
         production_number: "バーキン30",
         face: "黒",
-        material: null,
-        watch_power: null,
-        accessories_remainder_watch_band: null,
-        reference_list_price: null,
         serial_number: "バーキン30",
         model_name: "バーキン30",
-        model_number: "",
-        rank: "",
-        _comment: "",
-        check_state_definition: false,
-        check_authen_checked: false,
-        deal_closed: false,
-      };
-    }
+      },
+    };
+
+    const newItem = {
+      ...baseItem,
+      ...(overrides[id] || overrides.default),
+    };
+
     setDataSource((prev) => [...prev, newItem]);
   };
 
