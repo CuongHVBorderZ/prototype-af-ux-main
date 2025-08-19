@@ -218,10 +218,14 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
     if (category == "leaf1") {
       products[0].name =
         "ロレックス コスモグラフデイトナ 116500LN T5J78405 SS SS AT 黒文字盤 あまりごまなし";
+      products[1].name =
+        "ロレックス デイトジャスト 69173G T897685 SS×YG AT シャンパン文字盤 あまりごま4";
     }
     if (category == "leaf311") {
       products[0].name =
         "エルメス バーキン30 ルトゥルネ トゴ ブラック ゴールド金具 □H:2004年";
+      products[1].name =
+        "ジバンシィ GV3 レザー×スエード チェーンショルダーバッグ";
     }
     return products;
   });

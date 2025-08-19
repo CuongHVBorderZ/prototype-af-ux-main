@@ -1055,6 +1055,25 @@ export default function Home() {
         production_number: "T5J78405",
         face: "黒",
         serial_number: "T5J78405",
+        model_name: "コスモグラフデイトナ",
+        model_number: "116500LN",
+      },
+      "leaf1-2": {
+        manage_no: "T897685",
+        product_name:
+          "ロレックス デイトジャスト 69173G T897685 SS×YG AT シャンパン文字盤 あまりごま4",
+        purchase_method: "13.他社仕入れ",
+        shop_name: "Valuence_リテールMD課",
+        purchase_date: "2025-07-10",
+        category: "時計/腕時計/ロレックス",
+        first_category: "時計",
+        second_category: "腕時計",
+        brand_category: "ロレックス",
+        production_number: "T897685",
+        face: "黒",
+        serial_number: "T897685",
+        model_name: "デイトジャスト",
+        model_number: "69173G",
       },
       "leaf311-1": {
         manage_no: "DP019614",
@@ -1071,6 +1090,22 @@ export default function Home() {
         face: "黒",
         serial_number: "バーキン30",
         model_name: "バーキン30",
+      },
+      "leaf311-2": {
+        manage_no: "DP019614",
+        product_name:
+          "ジバンシィ GV3 レザー×スエード チェーンショルダーバッグ グレー×ボルドー",
+        purchase_method: "0.店頭買取",
+        shop_name: "69.02.NANBOYA梅田店_W",
+        purchase_date: "2025-06-29",
+        category: "バッグ/ハンドバッグ/エルメス",
+        first_category: "バッグ",
+        second_category: "ハンドバッグ",
+        brand_category: "ジバンシィ",
+        production_number: "A2893930",
+        face: "黒",
+        serial_number: "A2893930",
+        model_name: "A2893930",
       },
     };
 

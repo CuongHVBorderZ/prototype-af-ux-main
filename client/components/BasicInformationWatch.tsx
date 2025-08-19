@@ -204,7 +204,7 @@ const BasicInformationWatch = ({ hasCheckAuthen, upPNItem, pnDetail }) => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue={"ロレックス"}
+              defaultValue={pnDetail.brand_category}
             >
               <Option value="ロレックス">ロレックス</Option>
               <Option value="オメガ">オメガ</Option>
@@ -226,7 +226,7 @@ const BasicInformationWatch = ({ hasCheckAuthen, upPNItem, pnDetail }) => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue={"コスモグラフデイトナ"}
+              defaultValue={pnDetail.model_name}
             >
               <Option value="エクスプローラー36">エクスプローラー36</Option>
               <Option value="デイトジャスト41">デイトジャスト41</Option>
@@ -236,6 +236,7 @@ const BasicInformationWatch = ({ hasCheckAuthen, upPNItem, pnDetail }) => {
               <Option value="シードゥエラー4000">シードゥエラー4000</Option>
               <Option value="H.デイデイト40">デイデイト40</Option>
               <Option value="コスモグラフデイトナ">コスモグラフデイトナ</Option>
+              <Option value="デイトジャスト">デイトジャスト</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -252,9 +253,10 @@ const BasicInformationWatch = ({ hasCheckAuthen, upPNItem, pnDetail }) => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue={"116500LN"}
+              defaultValue={pnDetail.model_number}
             >
-              <Option value="01445">116500LN</Option>
+              <Option value="116500LN">116500LN</Option>
+              <Option value="69173G">69173G</Option>
               <Option value="00.10615.08.13.21">00.10615.08.13.21</Option>
               <Option value="00.10615.08.53.01">00.10615.08.53.01</Option>
               <Option value="00.10618.13.53.01">00.10618.13.53.01</Option>
@@ -310,7 +312,7 @@ const BasicInformationWatch = ({ hasCheckAuthen, upPNItem, pnDetail }) => {
             name="serialNumber"
             style={{ marginBottom: "16px" }}
           >
-            <Input defaultValue={"T5J78405"} />
+            <Input defaultValue={pnDetail.serial_number} />
           </Form.Item>
         </Col>
         <Col span={12}>
