@@ -31,8 +31,8 @@ const HeaderPNItemEdit = ({
   category,
   onCategoryChange,
   onOpenSearchDrawer,
-  editableStr,
   setEditableStr,
+  pnDetail,
 }) => {
   interface Option {
     value: string;
@@ -182,7 +182,7 @@ const HeaderPNItemEdit = ({
               style={{ marginBottom: "0", marginRight: "5px", width: "520px" }}
               editable={{ onChange: setEditableStr }}
             >
-              {editableStr}
+              {pnDetail ? pnDetail.product_name : ""}
             </Title>
           </Flex>
         </Flex>

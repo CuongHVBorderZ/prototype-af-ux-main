@@ -27,19 +27,11 @@ const { Content } = Layout;
 const { Title, Paragraph, Text, Link } = Typography;
 
 // eslint-disable-next-line react/prop-types
-const FooterPNItemEdit = () => {
+const FooterPNItemEdit = ({ onFinish }) => {
   const [api, contextHolder] = notification.useNotification();
   const { id } = useParams();
   const navigate = useNavigate();
-  const onFinish = () => {
-    api.success({
-      message: "成功",
-      description: "データが正常に保存されました",
-    });
-    setTimeout(() => {
-      navigate("/?applyItem=" + id);
-    }, 700);
-  };
+
   const backToHome = () => {
     navigate("/");
   };

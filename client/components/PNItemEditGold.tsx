@@ -30,7 +30,7 @@ const { Content } = Layout;
 const { Title, Paragraph, Text, Link } = Typography;
 
 // eslint-disable-next-line react/prop-types
-const PNItemEditGold = () => {
+const PNItemEditGold = ({ handleChangePrice }) => {
   const [api, contextHolder] = notification.useNotification();
   const [searchParams] = useSearchParams();
   const mode = searchParams.get("mode");
@@ -63,7 +63,10 @@ const PNItemEditGold = () => {
               paddingLeft: "20px",
             }}
           >
-            <EstimatePrice updateStatusAssessed={undefined}></EstimatePrice>
+            <EstimatePrice
+              updateStatusAssessed={undefined}
+              handleChangePrice={handleChangePrice}
+            ></EstimatePrice>
           </Col>
         </Row>
       </div>

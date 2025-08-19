@@ -40,13 +40,13 @@ const { Title, Text } = Typography;
 const { Option } = Select;
 
 // eslint-disable-next-line react/prop-types
-const EstimatePrice = ({ updateStatusAssessed }) => {
+const EstimatePrice = ({ updateStatusAssessed, handleChangePrice }) => {
   const [priceData, setPriceData] = useState({
-    initial: 1150000,
-    final: 1180000,
-    expected: 1280000,
-    finalProfit: 100000,
-    finalProfitRate: "10％",
+    initial: 0,
+    final: 0,
+    expected: 0,
+    finalProfit: 0,
+    finalProfitRate: "0",
     established: true,
   });
 
@@ -104,7 +104,10 @@ const EstimatePrice = ({ updateStatusAssessed }) => {
               render: (text) => (
                 <PriceInput
                   value={text}
-                  onChange={(value) => updateProfit("initial", value)}
+                  onChange={(value) => {
+                    updateProfit("initial", value);
+                    handleChangePrice("purchase_price", value);
+                  }}
                 />
               ),
             },
@@ -117,7 +120,10 @@ const EstimatePrice = ({ updateStatusAssessed }) => {
               render: (text) => (
                 <PriceInput
                   value={text}
-                  onChange={(value) => updateProfit("final", value)}
+                  onChange={(value) => {
+                    updateProfit("final", value);
+                    handleChangePrice("prospective_selling_price", value);
+                  }}
                 />
               ),
             },
@@ -130,7 +136,10 @@ const EstimatePrice = ({ updateStatusAssessed }) => {
               render: (text) => (
                 <PriceInput
                   value={text}
-                  onChange={(value) => updateProfit("expected", value)}
+                  onChange={(value) => {
+                    updateProfit("expected", value);
+                    handleChangePrice("price_gross_profit", value);
+                  }}
                 />
               ),
             },

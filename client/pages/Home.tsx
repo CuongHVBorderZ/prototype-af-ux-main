@@ -67,24 +67,6 @@ const { Title, Paragraph, Text, Link } = Typography;
 const { Content } = Layout;
 const { confirm } = Modal;
 
-interface DataType {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
-  category?: string;
-  productnumber_weight?: string;
-  serial_number?: string;
-  note?: string;
-  initial_offer_amount?: number;
-  first_offer_price?: number;
-  expected_price?: number;
-  final_gross_profit?: number;
-  final_rate?: number;
-  check_authen_checked?: boolean;
-  check_state_definition?: boolean;
-}
-
 interface RowContextProps {
   setActivatorNodeRef?: (element: HTMLElement | null) => void;
   listeners?: any;
@@ -106,130 +88,77 @@ const DragHandle: React.FC = () => {
   );
 };
 
+interface DataType {
+  key: string;
+  id: number;
+  manage_no: string;
+  product_name: string;
+  purchase_price: number;
+  prospective_selling_price: number;
+  price_gross_profit: number;
+  final_gross_profit: number;
+  final_gross_profit_rate: number;
+  overseas_sale_price: number;
+  overseas_sale_price_date: string | null;
+  overseas_sale_price_staff: string | null;
+  high_price_check_by_name: string | null;
+  purchase_method: string;
+  shop_name: string;
+  purchase_date: string;
+  category: string;
+  first_category: string;
+  second_category: string;
+  brand_category: string;
+  production_number: string;
+  face: string;
+  material: string | null;
+  watch_power: string | null;
+  accessories_remainder_watch_band: string | null;
+  reference_list_price: string | null;
+  serial_number: string;
+  model_name: string;
+  model_number: string;
+  rank: string;
+  _comment: string;
+  check_state_definition: boolean;
+  check_authen_checked: boolean;
+}
 const initialData: DataType[] = [
   {
     key: "1",
-    name: "エクスプローラー36 124270",
-    age: 32,
-    address: "",
+    id: 1,
+    manage_no: "A3793665",
+    product_name:
+      "ロレックス コスモグラフデイトナ 116500LN T5J78405 SS SS AT 黒文字盤 あまりごまなし",
+    purchase_price: 3395000,
+    prospective_selling_price: 3500000,
+    price_gross_profit: 105000,
+    final_gross_profit: 105000,
+    final_gross_profit_rate: 3,
+    overseas_sale_price: 0,
+    overseas_sale_price_date: null,
+    overseas_sale_price_staff: null,
+    high_price_check_by_name: null,
+    purchase_method: "0.店頭買取",
+    shop_name: "33.NANBOYA姫路店_W",
+    purchase_date: "2025-07-10",
     category: "時計/腕時計/ロレックス",
-    productnumber_weight: "",
-    serial_number: "",
-    note: "",
-    initial_offer_amount: 0,
-    first_offer_price: 0,
-    expected_price: 0,
-    final_gross_profit: 0,
-    final_rate: 0,
-    check_authen_checked: false,
+    first_category: "時計",
+    second_category: "腕時計",
+    brand_category: "ロレックス",
+    production_number: "T5J78405",
+    face: "黒",
+    material: null,
+    watch_power: null,
+    accessories_remainder_watch_band: null,
+    reference_list_price: null,
+    serial_number: "T5J78405",
+    model_name: "",
+    model_number: "",
+    rank: "",
+    _comment: "",
     check_state_definition: false,
-  },
-  {
-    key: "2",
-    name: "ヴィトン モノグラム ミニランノエリー M9268...",
-    age: 42,
-    address: "",
-    category: "地金/金",
-    productnumber_weight: "",
-    serial_number: "",
-    note: "",
-    initial_offer_amount:
-      Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
-    first_offer_price:
-      Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
-    expected_price: Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
-    final_gross_profit:
-      Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
-    final_rate: 20,
     check_authen_checked: false,
-    check_state_definition: false,
-  },
-  {
-    key: "3",
-    name: "トラックトレイル レース スニーカー",
-    age: 32,
-    address: "",
-    category: "バッグ/ハンドバッグ/エルメス",
-    productnumber_weight: "",
-    serial_number: "",
-    note: "",
-    initial_offer_amount: 0,
-    first_offer_price: 0,
-    expected_price: 0,
-    final_gross_profit: 0,
-    final_rate: 0,
-    check_authen_checked: false,
-    check_state_definition: false,
-  },
-  {
-    key: "4",
-    name: "",
-    age: 42,
-    address: "",
-    category: "アパレル・靴/靴",
-    productnumber_weight: "",
-    serial_number: "",
-    note: "",
-    initial_offer_amount:
-      Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
-    first_offer_price:
-      Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
-    expected_price: Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
-    final_gross_profit:
-      -1 * (Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000),
-    final_rate: -10,
-    check_authen_checked: false,
-    check_state_definition: false,
-  },
-  {
-    key: "5",
-    name: "",
-    age: 42,
-    address: "",
-    category: "ジュエリー",
-    productnumber_weight: "",
-    serial_number: "",
-    note: "",
-    initial_offer_amount: 0,
-    first_offer_price: 0,
-    expected_price: 0,
-    final_gross_profit: 0,
-    final_rate: 0,
-    check_authen_checked: false,
-    check_state_definition: false,
-  },
-  {
-    key: "6",
-    name: "",
-    age: 42,
-    address: "",
-    category: "ブランドジュエリー",
-    productnumber_weight: "PN456 / 20g",
-    serial_number: "",
-    initial_offer_amount: 0,
-    first_offer_price: 0,
-    expected_price: 0,
-    final_gross_profit: 0,
-    final_rate: 0,
-    check_authen_checked: false,
-    check_state_definition: false,
-  },
-  {
-    key: "7",
-    name: "",
-    age: 42,
-    address: "",
-    category: "バッグ/ハンドバッグ/ヴィトン",
-    productnumber_weight: "",
-    serial_number: "",
-    note: "",
-    initial_offer_amount: 0,
-    first_offer_price: 0,
-    expected_price: 0,
-    final_gross_profit: 0,
-    final_rate: 0,
-    check_authen_checked: false,
-    check_state_definition: false,
   },
 ];
 const EditableCell: React.FC<{
@@ -263,9 +192,9 @@ const EditableCell: React.FC<{
   let customDisplayedText = false;
   let displayedText = null;
   if (
-    dataIndex == "initial_offer_amount" ||
-    dataIndex == "first_offer_price" ||
-    dataIndex == "expected_price"
+    dataIndex == "purchase_price" ||
+    dataIndex == "prospective_selling_price" ||
+    dataIndex == "price_gross_profit"
   ) {
     displayedText =
       Number(record?.[dataIndex!]) > 0
@@ -460,7 +389,10 @@ export default function Home() {
   const [urlParams] = useSearchParams();
   const [api, contextHolder] = notification.useNotification();
 
-  const [dataSource, setDataSource] = useState<DataType[]>(initialData);
+  const [dataSource, setDataSource] = useState<DataType[]>(() => {
+    const listItems = localStorage.getItem("listItems");
+    return listItems ? JSON.parse(listItems) : initialData;
+  });
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
   const [editingCell, setEditingCell] = useState<{
     key: string;
@@ -475,6 +407,10 @@ export default function Home() {
   const [openGoldEstimatePrice, setOpenGoldEstimatePrice] = useState(false);
 
   const [selectedRow, setSelectedRow] = useState<DataType>();
+
+  useEffect(() => {
+    localStorage.setItem("listItems", JSON.stringify(dataSource));
+  }, [dataSource]);
 
   const handleOnChangeStateDefinition = (e) => {
     setOpenStateDefinition(true);
@@ -505,24 +441,39 @@ export default function Home() {
       const id = parseInt(String(applyItem));
       const newItem: DataType = {
         key: id.toString(),
-        name: "エクスプローラー35 324270",
-        age: 0,
-        address: "",
+        id: id,
+        manage_no: "A3793665",
+        product_name:
+          "ノースフェイス ポリエステル ダウンジャケット XL ブラック×ホワイト",
+        purchase_price: 0,
+        prospective_selling_price: 0,
+        price_gross_profit: 0,
+        final_gross_profit: 0,
+        final_gross_profit_rate: 0,
+        overseas_sale_price: 0,
+        overseas_sale_price_date: null,
+        overseas_sale_price_staff: null,
+        high_price_check_by_name: null,
+        purchase_method: "0.店頭買取",
+        shop_name: "33.NANBOYA姫路店_W",
+        purchase_date: "2025-07-10",
         category: "時計/腕時計/ロレックス",
-        productnumber_weight: "",
-        serial_number: "",
-        note: "",
-        initial_offer_amount:
-          Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
-        first_offer_price:
-          Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
-        expected_price:
-          Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
-        final_gross_profit:
-          Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
-        final_rate: 10,
-        check_authen_checked: true,
-        check_state_definition: true,
+        first_category: "時計",
+        second_category: "腕時計",
+        brand_category: "ロレックス",
+        production_number: "T5J78405",
+        face: "黒",
+        material: null,
+        watch_power: null,
+        accessories_remainder_watch_band: null,
+        reference_list_price: null,
+        serial_number: "T5J78405",
+        model_name: "",
+        model_number: "",
+        rank: "",
+        _comment: "",
+        check_state_definition: false,
+        check_authen_checked: false,
       };
       setDataSource((prevData) => {
         const existingItemIndex = prevData.findIndex(
@@ -593,35 +544,37 @@ export default function Home() {
     },
     {
       title: "型番 / 重量",
-      key: "productnumber_weight",
-      dataIndex: "productnumber_weight",
+      key: "production_number",
+      dataIndex: "production_number",
       width: 150,
       onCell: (record) => ({
         record,
-        dataIndex: "productnumber_weight",
+        dataIndex: "production_number",
         editing:
           editingCell?.key === record.key &&
-          editingCell?.dataIndex === "productnumber_weight",
+          editingCell?.dataIndex === "production_number",
         onSave: save,
         onClick: () =>
           setEditingCell({
             key: record.key,
-            dataIndex: "productnumber_weight",
+            dataIndex: "production_number",
           }),
       }),
     },
     {
       title: "商品名",
-      key: "name",
-      dataIndex: "name",
+      key: "product_name",
+      dataIndex: "product_name",
       width: 350,
       onCell: (record) => ({
         record,
-        dataIndex: "name",
+        dataIndex: "product_name",
         editing:
-          editingCell?.key === record.key && editingCell?.dataIndex === "name",
+          editingCell?.key === record.key &&
+          editingCell?.dataIndex === "product_name",
         onSave: save,
-        onClick: () => setEditingCell({ key: record.key, dataIndex: "name" }),
+        onClick: () =>
+          setEditingCell({ key: record.key, dataIndex: "product_name" }),
       }),
     },
     {
@@ -642,16 +595,18 @@ export default function Home() {
     },
     {
       title: "補足",
-      key: "note",
-      dataIndex: "note",
+      key: "_comment",
+      dataIndex: "_comment",
       width: 200,
       onCell: (record) => ({
         record,
-        dataIndex: "note",
+        dataIndex: "_comment",
         editing:
-          editingCell?.key === record.key && editingCell?.dataIndex === "note",
+          editingCell?.key === record.key &&
+          editingCell?.dataIndex === "_comment",
         onSave: save,
-        onClick: () => setEditingCell({ key: record.key, dataIndex: "note" }),
+        onClick: () =>
+          setEditingCell({ key: record.key, dataIndex: "_comment" }),
       }),
     },
     {
@@ -710,63 +665,66 @@ export default function Home() {
     },
     {
       title: "初回提示金額",
-      key: "initial_offer_amount",
-      dataIndex: "initial_offer_amount",
+      key: "purchase_price",
+      dataIndex: "purchase_price",
       width: 150,
       onCell: (record) => ({
         record,
-        dataIndex: "initial_offer_amount",
+        dataIndex: "purchase_price",
         editing:
           editingCell?.key === record.key &&
-          editingCell?.dataIndex === "initial_offer_amount",
+          editingCell?.dataIndex === "purchase_price",
         onSave: save,
         onClick: () =>
           setEditingCell({
             key: record.key,
-            dataIndex: "initial_offer_amount",
+            dataIndex: "purchase_price",
           }),
         className:
-          Number(record.initial_offer_amount) <= 0
+          Number(record.purchase_price) <= 0
             ? "cell-yellow no-hover-cell"
             : "cell-normal no-hover-cell",
       }),
     },
     {
       title: "最終提示金額",
-      key: "first_offer_price",
-      dataIndex: "first_offer_price",
+      key: "prospective_selling_price",
+      dataIndex: "prospective_selling_price",
       width: 150,
       onCell: (record) => ({
         record,
-        dataIndex: "first_offer_price",
+        dataIndex: "prospective_selling_price",
         editing:
           editingCell?.key === record.key &&
-          editingCell?.dataIndex === "first_offer_price",
+          editingCell?.dataIndex === "prospective_selling_price",
         onSave: save,
         onClick: () =>
-          setEditingCell({ key: record.key, dataIndex: "first_offer_price" }),
+          setEditingCell({
+            key: record.key,
+            dataIndex: "prospective_selling_price",
+          }),
         className:
-          Number(record.first_offer_price) <= 0
+          Number(record.prospective_selling_price) <= 0
             ? "cell-yellow no-hover-cell"
             : "cell-normal no-hover-cell",
       }),
     },
     {
       title: "見込価格",
-      key: "expected_price",
-      dataIndex: "expected_price",
+      key: "price_gross_profit",
+      dataIndex: "price_gross_profit",
       width: 150,
       onCell: (record) => ({
         record,
-        dataIndex: "expected_price",
+        dataIndex: "price_gross_profit",
         editing:
           editingCell?.key === record.key &&
-          editingCell?.dataIndex === "expected_price",
+          editingCell?.dataIndex === "price_gross_profit",
         onSave: save,
         onClick: () =>
-          setEditingCell({ key: record.key, dataIndex: "expected_price" }),
+          setEditingCell({ key: record.key, dataIndex: "price_gross_profit" }),
         className:
-          Number(record.expected_price) <= 0
+          Number(record.price_gross_profit) <= 0
             ? "cell-yellow no-hover-cell"
             : "cell-normal no-hover-cell",
       }),
@@ -833,12 +791,12 @@ export default function Home() {
     },
     {
       title: "最終粗利率",
-      key: "final_rate",
-      dataIndex: "final_rate",
+      key: "final_gross_profit_rate",
+      dataIndex: "final_gross_profit_rate",
       width: 140,
-      className: "final_rate",
+      className: "final_gross_profit_rate",
       render: (_, record, index) => {
-        const valueFinalProfit = Number(record.final_rate);
+        const valueFinalProfit = Number(record.final_gross_profit_rate);
         const hasNegativeProfit = valueFinalProfit < 0;
         let content = <></>;
         if (valueFinalProfit < 0) {
@@ -922,7 +880,7 @@ export default function Home() {
   };
   const navigate = useNavigate();
   const handleEditRow = (record) => {
-    if (!record.name) {
+    if (!record.product_name) {
       navigate(`/${record.key}/detail?mode=new`);
     } else {
       navigate(`/${record.key}/detail`);
@@ -946,37 +904,6 @@ export default function Home() {
 
   const handleCloseDrawer = (key: boolean = undefined) => {
     setIsMarketPriceOpen(false);
-    if (key === null) {
-      const id = dataSource.length + 1;
-      const newItem: DataType = {
-        key: id.toString(),
-        name: "エクスプローラー35 324270",
-        age: 0,
-        address: "",
-        category: "時計/腕時計/ロレックス",
-        productnumber_weight: "",
-        serial_number: "",
-        note: "",
-        initial_offer_amount: 0,
-        first_offer_price: 0,
-        expected_price: 0,
-        final_gross_profit: 0,
-        final_rate: 0,
-      };
-      setDataSource((prevData) => {
-        const existingItemIndex = prevData.findIndex(
-          (item) => item.key === newItem.key,
-        );
-        if (existingItemIndex !== -1) {
-          const updatedData = [...prevData];
-          updatedData[existingItemIndex] = newItem;
-          return updatedData;
-        } else {
-          // Add new item
-          return [...prevData, newItem];
-        }
-      });
-    }
   };
 
   const onFinish = async () => {
@@ -1004,24 +931,125 @@ export default function Home() {
     }
   };
 
-  const addNewitem = () => {
+  const handleAddNewItem = (id) => {
     const newId = Math.max(...dataSource.map((p) => Number(p.key))) + 1;
-    const newItem = {
+    let newItem = {
       key: newId + "",
-      name: "",
-      age: 0,
-      address: "",
-      category: "",
-      productnumber_weight: "",
-      serial_number: "",
-      note: "",
-      initial_offer_amount: 0,
-      first_offer_price: 0,
-      expected_price: 0,
+      id: newId,
+      manage_no: id ? "A3793665" : "",
+      product_name: id
+        ? "ロレックス コスモグラフデイトナ 116500LN T5J78405 SS SS AT 黒文字盤 あまりごまなし"
+        : "",
+      purchase_price: 0,
+      prospective_selling_price: 0,
+      price_gross_profit: 0,
       final_gross_profit: 0,
-      final_rate: 0,
+      final_gross_profit_rate: 0,
+      overseas_sale_price: 0,
+      overseas_sale_price_date: null,
+      overseas_sale_price_staff: null,
+      high_price_check_by_name: null,
+      purchase_method: id ? "0.店頭買取" : 0,
+      shop_name: id ? "33.NANBOYA姫路店_W" : 0,
+      purchase_date: id ? "2025-07-10" : 0,
+      category: id ? "時計/腕時計/ロレックス" : "",
+      first_category: id ? "時計" : "",
+      second_category: id ? "腕時計" : "",
+      brand_category: id ? "ロレックス" : "",
+      production_number: id ? "T5J78405" : "",
+      face: id ? "黒" : "",
+      material: null,
+      watch_power: null,
+      accessories_remainder_watch_band: null,
+      reference_list_price: null,
+      serial_number: id ? "T5J78405" : "",
+      model_name: "",
+      model_number: "",
+      rank: "",
+      _comment: "",
+      check_state_definition: false,
+      check_authen_checked: false,
     };
+    if (id == "leaf1-1") {
+      newItem = {
+        key: newId + "",
+        id: newId,
+        manage_no: "A3793665",
+        product_name:
+          "ロレックス コスモグラフデイトナ 116500LN T5J78405 SS SS AT 黒文字盤 あまりごまなし",
+        purchase_price: 0,
+        prospective_selling_price: 0,
+        price_gross_profit: 0,
+        final_gross_profit: 0,
+        final_gross_profit_rate: 0,
+        overseas_sale_price: 0,
+        overseas_sale_price_date: null,
+        overseas_sale_price_staff: null,
+        high_price_check_by_name: null,
+        purchase_method: "0.店頭買取",
+        shop_name: "33.NANBOYA姫路店_W",
+        purchase_date: "2025-07-10",
+        category: "時計/腕時計/ロレックス",
+        first_category: "時計",
+        second_category: "腕時計",
+        brand_category: "ロレックス",
+        production_number: "T5J78405",
+        face: "黒",
+        material: null,
+        watch_power: null,
+        accessories_remainder_watch_band: null,
+        reference_list_price: null,
+        serial_number: "T5J78405",
+        model_name: "",
+        model_number: "",
+        rank: "",
+        _comment: "",
+        check_state_definition: false,
+        check_authen_checked: false,
+      };
+    } else if (id == "leaf311-1") {
+      newItem = {
+        key: newId + "",
+        id: newId,
+        manage_no: "DP019614",
+        product_name:
+          "エルメス バーキン30 ルトゥルネ トゴ ブラック ゴールド金具 □H:2004年",
+        purchase_price: 0,
+        prospective_selling_price: 0,
+        price_gross_profit: 0,
+        final_gross_profit: 0,
+        final_gross_profit_rate: 0,
+        overseas_sale_price: 0,
+        overseas_sale_price_date: null,
+        overseas_sale_price_staff: null,
+        high_price_check_by_name: null,
+        purchase_method: "0.店頭買取",
+        shop_name: "69.NANBOYA天満橋京阪シティモール店_W",
+        purchase_date: "2025-06-29",
+        category: "バッグ/ハンドバッグ/エルメス",
+        first_category: "バッグ",
+        second_category: "ハンドバッグ",
+        brand_category: "エルメス",
+        production_number: "バーキン30",
+        face: "黒",
+        material: null,
+        watch_power: null,
+        accessories_remainder_watch_band: null,
+        reference_list_price: null,
+        serial_number: "バーキン30",
+        model_name: "バーキン30",
+        model_number: "",
+        rank: "",
+        _comment: "",
+        check_state_definition: false,
+        check_authen_checked: false,
+      };
+    }
     setDataSource((prev) => [...prev, newItem]);
+  };
+
+  const addNewitem = () => {
+    handleAddNewItem(null);
   };
 
   const handleRemoveItem = (id) => {
@@ -1103,15 +1131,15 @@ export default function Home() {
     };
 
     newStatisticValues.a = dataSource.reduce((sum, item) => {
-      const amount = Number(item.initial_offer_amount) || 0;
+      const amount = Number(item.purchase_price) || 0;
       return sum + amount;
     }, 0);
     newStatisticValues.b = dataSource.reduce((sum, item) => {
-      const amount = Number(item.first_offer_price) || 0;
+      const amount = Number(item.prospective_selling_price) || 0;
       return sum + amount;
     }, 0);
     newStatisticValues.c = dataSource.reduce((sum, item) => {
-      const amount = Number(item.expected_price) || 0;
+      const amount = Number(item.price_gross_profit) || 0;
       return sum + amount;
     }, 0);
     newStatisticValues.d = dataSource.reduce((sum, item) => {
@@ -1315,7 +1343,10 @@ export default function Home() {
         </div>
         <MarketPrice
           isOpen={isMarketPriceOpen}
-          setVisible={handleCloseDrawer}
+          setVisible={(applyItem, id) => {
+            handleAddNewItem(id);
+            handleCloseDrawer();
+          }}
           applyItem={null}
         />
         <HearingInformation open={hearingOpen} setOpen={setHearingOpen} />

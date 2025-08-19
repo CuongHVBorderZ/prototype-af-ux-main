@@ -193,7 +193,7 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
   const navigate = useNavigate();
 
   const mockProducts = mockCategories.flatMap((category) => {
-    return Array.from({ length: 5 }, (_, index) => ({
+    const products = Array.from({ length: 5 }, (_, index) => ({
       id: `${category}-${index + 1}`,
       category,
       image:
@@ -215,6 +215,15 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
       isHighlighted: index === 1,
       hasAuction: index === 2,
     }));
+    if (category == "leaf1") {
+      products[0].name =
+        "ロレックス コスモグラフデイトナ 116500LN T5J78405 SS SS AT 黒文字盤 あまりごまなし";
+    }
+    if (category == "leaf311") {
+      products[0].name =
+        "エルメス バーキン30 ルトゥルネ トゴ ブラック ゴールド金具 □H:2004年";
+    }
+    return products;
   });
 
   const handleColorSelect = (color: string) => {
@@ -636,7 +645,7 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
                             size="small"
                             className="hidden group-hover:inline-block transition-opacity"
                             onClick={() => {
-                              setVisible(applyItem);
+                              setVisible(applyItem, product.id);
                             }}
                           >
                             決定

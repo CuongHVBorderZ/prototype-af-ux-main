@@ -29,7 +29,7 @@ const { Content } = Layout;
 const { Title, Paragraph, Text, Link } = Typography;
 
 // eslint-disable-next-line react/prop-types
-const PNItemEditWatch = () => {
+const PNItemEditWatch = ({ handleChangePrice }) => {
   const [searchParams] = useSearchParams();
   const mode = searchParams.get("mode");
   return (
@@ -60,7 +60,10 @@ const PNItemEditWatch = () => {
             }}
           >
             <StateDefinition updateStatusAssessed={undefined}></StateDefinition>
-            <EstimatePrice updateStatusAssessed={undefined}></EstimatePrice>
+            <EstimatePrice
+              updateStatusAssessed={undefined}
+              handleChangePrice={handleChangePrice}
+            ></EstimatePrice>
           </Col>
         </Row>
       </div>
