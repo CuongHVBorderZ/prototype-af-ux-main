@@ -182,8 +182,8 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
 
   const mockCategories = [
     "leaf1",
-    "leaf21",
     "leaf311",
+    "leaf21",
     "leaf41",
     "parent5",
     "parent6",

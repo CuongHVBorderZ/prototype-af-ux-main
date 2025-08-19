@@ -46,11 +46,7 @@ import TextArea from "antd/es/input/TextArea";
 // eslint-disable-next-line react/prop-types
 const BasicInformationBag = () => {
   const [form] = Form.useForm();
-  const [accessories, setAccessories] = useState([
-    "あまりゴマ",
-    "��",
-    "並行ギャラ",
-  ]);
+  const [accessories, setAccessories] = useState(["あまりゴマ", "並行ギャラ"]);
 
   const treeData = [
     {
@@ -192,12 +188,7 @@ const BasicInformationBag = () => {
       <Row gutter={24}>
         <Col span={12}>
           <Form.Item
-            label={
-              <span>
-                <span style={{ color: "#FF4D4F", marginRight: "4px" }}>*</span>
-                ブランド
-              </span>
-            }
+            label={<span>ブランド</span>}
             name="brand"
             style={{ marginBottom: "16px" }}
           >
@@ -217,12 +208,7 @@ const BasicInformationBag = () => {
         </Col>
         <Col span={12}>
           <Form.Item
-            label={
-              <span>
-                <span style={{ color: "#FF4D4F", marginRight: "4px" }}>*</span>
-                ライン
-              </span>
-            }
+            label={<span>ライン</span>}
             name="modelName"
             style={{ marginBottom: "16px" }}
           >
@@ -242,9 +228,9 @@ const BasicInformationBag = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue={"モデル名-1"}
+              defaultValue={"バーキン30"}
             >
-              <Option value="モデル名-1">モデル名-1</Option>
+              <Option value="バーキン30">バーキン30</Option>
               <Option value="モデル名-2">モデル名-2</Option>
               <Option value="モデル名-3">モデル名-3</Option>
               <Option value="モデル名-4">モデル名-4</Option>
@@ -262,7 +248,6 @@ const BasicInformationBag = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue={"型番-1"}
             >
               <Option value="型番-1">型番-1</Option>
               <Option value="型番-2">型番-2</Option>
@@ -294,12 +279,7 @@ const BasicInformationBag = () => {
       <Row gutter={24}>
         <Col span={12}>
           <Form.Item
-            label={
-              <span>
-                <span style={{ color: "#FF4D4F", marginRight: "4px" }}>*</span>
-                シリアル
-              </span>
-            }
+            label={<span>シリアル</span>}
             name="brand"
             style={{ marginBottom: "16px" }}
           >
@@ -442,9 +422,9 @@ const BasicInformationBag = () => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue={"N"}
+              defaultValue={"AB"}
             >
-              <Option value="N">N</Option>
+              <Option value="AB">AB</Option>
               <Option value="S">S</Option>
               <Option value="SA">SA</Option>
               <Option value="A">A</Option>

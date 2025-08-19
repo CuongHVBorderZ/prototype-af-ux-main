@@ -420,6 +420,14 @@ export default function Home() {
     setOpenCheckAuthentication(true);
   };
 
+  const handleDealClosed = (record, isChecked) => {
+    setDataSource((prev) =>
+      prev.map((item) =>
+        item.key === record.key ? { ...item, deal_closed: isChecked } : item,
+      ),
+    );
+  };
+
   const save = (key: string, dataIndex: keyof DataType, value: any) => {
     setDataSource((prev) =>
       prev.map((item) => {
@@ -873,9 +881,14 @@ export default function Home() {
       title: "成立",
       key: "established",
       align: "center",
-      render: () => (
+      render: (_, record, index) => (
         <div style={{ textAlign: "center" }}>
-          <Checkbox />
+          <Checkbox
+            checked={record.deal_closed}
+            onChange={(e) => {
+              handleDealClosed(record, e.target.checked);
+            }}
+          />
         </div>
       ),
     },

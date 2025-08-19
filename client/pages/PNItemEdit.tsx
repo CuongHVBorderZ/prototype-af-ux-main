@@ -343,6 +343,36 @@ const PNItemEdit = () => {
     });
   };
 
+  const nextItem = () => {
+    if (!listItems.length) return;
+    const listItemsData: DataType[] = JSON.parse(listItems);
+    const currentIndex = listItemsData.findIndex(
+      (item) => item.id === Number(id),
+    );
+    if (currentIndex === -1) return;
+
+    const nextIndex = (currentIndex + 1) % listItemsData.length;
+    const nextId = listItemsData[nextIndex].id;
+
+    navigate(`/${nextId}/detail`);
+    window.location.reload();
+  };
+  const previousItem = () => {
+    if (!listItems.length) return;
+    const listItemsData: DataType[] = JSON.parse(listItems);
+    const currentIndex = listItemsData.findIndex(
+      (item) => item.id === Number(id),
+    );
+    if (currentIndex === -1) return;
+
+    const prevIndex =
+      (currentIndex - 1 + listItemsData.length) % listItemsData.length;
+    const prevId = listItemsData[prevIndex].id;
+
+    navigate(`/${prevId}/detail`);
+    window.location.reload();
+  };
+
   return (
     <>
       {loading && (
@@ -377,6 +407,8 @@ const PNItemEdit = () => {
             }}
             setEditableStr={setEditableStr}
             pnDetail={pnDetail}
+            nextItem={nextItem}
+            previousItem={previousItem}
           ></HeaderPNItemEdit>
           {value === "leaf1" && (
             <PNItemEditWatch

@@ -33,6 +33,8 @@ const HeaderPNItemEdit = ({
   onOpenSearchDrawer,
   setEditableStr,
   pnDetail,
+  nextItem,
+  previousItem,
 }) => {
   interface Option {
     value: string;
@@ -118,16 +120,6 @@ const HeaderPNItemEdit = ({
   const backToHome = () => {
     navigate("/");
   };
-
-  const nextItem = () => {
-    const nextId = Number(id) + 1;
-    navigate(`/${nextId}/detail`);
-  };
-  const previousItem = () => {
-    const previousId = Number(id) > 1 ? Number(id) - 1 : 5;
-    navigate(`/${previousId}/detail`);
-  };
-
   return (
     <>
       <Row style={{ backgroundColor: "white", padding: "20px" }}>
@@ -174,18 +166,16 @@ const HeaderPNItemEdit = ({
             画像から特定
           </Button>
         </Col>
-        <Flex gap="middle" style={{ width: "100%" }}>
-          <span>no.1</span>
-          <Flex>
-            <Title
-              level={4}
-              style={{ marginBottom: "0", marginRight: "5px", width: "520px" }}
-              editable={{ onChange: setEditableStr }}
-            >
-              {pnDetail ? pnDetail.product_name : ""}
-            </Title>
-          </Flex>
-        </Flex>
+        <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
+          <span style={{ width: "60px" }}>no.1</span>
+          <Title
+            level={4}
+            style={{ margin: 0, flex: 1 }}
+            editable={{ onChange: setEditableStr }}
+          >
+            {pnDetail ? pnDetail.product_name : ""}
+          </Title>
+        </div>
       </Row>
     </>
   );

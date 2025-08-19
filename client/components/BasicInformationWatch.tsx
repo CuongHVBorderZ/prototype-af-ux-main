@@ -43,7 +43,7 @@ import TextArea from "antd/es/input/TextArea";
 import ModalAuthenticityCheck from "./ModalAuthenticityCheck";
 
 // eslint-disable-next-line react/prop-types
-const BasicInformationWatch = ({ hasCheckAuthen, upPNItem }) => {
+const BasicInformationWatch = ({ hasCheckAuthen, upPNItem, pnDetail }) => {
   const [form] = Form.useForm();
   const [accessories, setAccessories] = useState([
     "あまりゴマ",
@@ -196,12 +196,7 @@ const BasicInformationWatch = ({ hasCheckAuthen, upPNItem }) => {
       <Row gutter={24}>
         <Col span={12}>
           <Form.Item
-            label={
-              <span>
-                <span style={{ color: "#FF4D4F", marginRight: "4px" }}>*</span>
-                ブランド
-              </span>
-            }
+            label={<span>ブランド</span>}
             name="brand"
             style={{ marginBottom: "16px" }}
           >
@@ -223,12 +218,7 @@ const BasicInformationWatch = ({ hasCheckAuthen, upPNItem }) => {
         </Col>
         <Col span={12}>
           <Form.Item
-            label={
-              <span>
-                <span style={{ color: "#FF4D4F", marginRight: "4px" }}>*</span>
-                モデル名
-              </span>
-            }
+            label={<span>モデル名</span>}
             name="modelName"
             style={{ marginBottom: "16px" }}
           >
@@ -236,7 +226,7 @@ const BasicInformationWatch = ({ hasCheckAuthen, upPNItem }) => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue={"エクスプローラー36"}
+              defaultValue={"コスモグラフデイトナ"}
             >
               <Option value="エクスプローラー36">エクスプローラー36</Option>
               <Option value="デイトジャスト41">デイトジャスト41</Option>
@@ -245,6 +235,7 @@ const BasicInformationWatch = ({ hasCheckAuthen, upPNItem }) => {
               <Option value="ヨットマスター40">ヨットマスター40</Option>
               <Option value="シードゥエラー4000">シードゥエラー4000</Option>
               <Option value="H.デイデイト40">デイデイト40</Option>
+              <Option value="コスモグラフデイトナ">コスモグラフデイトナ</Option>
             </Select>
           </Form.Item>
         </Col>
@@ -261,9 +252,9 @@ const BasicInformationWatch = ({ hasCheckAuthen, upPNItem }) => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue={"01445"}
+              defaultValue={"116500LN"}
             >
-              <Option value="01445">01445</Option>
+              <Option value="01445">116500LN</Option>
               <Option value="00.10615.08.13.21">00.10615.08.13.21</Option>
               <Option value="00.10615.08.53.01">00.10615.08.53.01</Option>
               <Option value="00.10618.13.53.01">00.10618.13.53.01</Option>
@@ -319,7 +310,7 @@ const BasicInformationWatch = ({ hasCheckAuthen, upPNItem }) => {
             name="serialNumber"
             style={{ marginBottom: "16px" }}
           >
-            <Input defaultValue={"製造番号"} />
+            <Input defaultValue={"T5J78405"} />
           </Form.Item>
         </Col>
         <Col span={12}>
@@ -333,7 +324,6 @@ const BasicInformationWatch = ({ hasCheckAuthen, upPNItem }) => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue={"SS"}
             >
               <Option value="SS">SS</Option>
               <Option value="SS×YG">SS×YG</Option>
@@ -357,7 +347,6 @@ const BasicInformationWatch = ({ hasCheckAuthen, upPNItem }) => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue={"AT"}
             >
               <Option value="AT">AT</Option>
               <Option value="QZ">QZ</Option>
@@ -374,7 +363,6 @@ const BasicInformationWatch = ({ hasCheckAuthen, upPNItem }) => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue={"白ホリコン"}
               placeholder="選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
@@ -398,7 +386,6 @@ const BasicInformationWatch = ({ hasCheckAuthen, upPNItem }) => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue={"バーインデックス"}
               placeholder="未選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
@@ -421,7 +408,6 @@ const BasicInformationWatch = ({ hasCheckAuthen, upPNItem }) => {
             style={{ marginBottom: "16px" }}
           >
             <Select
-              defaultValue={"200タキメーター"}
               placeholder="未選択"
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
@@ -457,7 +443,6 @@ const BasicInformationWatch = ({ hasCheckAuthen, upPNItem }) => {
       <Form.Item name="accessories" style={{ marginBottom: "16px" }}>
         <Select
           mode="multiple"
-          value={accessories}
           onChange={setAccessories}
           removeIcon={
             <CloseOutlined style={{ color: "rgba(0, 0, 0, 0.45)" }} />
@@ -487,7 +472,6 @@ const BasicInformationWatch = ({ hasCheckAuthen, upPNItem }) => {
               suffixIcon={
                 <DownOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />
               }
-              defaultValue={"あまりゴマ１"}
             >
               <Option value="あまりゴマ１">あまりゴマ１</Option>
               <Option value="あまりゴマ2">あまりゴマ2</Option>

@@ -308,7 +308,9 @@ const StateDefinition = ({ updateStatusAssessed }) => {
       key: "selected",
       width: 60,
       align: "center" as const,
-      render: (_: any, record: any) => <Checkbox />,
+      render: (_: any, record: any) => (
+        <Checkbox defaultChecked={Math.random() > 0.5} />
+      ),
     },
     {
       title: "該当部位",
@@ -327,6 +329,7 @@ const StateDefinition = ({ updateStatusAssessed }) => {
           }}
           // size="small"
           mode="multiple"
+          defaultValue={["ケース", "ベゼル"]}
           options={[
             { label: "ケース", value: "ケース" },
             { label: "ベゼル", value: "ベゼル" },
@@ -493,9 +496,9 @@ const StateDefinition = ({ updateStatusAssessed }) => {
         {/* ランクチェックボックス */}
         <div style={{ marginBottom: 24 }}>
           <Space size="large">
-            <Checkbox>Nランク</Checkbox>
-            <Checkbox>Sランク</Checkbox>
-            <Checkbox>SAランク</Checkbox>
+            <Checkbox defaultChecked={Math.random() > 0.5}>Nランク</Checkbox>
+            <Checkbox defaultChecked={Math.random() > 0.5}>Sランク</Checkbox>
+            <Checkbox defaultChecked={Math.random() > 0.5}>SAランク</Checkbox>
           </Space>
         </div>
 
@@ -569,6 +572,7 @@ const StateDefinition = ({ updateStatusAssessed }) => {
                   width: "100%",
                   height: "40px",
                 }}
+                defaultValue="Ａ"
                 options={[
                   { label: "Ｎ", value: "Ｎ" },
                   { label: "Ｓ", value: "Ｓ" },

@@ -56,6 +56,7 @@ const PNItemEditWatch = ({
               <BasicInformationWatch
                 hasCheckAuthen={hasCheckAuthen}
                 upPNItem={upPNItem}
+                pnDetail={pnDetail}
               ></BasicInformationWatch>
             )}
           </Col>
