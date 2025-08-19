@@ -964,6 +964,10 @@ export default function Home() {
     } finally {
       setLoading(false);
     }
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
   };
 
   const handleAddNewItem = (id) => {
@@ -1163,6 +1167,16 @@ export default function Home() {
       const amount = Number(item.final_gross_profit) || 0;
       return sum + amount;
     }, 0);
+    newStatisticValues.e = dataSource.reduce((sum, item) => {
+      const amount = Number(item.final_gross_profit) || 0;
+      return sum + amount;
+    }, 0);
+    newStatisticValues.f =
+      newStatisticValues.b !== 0
+        ? Number(
+            ((newStatisticValues.d * 100) / newStatisticValues.b).toFixed(2),
+          )
+        : 0;
     setStatisticValues(newStatisticValues);
   }, [dataSource]);
 

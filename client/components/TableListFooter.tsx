@@ -59,7 +59,7 @@ const TableListFooter = (statisticValues) => {
         <Statistic title="仕入高" value={statisticValues.c} prefix="¥" />
         <Statistic title="見込粗利高" value={statisticValues.d} prefix="¥" />
         <Statistic title="見込粗利率" value={statisticValues.e} prefix="¥" />
-        <Statistic title="成約率" value={statisticValues.f} prefix="¥" />
+        <Statistic title="成約率" value={statisticValues.f} suffix="%" />
       </Flex>
     </>
   );
