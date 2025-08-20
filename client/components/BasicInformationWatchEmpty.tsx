@@ -43,7 +43,7 @@ import TextArea from "antd/es/input/TextArea";
 import ModalAuthenticityCheck from "./ModalAuthenticityCheck";
 
 // eslint-disable-next-line react/prop-types
-const BasicInformationWatchEmpty = () => {
+const BasicInformationWatchEmpty = ({ hasCheckAuthen, upPNItem, pnDetail }) => {
   const [form] = Form.useForm();
   const [accessories, setAccessories] = useState([
     "あまりゴマ",
@@ -196,12 +196,7 @@ const BasicInformationWatchEmpty = () => {
       <Row gutter={24}>
         <Col span={12}>
           <Form.Item
-            label={
-              <span>
-                <span style={{ color: "#FF4D4F", marginRight: "4px" }}>*</span>
-                ブランド
-              </span>
-            }
+            label={<span>ブランド</span>}
             name="brand"
             style={{ marginBottom: "16px" }}
           >
@@ -222,12 +217,7 @@ const BasicInformationWatchEmpty = () => {
         </Col>
         <Col span={12}>
           <Form.Item
-            label={
-              <span>
-                <span style={{ color: "#FF4D4F", marginRight: "4px" }}>*</span>
-                モデル名
-              </span>
-            }
+            label={<span>モデル名</span>}
             name="modelName"
             style={{ marginBottom: "16px" }}
           >
@@ -283,6 +273,7 @@ const BasicInformationWatchEmpty = () => {
               onClick={(e) => {
                 handleOnChangeCheckAuthen(e);
               }}
+              checked={hasCheckAuthen}
             >
               VD真贋チェック
             </Checkbox>
@@ -586,6 +577,7 @@ const BasicInformationWatchEmpty = () => {
         <ModalAuthenticityCheck
           cancel={() => setOpenCheckAuthentication(false)}
           save={(data) => {
+            upPNItem("check_authen_checked", true);
             setOpenCheckAuthentication(false);
           }}
         ></ModalAuthenticityCheck>

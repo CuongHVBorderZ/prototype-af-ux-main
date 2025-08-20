@@ -51,7 +51,11 @@ const PNItemEditWatch = ({
             }}
           >
             {mode == "new" ? (
-              <BasicInformationWatchEmpty></BasicInformationWatchEmpty>
+              <BasicInformationWatchEmpty
+                hasCheckAuthen={hasCheckAuthen}
+                upPNItem={upPNItem}
+                pnDetail={pnDetail}
+              ></BasicInformationWatchEmpty>
             ) : (
               <BasicInformationWatch
                 hasCheckAuthen={hasCheckAuthen}

@@ -21,6 +21,7 @@ import {
   Tag,
   Pagination,
   Flex,
+  Modal,
 } from "antd";
 import {
   SearchOutlined,
@@ -42,9 +43,10 @@ const { Option } = Select;
 import { TreeSelect } from "antd";
 import type { TreeSelectProps } from "antd";
 import TextArea from "antd/es/input/TextArea";
+import ModalAuthenticityCheck from "./ModalAuthenticityCheck";
 
 // eslint-disable-next-line react/prop-types
-const BasicInformationBagEmpty = () => {
+const BasicInformationBagEmpty = ({ hasCheckAuthen, upPNItem }) => {
   const [form] = Form.useForm();
   const [accessories, setAccessories] = useState([
     "あまりゴマ",
@@ -176,7 +178,10 @@ const BasicInformationBagEmpty = () => {
   const onPopupScroll: TreeSelectProps["onPopupScroll"] = (e) => {
     console.log("onPopupScroll", e);
   };
-
+  const [openCheckAuthentication, setOpenCheckAuthentication] = useState(false);
+  const handleOnChangeCheckAuthen = (e) => {
+    setOpenCheckAuthentication(true);
+  };
   return (
     <div>
       <Title
@@ -192,12 +197,7 @@ const BasicInformationBagEmpty = () => {
       <Row gutter={24}>
         <Col span={12}>
           <Form.Item
-            label={
-              <span>
-                <span style={{ color: "#FF4D4F", marginRight: "4px" }}>*</span>
-                ブランド
-              </span>
-            }
+            label={<span>ブランド</span>}
             name="brand"
             style={{ marginBottom: "16px" }}
           >
@@ -216,12 +216,7 @@ const BasicInformationBagEmpty = () => {
         </Col>
         <Col span={12}>
           <Form.Item
-            label={
-              <span>
-                <span style={{ color: "#FF4D4F", marginRight: "4px" }}>*</span>
-                ライン
-              </span>
-            }
+            label={<span>ライン</span>}
             name="modelName"
             style={{ marginBottom: "16px" }}
           >
@@ -271,6 +266,25 @@ const BasicInformationBagEmpty = () => {
         </Col>
       </Row>
 
+      <Row gutter={16}>
+        <Col span={12}>
+          <Form.Item
+            label="&nbsp;"
+            name="modelNumber"
+            style={{ marginBottom: "16px" }}
+          >
+            <Checkbox
+              onClick={(e) => {
+                handleOnChangeCheckAuthen(e);
+              }}
+            >
+              VD真贋チェック
+            </Checkbox>
+          </Form.Item>
+        </Col>
+        <Col span={12}>{/* Empty space */}</Col>
+      </Row>
+
       <Divider
         style={{
           borderColor: "rgba(230, 230, 230, 0.6)",
@@ -291,12 +305,7 @@ const BasicInformationBagEmpty = () => {
       <Row gutter={24}>
         <Col span={12}>
           <Form.Item
-            label={
-              <span>
-                <span style={{ color: "#FF4D4F", marginRight: "4px" }}>*</span>
-                シリアル
-              </span>
-            }
+            label={<span>シリアル</span>}
             name="brand"
             style={{ marginBottom: "16px" }}
           >
@@ -315,12 +324,7 @@ const BasicInformationBagEmpty = () => {
         </Col>
         <Col span={12}>
           <Form.Item
-            label={
-              <span>
-                <span style={{ color: "#FF4D4F", marginRight: "4px" }}>*</span>
-                色
-              </span>
-            }
+            label={<span>色</span>}
             name="modelName"
             style={{ marginBottom: "16px" }}
           >
@@ -421,12 +425,7 @@ const BasicInformationBagEmpty = () => {
       <Row gutter={24}>
         <Col span={12}>
           <Form.Item
-            label={
-              <span>
-                <span style={{ color: "#FF4D4F", marginRight: "4px" }}>*</span>
-                ランク
-              </span>
-            }
+            label={<span>ランク</span>}
             name="brand"
             style={{ marginBottom: "16px" }}
           >
@@ -652,6 +651,36 @@ const BasicInformationBagEmpty = () => {
           </Form.Item>
         </Col>
       </Row>
+      <Modal
+        open={openCheckAuthentication}
+        onOk={() => {
+          setOpenCheckAuthentication(false);
+        }}
+        onCancel={() => {
+          setOpenCheckAuthentication(false);
+        }}
+        title="VD真贋チェック"
+        okText="確認"
+        cancelText="キャンセル"
+        width={{
+          xs: "90%",
+          sm: "80%",
+          md: "70%",
+          lg: "70%",
+          xl: "70%",
+          xxl: "70%",
+        }}
+        footer={null}
+        style={{ top: 20 }}
+      >
+        <ModalAuthenticityCheck
+          cancel={() => setOpenCheckAuthentication(false)}
+          save={(data) => {
+            upPNItem("check_authen_checked", true);
+            setOpenCheckAuthentication(false);
+          }}
+        ></ModalAuthenticityCheck>
+      </Modal>
     </div>
   );
 };

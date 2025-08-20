@@ -55,7 +55,10 @@ const PNItemEditBag = ({
             }}
           >
             {mode == "new" ? (
-              <BasicInformationBagEmpty></BasicInformationBagEmpty>
+              <BasicInformationBagEmpty
+                hasCheckAuthen={hasCheckAuthen}
+                upPNItem={upPNItem}
+              ></BasicInformationBagEmpty>
             ) : (
               <BasicInformationBag
                 hasCheckAuthen={hasCheckAuthen}
