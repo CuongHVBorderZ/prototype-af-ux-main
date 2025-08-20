@@ -31,7 +31,12 @@ const { Content } = Layout;
 const { Title, Paragraph, Text, Link } = Typography;
 
 // eslint-disable-next-line react/prop-types
-const PNItemEditBag = ({ pnDetail, handleChangePrice }) => {
+const PNItemEditBag = ({
+  pnDetail,
+  handleChangePrice,
+  hasCheckAuthen,
+  upPNItem,
+}) => {
   const [api, contextHolder] = notification.useNotification();
   const [searchParams] = useSearchParams();
   const mode = searchParams.get("mode");
@@ -52,7 +57,10 @@ const PNItemEditBag = ({ pnDetail, handleChangePrice }) => {
             {mode == "new" ? (
               <BasicInformationBagEmpty></BasicInformationBagEmpty>
             ) : (
-              <BasicInformationBag></BasicInformationBag>
+              <BasicInformationBag
+                hasCheckAuthen={hasCheckAuthen}
+                upPNItem={upPNItem}
+              ></BasicInformationBag>
             )}
           </Col>
           <Col
@@ -64,6 +72,7 @@ const PNItemEditBag = ({ pnDetail, handleChangePrice }) => {
               paddingLeft: "20px",
             }}
           >
+            <StateDefinition updateStatusAssessed={undefined}></StateDefinition>
             <EstimatePrice
               pnDetail={pnDetail}
               updateStatusAssessed={undefined}

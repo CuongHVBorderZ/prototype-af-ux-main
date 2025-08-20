@@ -205,6 +205,9 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
     }));
     return products;
   });
+
+  const [listProducts, setListProducts] = useState(mockProducts);
+
   const handleColorSelect = (color: string) => {
     setSelectedColors((prev) =>
       prev.includes(color) ? prev.filter((c) => c !== color) : [...prev, color],
@@ -597,7 +600,7 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
             {/* Product Grid */}
             {/* border-2 border-[#23B7E5] */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
-              {mockProducts.map((product) => (
+              {listProducts.map((product) => (
                 <div className="relative group" key={product.id}>
                   <Card
                     key={product.id}

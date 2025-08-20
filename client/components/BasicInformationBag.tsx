@@ -21,6 +21,7 @@ import {
   Tag,
   Pagination,
   Flex,
+  Modal,
 } from "antd";
 import {
   SearchOutlined,
@@ -42,9 +43,10 @@ const { Option } = Select;
 import { TreeSelect } from "antd";
 import type { TreeSelectProps } from "antd";
 import TextArea from "antd/es/input/TextArea";
+import ModalAuthenticityCheck from "./ModalAuthenticityCheck";
 
 // eslint-disable-next-line react/prop-types
-const BasicInformationBag = () => {
+const BasicInformationBag = ({ hasCheckAuthen, upPNItem }) => {
   const [form] = Form.useForm();
   const [accessories, setAccessories] = useState(["あまりゴマ", "並行ギャラ"]);
 
@@ -173,6 +175,11 @@ const BasicInformationBag = () => {
     console.log("onPopupScroll", e);
   };
 
+  const [openCheckAuthentication, setOpenCheckAuthentication] = useState(false);
+  const handleOnChangeCheckAuthen = (e) => {
+    setOpenCheckAuthentication(true);
+  };
+
   return (
     <div>
       <Title
@@ -257,6 +264,26 @@ const BasicInformationBag = () => {
             </Select>
           </Form.Item>
         </Col>
+      </Row>
+
+      <Row gutter={16}>
+        <Col span={12}>
+          <Form.Item
+            label="&nbsp;"
+            name="modelNumber"
+            style={{ marginBottom: "16px" }}
+          >
+            <Checkbox
+              onClick={(e) => {
+                handleOnChangeCheckAuthen(e);
+              }}
+              checked={hasCheckAuthen}
+            >
+              VD真贋チェック
+            </Checkbox>
+          </Form.Item>
+        </Col>
+        <Col span={12}>{/* Empty space */}</Col>
       </Row>
 
       <Divider
@@ -651,6 +678,36 @@ const BasicInformationBag = () => {
           </Form.Item>
         </Col>
       </Row>
+      <Modal
+        open={openCheckAuthentication}
+        onOk={() => {
+          setOpenCheckAuthentication(false);
+        }}
+        onCancel={() => {
+          setOpenCheckAuthentication(false);
+        }}
+        title="VD真贋チェック"
+        okText="確認"
+        cancelText="キャンセル"
+        width={{
+          xs: "90%",
+          sm: "80%",
+          md: "70%",
+          lg: "70%",
+          xl: "70%",
+          xxl: "70%",
+        }}
+        footer={null}
+        style={{ top: 20 }}
+      >
+        <ModalAuthenticityCheck
+          cancel={() => setOpenCheckAuthentication(false)}
+          save={(data) => {
+            upPNItem("check_authen_checked", true);
+            setOpenCheckAuthentication(false);
+          }}
+        ></ModalAuthenticityCheck>
+      </Modal>
     </div>
   );
 };

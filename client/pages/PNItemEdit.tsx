@@ -428,6 +428,8 @@ const PNItemEdit = () => {
             <PNItemEditBag
               pnDetail={pnDetail}
               handleChangePrice={handleChangePrice}
+              hasCheckAuthen={pnDetail.check_authen_checked}
+              upPNItem={upPNItem}
             />
           )}
           {value === "leaf41" && (
