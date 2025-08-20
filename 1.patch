@@ -1,13 +1,300 @@
-diff --git a/client/App.tsx b/client/App.tsx
-index affbfe4..aca0bcc 100644
---- a/client/App.tsx
-+++ b/client/App.tsx
-@@ -11,7 +11,7 @@ const queryClient = new QueryClient();
+diff --git a/client/pages/MarketPrice.tsx b/client/pages/MarketPrice.tsx
+index f35794a..a150df9 100644
+--- a/client/pages/MarketPrice.tsx
++++ b/client/pages/MarketPrice.tsx
+@@ -1,4 +1,4 @@
+-import React, { useRef, useState } from "react";
++import React, { useEffect, useRef, useState } from "react";
+ import {
+   Tabs,
+   Input,
+@@ -79,6 +79,12 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
+       "ゼニス エルプリメロ クロノマスター スポーツ 03.3100.3600/69.M3100 575205 SS AT 白文字盤 あまりごま3 　AB",
+       "ラドー ダイヤスター 152.0341.3 02738829 SS QZ 黒文字盤 あまりごま5",
+       "ティソ PR100 T101910A SS QZ グレー文字盤 あまりごま3",
++      "カルティエ マストタンク 590005 87887 925×社外革 QZ 白文字盤 あまりごまなし",
++      "ブルガリ ブルガリブルガリ BB38SSAUTO L11254 SS AT 黒文字盤 あまりごま2",
++      "タグホイヤー アクアレーサー WAJ2150 EBC5582 SS×YG AT 黒文字盤 あまりごまなし",
++      "ヴィトン タンブール ワールドツアー QA063 TV1583 SS×革 QZ 黒文字盤 あまりごまなし",
++      "オメガ シーマスター SS×社外SS AT シルバー文字盤 あまりごまなし",
++      "ヴァシュロンコンスタンタン オーバーシーズ 47450/000R-9404 PG PG×革 AT シルバー文字盤",
+     ],
+     leaf21: [
+       "ピアジェ 84023 536835 K81 YG QZ シャンパン文字盤 78.9ｇあまりごまなし",
+@@ -86,6 +92,11 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
+       "ヘレンド インドの華 テーブルウェア 5点セット プレートW25.6cm 底部に窯印",
+       "ダイヤ リング Pt900 3.8g 0.440 0.05 ネーム",
+       "クロス ボールペン 14K ゴールド×シルバー キズ くすみ 変色 筆記確認済 21.1g",
++      "ヴァレンティノガラヴァーニ メガネ 52□15-135 チタン×K18 ゴールド×シルバー キズ 割れ 汚れ 変色 くすみ 有 度付きレンズ 5263 総重量36.4g",
++      "純度チェック（刻印なし） 10.6g",
++      "K18 S 14g",
++      "K18 S 115.4g",
++      "K24 S 58.9g",
+     ],
+     leaf311: [
+       "エルメス バーキン30 ルトゥルネ トゴ ブラック ゴールド金具 □H:2004年",
+@@ -93,6 +104,11 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
+       "グッチ GGマーモント レザー チェーンショルダーバッグ ブラック×ホワイト 448065　SA:97点",
+       "プラダ エンブレム レザー ショルダーバッグ グリーン",
+       "クリスチャンディオール レディディオール カナージュ マイクロ レザー 2WAYハンドバッグ ブラック",
++      "クリスチャンディオール オブリーク ミニブックトート キャンバス 2WAYハンドバッグ ネイビー",
++      "ヴィトン モノグラム リバース アトランティス BB M46816 ブラウン RFID反応あり",
++      "プラダ カナパ キャンバスxスエード ハンドバッグ ブラウン",
++      "ミュウミュウ マテラッセ ワンダー レザー 2WAYハンドバッグ ピンク",
++      "ヴィトン モノグラム スピーディ25 M41109 ブラウン RFID反応あり",
+     ],
+     leaf41: [
+       "プレイコムデギャルソン×コンバース キャンバス ハイカットスニーカー 29cm メンズ ブラック×ホワイト",
+@@ -100,6 +116,11 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
+       "ヴァレンティノ コットン シャツ 46 ホワイト VV3CIA99729",
+       "モンクレール SALZMAN 21年 ナイロン ダウンジャケット 1 ホワイト",
+       "ノースフェイス ポリエステル ダウンジャケット XL ブラック×ホワイト NJ1DM76A",
++      "セリーヌ ウール ニット S メンズ ブラック 2A19R423P 毛羽立ち有",
++      "ヴィトン 24SS ナイロン ワンピース 38 レディース ブラック RW241WW",
++      "フェンディ フェンダーチェ 22年 シルク シャツ 38 レディース マルチカラー FS7891 ズッカ チェーン メドゥーサ ハンガー付き",
++      "フェンディ ズッカ 19年 レーヨン 半袖ニット 38 レディース ブラウン FZY702",
++      "クリスチャンディオール ウール ノースリーブワンピース F34 レディース ブラック 441R64A1486 ベルト有",
+     ],
+     parent5: [
+       "ヴィトン モノグラム ミュルティクレ6 M60701 フューシャピンク   178",
+@@ -107,6 +128,11 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
+       "ヴィトン バイカラー モノグラム アンプラント ジッピーウォレット M69794 トゥルトレールクレーム",
+       "シャネル ココマーク ピアス(両耳用 片方のみ) メタル×ラインストーン",
+       "ティファニー リターントゥティファニー ハートタグ ブレスレット 925 5.4g シルバー スレ くすみ 有 ボールチェーン",
++      "エルメス エルミーPPM ぬいぐるみ ポリエステル ブラウン",
++      "フェンディ チャーム キャンバス ブラック ITOチャーム ドッグモチーフ",
++      "シャネル マトラッセ キャビアスキン コンパクトウォレット ブラック ゴールド金具 ランダムシリアル",
++      "フェンディ ロゴ 8M0423 レザー コインケース シルバー",
++      "カルティエ マストドゥカルティエ ボールペン GP シルバー",
+     ],
+     parent6: [
+       "マルチカラー ダイヤ リング 750 22.9g 588 013 025 D020",
+@@ -114,6 +140,11 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
+       "エメラルド リング Pt900 6.9g 1.26 0.40",
+       "サファイア　スリランカ産非加熱リング　S14.55/D2.41",
+       "ダイヤ ネックレス Pt900×Pt850 13.9g 1.62",
++      "タサキ バランス エラ パール リング 750(YG) 5.6g 約8.0mm",
++      "エルメス シェーヌダンクルMM ブレスレット 13コマ 925 52.3g シルバー",
++      "ティファニー パール ピアス 750(WG) 3.6g",
++      "カルティエ ジュストアンクル SM ブレスレット 750(YG) 9.9g 17",
++      "ヴァンクリーフ&アーペル ヴィンテージアルハンブラ カーネリアン ネックレス 750(YG) 5.2g",
+     ],
+     parent7: [
+       "ミキモト パール イヤリング SV 4.4g 約5.0～5.5mm 刻印かすれ 地金変色",
+@@ -121,6 +152,11 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
+       "岩倉康二 色石 リング K18(YG)×Pt900 5.2g 石小カケ 接合跡",
+       "ヴァンドーム青山 ダイヤ リング K10(PG) 0.8g",
+       "4℃ ダイヤ リング K10(PG) 1.4g",
++      "ポメラート ヌード クラシック プラシオライト リング 750(PG×WG) 6.0g 53 PAA1100 06000 000PA",
++      "フレッド フォース10 ミディアム ダイヤ リング 750(WG) 3.4g 48",
++      "プラダ トライアングルプレート カチューシャ ナイロン ブラック",
++      "プラダ 1IB375 サフィアーノ バングル GP×革 ブラック×ゴールド",
++      "シャネル マドモアゼル 96P チョーカー GP×ラインストーン×革 ブラック×ゴールド ネックレス リボンモチーフ",
+     ],
+   };
+   const mockImages = {
+@@ -130,6 +166,12 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
+       "https://watchnian.com/img/goods/L/ik-00-0669358-2.jpg",
+       "https://tshop.r10s.jp/closer01/cabinet/item20211124/653737-1.jpg?fitin=720%3A720",
+       "https://image.nanboya.com/items/5410883/AP028590.JPG?size=medium",
++      "https://tshop.r10s.jp/kanteiyamagata/cabinet/08188394/21-2246-1.jpg?fitin=720%3A720",
++      "https://image.allu-official.com/item/1454009/655c0868390e6.webp",
++      "https://www.kanteikyoku-maebashi.jp/wp-content/uploads/2020/03/ab7e360095e7ce8036bb068e05a36811.jpg",
++      "https://d2i9ajxhye77uw.cloudfront.net/media/public/2143100320123_01.webp",
++      "https://image.allu-official.com/item/1565854/6654370aa38f6.webp",
++      "https://image.nanboya.com/ALLU/8053370/A3753430.JPG?size=large",
+     ],
+     leaf21: [
+       "https://image.nanboya.com/items/5771439/YZ055279.JPG?size=medium",
+@@ -137,6 +179,11 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
+       "https://euroclassics-ginza.com/FV730set.jpg",
+       "https://static.mercdn.net/item/detail/orig/photos/m28804215917_4.jpg?1737539692",
+       "https://image.allu-official.com/item/1615737/66fd19b514743.webp",
++      "https://shop.kind.co.jp/cdn/shop/files/8045001146663_2.jpg?v=1753796501&width=1200",
++      "https://tshop.r10s.jp/ippin78marutaka/cabinet/ring/23k130-1-1.jpg?fitin=720%3A720",
++      "https://i.ebayimg.com/images/g/OHcAAOSwbPlm4F4P/s-l400.jpg",
++      "https://tshop.r10s.jp/kanteidan/cabinet/05169507/05169510/imgrc0098900440.jpg?fitin=720%3A720",
++      "https://shop.r10s.jp/kanteikyoku-moriokaten/cabinet/_097/1240002061756_1.jpg",
+     ],
+     leaf311: [
+       "https://thumbnail.image.rakuten.co.jp/@0_mall/tokyo-brand/cabinet/tool/55/101783955_1.jpg",
+@@ -144,6 +191,11 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
+       "https://image1.shopserve.jp/brandpeace.jp/pic-labo/llimg/005254217-2.jpg?t=20240716110140",
+       "https://image.allu-official.com/item/1571369/6669282e24b96.webp",
+       "https://image.allu-official.com/item/1666314/67e013e7cf1c2.webp",
++      "https://image.nanboya.com/ALLU/8174974/A3842503.JPG?size=large",
++      "https://image.nanboya.com/ALLU/8159906/A3831634.JPG?size=large",
++      "https://image.nanboya.com/ALLU/8159883/A3831616.JPG?size=large",
++      "https://image.nanboya.com/ALLU/8179748/A3845782.JPG?size=large",
++      "https://image.nanboya.com/ALLU/8197020/A3858728.JPG?size=large",
+     ],
+     leaf41: [
+       "https://tshop.r10s.jp/cliffedge/cabinet/2005/20051204_1.jpg",
+@@ -151,6 +203,11 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
+       "https://img.fril.jp/img/773404147/l/2619874734.jpg?1751065501",
+       "https://image.allu-official.com/item/1654519/67596479262c2.webp",
+       "https://static.mercdn.net/item/detail/orig/photos/m61822286000_3.jpg?1733888090",
++      "https://image.nanboya.com/ALLU/8190118/A3853140.JPG?size=large",
++      "https://image.nanboya.com/ALLU/8101167/A3788338.JPG?size=large",
++      "https://image.nanboya.com/ALLU/7983215/A3703029.JPG?size=large",
++      "https://image.nanboya.com/ALLU/7973427/A3695686.JPG?size=large",
++      "https://image.nanboya.com/ALLU/7848046/A3601803.JPG?size=large",
+     ],
+     parent5: [
+       "https://image.allu-official.com/item/1728264/67ca220ee90f5.webp",
+@@ -158,6 +215,11 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
+       "https://image.allu-official.com/item/1490263/6658845e581b3.webp",
+       "https://image.allu-official.com/item/1652965/67509d885f39a.webp",
+       "https://image.allu-official.com/item/1423578/65682653d8012.webp",
++      "https://image.nanboya.com/ALLU/8192809/A3855120.JPG?size=large",
++      "https://image.nanboya.com/ALLU/8195036/A3857091.JPG?size=large",
++      "https://image.nanboya.com/ALLU/8193354/A3855657.JPG?size=large",
++      "https://image.nanboya.com/ALLU/8192502/A3854966.JPG?size=large",
++      "https://image.nanboya.com/ALLU/8183147/A3847970.JPG?size=large",
+     ],
+     parent6: [
+       "https://image.allu-official.com/item/1423734/671e5576c3ee0.webp",
+@@ -165,6 +227,11 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
+       "https://thumbnail.image.rakuten.co.jp/@0_mall/sht-shtrading/cabinet/item20250214/900034-miwa-1.jpg",
+       "https://shop.r10s.jp/ains1/cabinet/11896945/11896946/051854-1-a.jpg",
+       "https://thumbnail.image.rakuten.co.jp/@0_mall/sankyu1999/cabinet/08651305/imgrc0103183695.jpg",
++      "https://image.nanboya.com/ALLU/7811350/A3574435.JPG?size=large",
++      "https://image.nanboya.com/ALLU/7489851/A3334091.JPG?size=large",
++      "https://image.nanboya.com/ALLU/7196291/A3116222.JPG?size=large",
++      "https://image.nanboya.com/ALLU/8186335/AP123948.JPG?size=large",
++      "https://image.nanboya.com/ALLU/8185193/A3849565.JPG?size=large",
+     ],
+     parent7: [
+       "https://image.allu-official.com/item/1561263/6735f10078439.webp",
+@@ -172,6 +239,11 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
+       "https://www.selby.shop/cdn/shop/files/250227-029_5_600x600.jpg?v=1746076240",
+       "https://tshop.r10s.jp/kanteikyoku-masaki/cabinet/09811374/imgrc0092381236.jpg?fitin=720%3A720",
+       "https://item-shopping.c.yimg.jp/i/l/wonderprice_100302050b500849",
++      "https://image.nanboya.com/ALLU/7971890/A3694330.JPG?size=large",
++      "https://image.allu-official.com/item/1404533/66a4e85eea12b.webp?size=large",
++      "https://image.nanboya.com/ALLU/8180223/A3845989.JPG?size=large",
++      "https://image.nanboya.com/ALLU/8170369/A3839066.JPG?size=large",
++      "https://image.nanboya.com/ALLU/7249147/A3155533.JPG?size=large",
+     ],
+   };
  
- const App = () => (
-   <QueryClientProvider client={queryClient}>
--    <BrowserRouter>
-+    <BrowserRouter basename="/project1">
-       <Routes>
-         <Route path="/" element={<Index />} />
-         <Route path="/market-price" element={<MarketPrice />} />
+@@ -186,7 +258,7 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
+   ];
+ 
+   const mockProducts = mockCategories.flatMap((category) => {
+-    const products = Array.from({ length: 5 }, (_, index) => ({
++    const products = Array.from({ length: 10 }, (_, index) => ({
+       id: `${category}-${index + 1}`,
+       category,
+       image: mockImages[category][index],
+@@ -300,17 +372,22 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
+         <div className="space-y-6">
+           <div className="space-y-2">
+             <label className="block text-base font-normal text-gray-900">
+-              除外ワード
++              キーワード検索
+             </label>
+             <Input
++              allowClear
+               placeholder="キーワードを入力"
+               style={{ width: "100%" }}
+               className="input-search"
++              value={searchKeyword}
++              onChange={(e) => {
++                setSearchKeyword(e.target.value);
++              }}
+             />
+           </div>
+           <div className="space-y-2">
+             <label className="block text-base font-normal text-gray-900">
+-              キーワード検索
++              除外ワード
+             </label>
+             <Input
+               placeholder="キーワードを入力"
+@@ -323,8 +400,6 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
+               カテゴリ
+             </label>
+             <Select
+-              value={category}
+-              onChange={setCategory}
+               placeholder="未選択"
+               className="w-full"
+               style={{ height: "32px" }}
+@@ -339,8 +414,6 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
+               状態ランク
+             </label>
+             <Select
+-              value={conditionRank}
+-              onChange={setConditionRank}
+               placeholder="未選択"
+               className="w-full"
+               style={{ height: "32px" }}
+@@ -493,6 +566,21 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
+     );
+   };
+ 
++  useEffect(() => {
++    setSearchKeyword("");
++    setListProducts(mockProducts);
++  }, [isOpen]);
++  const handleResetSearchProducts = () => {
++    setSearchKeyword("");
++    setListProducts(mockProducts);
++  };
++  const handleSearchProducts = () => {
++    const filtered = mockProducts.filter((p) =>
++      p.name.toLowerCase().includes(searchKeyword.toLowerCase()),
++    );
++    setListProducts(filtered);
++  };
++
+   const [editableStr, setEditableStr] = useState("エクスプローラー36 124270");
+   const [category, setCategory] = useState(["parent1", "parent10", "leaf1"]);
+   return (
+@@ -537,12 +625,25 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
+               {/* Action Buttons */}
+               <Row gutter={16}>
+                 <Col span={12}>
+-                  <Button style={{ width: "100%" }} type="primary">
++                  <Button
++                    style={{ width: "100%" }}
++                    type="primary"
++                    onClick={() => {
++                      handleSearchProducts();
++                    }}
++                  >
+                     検索する
+                   </Button>
+                 </Col>
+                 <Col span={12}>
+-                  <Button style={{ width: "100%" }}>キャンセル</Button>
++                  <Button
++                    style={{ width: "100%" }}
++                    onClick={() => {
++                      handleResetSearchProducts();
++                    }}
++                  >
++                    キャンセル
++                  </Button>
+                 </Col>
+               </Row>
+             </div>
+@@ -554,7 +655,7 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
+             <div className="flex items-center gap-8 mb-4">
+               <Pagination
+                 current={1}
+-                total={196}
++                total={listProducts.length}
+                 pageSize={30}
+                 showSizeChanger={false}
+                 showQuickJumper={false}
+@@ -593,7 +694,7 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
+               </div>
+ 
+               <span className="text-sm text-gray-900 ml-auto">
+-                全 196 件中　1 から 30 件目まで表示
++                全 {listProducts.length} 件中　1 から 30 件目まで表示
+               </span>
+             </div>
+ 

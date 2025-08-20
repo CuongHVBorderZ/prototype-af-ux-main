@@ -1423,7 +1423,7 @@ export default function Home() {
         <MarketPrice
           isOpen={isMarketPriceOpen}
           setVisible={(applyItem, id) => {
-            handleAddNewItem(id);
+            id ? handleAddNewItem(id) : null;
             handleCloseDrawer();
           }}
           applyItem={null}
