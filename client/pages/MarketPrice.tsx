@@ -71,9 +71,10 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
     "https://www.tagheuer.com/on/demandware.static/-/Library-Sites-TagHeuer-Shared/default/dw40ec1bf1/images/PLP/2024/aquaracer/plp-merchandize-landscape-aquaracer-diving.jpg?impolicy=resize&width=1800&height=900",
   ];
 
+  const navigate = useNavigate();
   const mockNames = {
     leaf1: [
-      "ロレックス デイトナ 16523G U608028 SS×YG AT シャンパン文字盤 あまりごまなし",
+      "ロレックス コスモグラフデイトナ 116500LN T5J78405 SS SS AT 黒文字盤 あまりごまなし",
       "ロレックス デイトジャスト 69173G T897685 SS×YG AT シャンパン文字盤 あまりごま4",
       "ゼニス エルプリメロ クロノマスター スポーツ 03.3100.3600/69.M3100 575205 SS AT 白文字盤 あまりごま3 　AB",
       "ラドー ダイヤスター 152.0341.3 02738829 SS QZ 黒文字盤 あまりごま5",
@@ -87,8 +88,8 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
       "クロス ボールペン 14K ゴールド×シルバー キズ くすみ 変色 筆記確認済 21.1g",
     ],
     leaf311: [
+      "エルメス バーキン30 ルトゥルネ トゴ ブラック ゴールド金具 □H:2004年",
       "ジバンシィ GV3 レザー×スエード チェーンショルダーバッグ",
-      "ボッテガ ショルダーバッグ レッジェーロ パンチング ブラック",
       "グッチ GGマーモント レザー チェーンショルダーバッグ ブラック×ホワイト 448065　SA:97点",
       "プラダ エンブレム レザー ショルダーバッグ グリーン",
       "クリスチャンディオール レディディオール カナージュ マイクロ レザー 2WAYハンドバッグ ブラック",
@@ -124,59 +125,53 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
   };
   const mockImages = {
     leaf1: [
-      "https://www.theluxuryhut.com/admin/upload/1724418702secrets-of-rolex-watches.jpg",
-      "https://bizweb.dktcdn.net/100/175/988/products/20171021095017-5401-copy.jpg?v=1718079109400",
-      "https://magazine.chrono24.com/cdn-cgi/image/f=auto,metadata=none,fit=cover,q=65,w=1190,h=595,dpr=2.0/2022/04/Rolex-Opinion-21-scaled.jpg",
-      "https://blog.luxehouze.com/wp-content/uploads/2023/10/DSC05429-crop-1-1024x576.jpg",
-      "https://images.squarespace-cdn.com/content/v1/5b213f95506fbec9b54e014c/39c8e93e-c5d4-4b14-a14d-d7a579db5bec/DSC_2594-2.jpg",
-      "https://blog.luxehouze.com/wp-content/uploads/2024/03/crop-DSC08279-1024x576.jpg",
-      "https://swisswatches-magazine.com/uploads/2023/11/patek-philippe-5261R-001-rosegold-titlepicture-new.jpg",
-      "https://timepiecetradingllc.com/cdn/shop/articles/Why_Patek_Philippe_5980_is_the_Ultimate_Sports_Watch.jpg?v=1711610107",
-      "https://www.analogshift.com/cdn/shop/files/AS08680_40991407_RICHARDMILLE_PLATINUMTOURBILLON_RM-002V1-lifestyle-4.jpg?v=1690984736&width=1500",
-      "https://www.tagheuer.com/on/demandware.static/-/Library-Sites-TagHeuer-Shared/default/dw40ec1bf1/images/PLP/2024/aquaracer/plp-merchandize-landscape-aquaracer-diving.jpg?impolicy=resize&width=1800&height=900",
+      "https://watchjournal.net/wp/wp-content/uploads/allu-r-10150759.jpg",
+      "https://image.allu-official.com/item/1563794/664afd3c0d982.webp",
+      "https://watchnian.com/img/goods/L/ik-00-0669358-2.jpg",
+      "https://tshop.r10s.jp/closer01/cabinet/item20211124/653737-1.jpg?fitin=720%3A720",
+      "https://image.nanboya.com/items/5410883/AP028590.JPG?size=medium",
     ],
     leaf21: [
-      "https://lh3.googleusercontent.com/proxy/Jsdd0T6UKZbBEKab83t0IiWPa1oiICt7FMTip1hymp4lLNQ6LTB6LfMpLMl0uEOO7pgLZT7GWCbaa-xYthZ_TFPtFPu-zcuWyCXUNbWt3aRyEiCi265TrXFYfcFPWNXPXypY",
-      "https://images.unsplash.com/photo-1610375461246-83df859d849d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80",
-      "https://ginbasya.jp/wp-content/uploads/2024/08/AdobeStock_174238238-scaled.jpg",
-      "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO6403314016052025000000-1.jpg?ixlib=js-3.8.0&w=638&h=425&auto=format%2Ccompress&fit=crop&bg=FFFFFF&s=c1fcdfa8879e689303448f5e6a70cff6",
-      "https://inoue78.com/cmino78/wp-content/uploads/2021/06/03E01FEB-4B35-458A-A285-C5DB3C260F94.jpeg",
+      "https://image.nanboya.com/items/5771439/YZ055279.JPG?size=medium",
+      "https://assets.mercari-shops-static.com/-/large/plain/jgt5bcFFXXXw8HhfdQ8Rwg.jpg@jpg",
+      "https://euroclassics-ginza.com/FV730set.jpg",
+      "https://static.mercdn.net/item/detail/orig/photos/m28804215917_4.jpg?1737539692",
+      "https://image.allu-official.com/item/1615737/66fd19b514743.webp",
     ],
     leaf311: [
-      "https://image1.shopserve.jp/yochika.com/pic-labo/llimg/13071401-1.jpg",
-      "https://www.bluek.co.jp/img000/LB/LBHEPICOTINLOCK22MMTCSAUGDm.jpg",
-      "https://tshop.r10s.jp/brandacross/cabinet/across10/1151.jpg?fitin=720%3A720",
-      "https://img.storyweb.jp/wp-content/uploads/2024/11/s-sss_18435-1-scaled-1.jpg",
-      "https://img.my-best.com/contents/ab8cf2ccb7a30e35b95a6f7610766617.jpeg?ixlib=rails-4.3.1&q=70&lossless=0&w=1200&h=900&fit=crop&s=9c0f2d1ad676287d7a6d5c1d43b422d0",
+      "https://thumbnail.image.rakuten.co.jp/@0_mall/tokyo-brand/cabinet/tool/55/101783955_1.jpg",
+      "https://image.allu-official.com/item/1570338/666aa51d339d3.webp",
+      "https://image1.shopserve.jp/brandpeace.jp/pic-labo/llimg/005254217-2.jpg?t=20240716110140",
+      "https://image.allu-official.com/item/1571369/6669282e24b96.webp",
+      "https://image.allu-official.com/item/1666314/67e013e7cf1c2.webp",
     ],
     leaf41: [
-      "https://m.media-amazon.com/images/I/51zMZeggbtL._UY900_.jpg",
-      "https://baseec-img-mng.akamaized.net/images/item/origin/347cd2a47bb788409fdd897571e53798.jpg?imformat=generic&q=90&im=Resize,width=1280,type=normal",
-      "https://baseec-img-mng.akamaized.net/images/item/origin/7bf71d43c6e13c7635c5c17fac9a901d.jpg?imformat=generic&q=90&im=Resize,width=1280,type=normal",
-      "https://g-w.st/blog/wp-content/uploads/2025/01/25012401.jpg",
-      "https://tshop.r10s.jp/alamode888/cabinet/item2024123/40803002121-1_wm.jpg?fitin=720%3A720",
+      "https://tshop.r10s.jp/cliffedge/cabinet/2005/20051204_1.jpg",
+      "https://image.allu-official.com/item/1728335/67cd6e277b91a.webp",
+      "https://img.fril.jp/img/773404147/l/2619874734.jpg?1751065501",
+      "https://image.allu-official.com/item/1654519/67596479262c2.webp",
+      "https://static.mercdn.net/item/detail/orig/photos/m61822286000_3.jpg?1733888090",
     ],
     parent5: [
-      "https://www.mizuhiki1.com/pic-labo/llimg/mizuhikibook1.jpg",
-      "https://img.giftmall.co.jp/o/46a0/92f3/46a092f3-8538-47ee-a5ee-628f821a0894.jpg",
-      "https://tshop.r10s.jp/angecoco/cabinet/item4/an-it-173_09-2.jpg?fitin=720%3A720",
-      "https://static.mercdn.net/item/detail/orig/photos/m44098140469_1.jpg?1748235502",
-      "https://brandear.jp/images/sp/purchase/ct/accessories/accessories_kaitori_mainimage_sp.webp",
+      "https://image.allu-official.com/item/1728264/67ca220ee90f5.webp",
+      "https://image.allu-official.com/item/1589441/66b340e55992c.webp",
+      "https://image.allu-official.com/item/1490263/6658845e581b3.webp",
+      "https://image.allu-official.com/item/1652965/67509d885f39a.webp",
+      "https://image.allu-official.com/item/1423578/65682653d8012.webp",
     ],
     parent6: [
-      "https://image.veryweb.jp/wp-content/uploads/2023/01/2301_182_P080-083_d2_m.jpg",
-      "https://soel.jewelry/cdn/shop/articles/FotoJet.jpg?v=1652145891&width=2048",
-      "https://i.shgcdn.com/3d6abaa0-389e-490f-8606-6c3665b7154e/-/format/auto/-/preview/3000x3000/-/quality/lighter/",
-      "https://l-co.jp/wp-content/uploads/2023/10/AdobeStock_510455216.jpeg",
-      "https://hips.hearstapps.com/hmg-prod/images/elol2403-jewelry-0326-6602ae6d28e80.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=1200:*",
+      "https://image.allu-official.com/item/1423734/671e5576c3ee0.webp",
+      "https://ec.wb-ookura.com/cdn/shop/files/S__6766608_0_600x600_crop_center.jpg?v=1754275373",
+      "https://thumbnail.image.rakuten.co.jp/@0_mall/sht-shtrading/cabinet/item20250214/900034-miwa-1.jpg",
+      "https://shop.r10s.jp/ains1/cabinet/11896945/11896946/051854-1-a.jpg",
+      "https://thumbnail.image.rakuten.co.jp/@0_mall/sankyu1999/cabinet/08651305/imgrc0103183695.jpg",
     ],
     parent7: [
-      "https://hips.hearstapps.com/hmg-prod/images/kv-1645174203.jpg",
-      "https://www.bettyroad.co.jp/cms/uploads/2019/07/jewelry_ranking/main_2024_ranking_jewelry.jpg",
-      "https://kingram-luxurystore.jp/wp-content/uploads/2024/11/%E3%83%A1%E3%82%A4%E3%83%B31.jpg",
-      "https://hips.hearstapps.com/hmg-prod/images/mj-upd-top-661dc6ed207f3.jpg?crop=0.502xw:1.00xh;0,0&resize=1200:*",
-      "https://www.bettyroad.co.jp/cms/uploads/BETTY/messika-move_im.jpg",
-      "https://www.bettyroad.co.jp/img/benefit/9/153263_im.jpg",
+      "https://image.allu-official.com/item/1561263/6735f10078439.webp",
+      "https://www.coco-one.com/php/image/goods/883/5_1.jpg",
+      "https://www.selby.shop/cdn/shop/files/250227-029_5_600x600.jpg?v=1746076240",
+      "https://tshop.r10s.jp/kanteikyoku-masaki/cabinet/09811374/imgrc0092381236.jpg?fitin=720%3A720",
+      "https://item-shopping.c.yimg.jp/i/l/wonderprice_100302050b500849",
     ],
   };
 
@@ -190,24 +185,17 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
     "parent7",
   ];
 
-  const navigate = useNavigate();
-
   const mockProducts = mockCategories.flatMap((category) => {
     const products = Array.from({ length: 5 }, (_, index) => ({
       id: `${category}-${index + 1}`,
       category,
-      image:
-        mockImages[category][
-          Math.floor(Math.random() * mockImages[category].length)
-        ],
+      image: mockImages[category][index],
       price:
         "¥" +
         (
           Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000
         ).toLocaleString("en-US"),
-      name: mockNames[category][
-        Math.floor(Math.random() * mockNames[category].length)
-      ],
+      name: mockNames[category][index],
       supplement: "〇〇番、ケース径 etc...",
       accessories: "なし",
       saleDate: "2025年3月25日",
@@ -215,21 +203,8 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
       isHighlighted: index === 1,
       hasAuction: index === 2,
     }));
-    if (category == "leaf1") {
-      products[0].name =
-        "ロレックス コスモグラフデイトナ 116500LN T5J78405 SS SS AT 黒文字盤 あまりごまなし";
-      products[1].name =
-        "ロレックス デイトジャスト 69173G T897685 SS×YG AT シャンパン文字盤 あまりごま4";
-    }
-    if (category == "leaf311") {
-      products[0].name =
-        "エルメス バーキン30 ルトゥルネ トゴ ブラック ゴールド金具 □H:2004年";
-      products[1].name =
-        "ジバンシィ GV3 レザー×スエード チェーンショルダーバッグ";
-    }
     return products;
   });
-
   const handleColorSelect = (color: string) => {
     setSelectedColors((prev) =>
       prev.includes(color) ? prev.filter((c) => c !== color) : [...prev, color],
