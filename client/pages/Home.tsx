@@ -983,6 +983,43 @@ export default function Home() {
     }, 500);
   };
 
+  const mappingPrices = [
+    4190000,
+    3650000,
+    3750000,
+    3850000,
+    3950000,
+    Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
+    Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
+    Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
+    Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
+    Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
+    810000,
+    710000,
+    720000,
+    730000,
+    740000,
+  ];
+  const mappingWatches = [
+    "ロレックス コスモグラフデイトナ 116500LN T5J78405 SS SS AT 黒文字盤 あまりごまなし",
+    "ロレックス コスモグラフデイトナ 116500LN SS SS AT 白文字盤 あまりごま2",
+    "ロレックス コスモグラフデイトナ 116500LN SS SS AT 黒文字盤",
+    "ロレックス コスモグラフデイトナ 116500LN SS AT 白文字盤 あまりごま3",
+    "ロレックス コスモグラフデイトナ 116500LN SS AT 黒文字盤 あまりごま2",
+
+    "カルティエ マストタンク 590005 87887 925×社外革 QZ 白文字盤 あまりごまなし",
+    "ブルガリ ブルガリブルガリ BB38SSAUTO L11254 SS AT 黒文字盤 あまりごま2",
+    "タグホイヤー アクアレーサー WAJ2150 EBC5582 SS×YG AT 黒文字盤 あまりごまなし",
+    "ヴィトン タンブール ワールドツアー QA063 TV1583 SS×革 QZ 黒文字盤 あまりごまなし",
+    "オメガ シーマスター SS×社外SS AT シルバー文字盤 あまりごまなし",
+
+    "ロレックス デイトジャスト 69173G SS×YG SS×YG AT シャンパン文字盤",
+    "ロレックス デイトジャスト 69173G SS×YG SS×YG AT シャンパン文字盤 あまりごま6",
+    "ロレックス デイトジャスト 69173G SS×YG SS×YG AT シャンパン文字盤 あまりごま2",
+    "ロレックス デイトジャスト 69173G SS×YG SS×YG AT 黒文字盤 あまりごま3",
+    "ロレックス デイトジャスト 69173G SS×YG AT 青グラデーション文字盤 あまりごま2",
+  ];
+
   const handleAddNewItem = (id) => {
     const newId = Math.max(...dataSource.map((p) => Number(p.key)), 0) + 1;
 
@@ -1024,6 +1061,35 @@ export default function Home() {
       deal_closed: false,
     };
 
+    let watchObject = null;
+    if (id.includes("leaf1")) {
+      const parts = id.split("-");
+      const watchId = parseInt(parts[1], 10);
+      // console.log(watchId);
+      const watchName = mappingWatches[watchId - 1];
+      // console.log(watchName);
+      const watchNameParts = watchName.split(" ");
+      // console.log(watchNameParts);
+      watchObject = {
+        manage_no: watchNameParts[2],
+        product_name: watchName,
+        purchase_method: "0.店頭買取",
+        shop_name: "33.NANBOYA姫路店_W",
+        purchase_date: "2025-07-10",
+        category: "時計/腕時計/ロレックス",
+        first_category: "時計",
+        second_category: "腕時計",
+        brand_category: "ロレックス",
+        production_number: watchNameParts[3],
+        face: "黒",
+        serial_number: watchNameParts[3],
+        model_name: watchNameParts[1],
+        model_number: watchNameParts[2],
+        purchase_price: mappingPrices[watchId - 1],
+      };
+      // console.log(watchObject);
+    }
+
     const overrides = {
       default: id
         ? {
@@ -1032,7 +1098,7 @@ export default function Home() {
             purchase_method: "0.店頭買取",
             shop_name: "33.NANBOYA姫路店_W",
             purchase_date: "2025-07-10",
-            category: "ジュエリー",
+            category: "時計/腕時計/ロレックス",
             first_category: "時計",
             second_category: "腕時計",
             brand_category: "ロレックス",
@@ -1041,40 +1107,21 @@ export default function Home() {
             serial_number: "",
           }
         : {},
-      "leaf1-1": {
-        manage_no: "A3793665",
-        product_name:
-          "ロレックス コスモグラフデイトナ 116500LN T5J78405 SS SS AT 黒文字盤 あまりごまなし",
-        purchase_method: "0.店頭買取",
-        shop_name: "33.NANBOYA姫路店_W",
-        purchase_date: "2025-07-10",
-        category: "時計/腕時計/ロレックス",
-        first_category: "時計",
-        second_category: "腕時計",
-        brand_category: "ロレックス",
-        production_number: "T5J78405",
-        face: "黒",
-        serial_number: "T5J78405",
-        model_name: "コスモグラフデイトナ",
-        model_number: "116500LN",
-      },
-      "leaf1-2": {
-        manage_no: "T897685",
-        product_name:
-          "ロレックス デイトジャスト 69173G T897685 SS×YG AT シャンパン文字盤 あまりごま4",
-        purchase_method: "13.他社仕入れ",
-        shop_name: "Valuence_リテールMD課",
-        purchase_date: "2025-07-10",
-        category: "時計/腕時計/ロレックス",
-        first_category: "時計",
-        second_category: "腕時計",
-        brand_category: "ロレックス",
-        production_number: "T897685",
-        face: "黒",
-        serial_number: "T897685",
-        model_name: "デイトジャスト",
-        model_number: "69173G",
-      },
+      "leaf1-1": watchObject,
+      "leaf1-2": watchObject,
+      "leaf1-3": watchObject,
+      "leaf1-4": watchObject,
+      "leaf1-5": watchObject,
+      "leaf1-6": watchObject,
+      "leaf1-7": watchObject,
+      "leaf1-8": watchObject,
+      "leaf1-9": watchObject,
+      "leaf1-10": watchObject,
+      "leaf1-11": watchObject,
+      "leaf1-12": watchObject,
+      "leaf1-13": watchObject,
+      "leaf1-14": watchObject,
+      "leaf1-15": watchObject,
       "leaf311-1": {
         manage_no: "DP019614",
         product_name:
@@ -1108,6 +1155,8 @@ export default function Home() {
         model_name: "A2893930",
       },
     };
+
+    console.log(overrides["leaf1-1"]);
 
     const newItem = {
       ...baseItem,
