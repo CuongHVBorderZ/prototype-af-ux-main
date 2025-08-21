@@ -17,10 +17,12 @@ import {
   Typography,
   Image,
   Divider,
+  Spin,
 } from "antd";
 import {
   FileImageOutlined,
   InboxOutlined,
+  LoadingOutlined,
   PlusOutlined,
   SearchOutlined,
   UploadOutlined,
@@ -570,16 +572,25 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
     setSearchKeyword("");
     setListProducts(mockProducts);
   }, [isOpen]);
-  const handleResetSearchProducts = () => {
+  const handleResetSearchProducts = async () => {
+    setLoading(true);
+    await fakeApiCall();
+    setLoading(false);
     setSearchKeyword("");
     setListProducts(mockProducts);
   };
-  const handleSearchProducts = () => {
+  const handleSearchProducts = async () => {
+    setLoading(true);
+    await fakeApiCall();
+    setLoading(false);
     const filtered = mockProducts.filter((p) =>
       p.name.toLowerCase().includes(searchKeyword.toLowerCase()),
     );
     setListProducts(filtered);
   };
+
+  const fakeApiCall = () => new Promise((resolve) => setTimeout(resolve, 500));
+  const [loading, setLoading] = useState(false);
 
   const [editableStr, setEditableStr] = useState("エクスプローラー36 124270");
   const [category, setCategory] = useState(["parent1", "parent10", "leaf1"]);
@@ -589,7 +600,29 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
       width="100%"
       placement="right"
       onClose={() => setVisible(false)}
+      zIndex={10000}
     >
+      {loading && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            backgroundColor: "rgba(255, 255, 255, 0.6)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 9999,
+          }}
+        >
+          <Spin
+            indicator={<LoadingOutlined style={{ fontSize: 48 }} spin />}
+            size="large"
+          ></Spin>
+        </div>
+      )}
       <div
         className="min-h-screen bg-white"
         style={{
