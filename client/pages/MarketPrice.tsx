@@ -77,16 +77,25 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
   const mockNames = {
     leaf1: [
       "ロレックス コスモグラフデイトナ 116500LN T5J78405 SS SS AT 黒文字盤 あまりごまなし",
-      "ロレックス デイトジャスト 69173G T897685 SS×YG AT シャンパン文字盤 あまりごま4",
-      "ゼニス エルプリメロ クロノマスター スポーツ 03.3100.3600/69.M3100 575205 SS AT 白文字盤 あまりごま3 　AB",
-      "ラドー ダイヤスター 152.0341.3 02738829 SS QZ 黒文字盤 あまりごま5",
-      "ティソ PR100 T101910A SS QZ グレー文字盤 あまりごま3",
+      "ロレックス コスモグラフデイトナ 116500LN SS SS AT 白文字盤 あまりごま2",
+      "ロレックス コスモグラフデイトナ 116500LN SS SS AT 黒文字盤",
+      "ロレックス コスモグラフデイトナ 116500LN SS AT 白文字盤 あまりごま3",
+      "ロレックス コスモグラフデイトナ 116500LN SS AT 黒文字盤 あまりごま2",
+      // "ロレックス デイトジャスト 69173G T897685 SS×YG AT シャンパン文字盤 あまりごま4",
+      // "ゼニス エルプリメロ クロノマスター スポーツ 03.3100.3600/69.M3100 575205 SS AT 白文字盤 あまりごま3 　AB",
+      // "ラドー ダイヤスター 152.0341.3 02738829 SS QZ 黒文字盤 あまりごま5",
+      // "ティソ PR100 T101910A SS QZ グレー文字盤 あまりごま3",
       "カルティエ マストタンク 590005 87887 925×社外革 QZ 白文字盤 あまりごまなし",
       "ブルガリ ブルガリブルガリ BB38SSAUTO L11254 SS AT 黒文字盤 あまりごま2",
       "タグホイヤー アクアレーサー WAJ2150 EBC5582 SS×YG AT 黒文字盤 あまりごまなし",
       "ヴィトン タンブール ワールドツアー QA063 TV1583 SS×革 QZ 黒文字盤 あまりごまなし",
       "オメガ シーマスター SS×社外SS AT シルバー文字盤 あまりごまなし",
-      "ヴァシュロンコンスタンタン オーバーシーズ 47450/000R-9404 PG PG×革 AT シルバー文字盤",
+
+      "ロレックス デイトジャスト 69173G SS×YG SS×YG AT シャンパン文字盤",
+      "ロレックス デイトジャスト 69173G SS×YG SS×YG AT シャンパン文字盤 あまりごま6",
+      "ロレックス デイトジャスト 69173G SS×YG SS×YG AT シャンパン文字盤 あまりごま2",
+      "ロレックス デイトジャスト 69173G SS×YG SS×YG AT 黒文字盤 あまりごま3",
+      "ロレックス デイトジャスト 69173G SS×YG AT 青グラデーション文字盤 あまりごま2",
     ],
     leaf21: [
       "ピアジェ 84023 536835 K81 YG QZ シャンパン文字盤 78.9ｇあまりごまなし",
@@ -164,16 +173,22 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
   const mockImages = {
     leaf1: [
       "https://watchjournal.net/wp/wp-content/uploads/allu-r-10150759.jpg",
-      "https://image.allu-official.com/item/1563794/664afd3c0d982.webp",
-      "https://watchnian.com/img/goods/L/ik-00-0669358-2.jpg",
-      "https://tshop.r10s.jp/closer01/cabinet/item20211124/653737-1.jpg?fitin=720%3A720",
-      "https://image.nanboya.com/items/5410883/AP028590.JPG?size=medium",
+      "https://image.nanboya.com/ALLU/8161435/A3832813.JPG?size=large",
+      "https://image.nanboya.com/ALLU/8154537/A3827454.JPG?size=large",
+      "https://image.nanboya.com/ALLU/7817804/A3579015.JPG?size=large",
+      "https://image.nanboya.com/ALLU/7819295/AP108568.JPG?size=large",
+
       "https://tshop.r10s.jp/kanteiyamagata/cabinet/08188394/21-2246-1.jpg?fitin=720%3A720",
       "https://image.allu-official.com/item/1454009/655c0868390e6.webp",
       "https://www.kanteikyoku-maebashi.jp/wp-content/uploads/2020/03/ab7e360095e7ce8036bb068e05a36811.jpg",
       "https://d2i9ajxhye77uw.cloudfront.net/media/public/2143100320123_01.webp",
       "https://image.allu-official.com/item/1565854/6654370aa38f6.webp",
-      "https://image.nanboya.com/ALLU/8053370/A3753430.JPG?size=large",
+
+      "https://image.nanboya.com/ALLU/8167448/A3836990.JPG?size=large",
+      "https://image.nanboya.com/ALLU/8148808/A3822911.JPG?size=large",
+      "https://image.nanboya.com/ALLU/8042826/A3746539.JPG?size=large",
+      "https://image.nanboya.com/ALLU/7980617/A3701040.JPG?size=large",
+      "https://image.nanboya.com/ALLU/7793968/A3561079.JPG?size=large",
     ],
     leaf21: [
       "https://image.nanboya.com/items/5771439/YZ055279.JPG?size=medium",
@@ -249,6 +264,26 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
     ],
   };
 
+  const mockPrices = {
+    leaf1: [
+      4190000,
+      3650000,
+      3750000,
+      3850000,
+      3950000,
+      Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
+      Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
+      Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
+      Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
+      Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000,
+      810000,
+      710000,
+      720000,
+      730000,
+      740000,
+    ],
+  };
+
   const mockCategories = [
     "leaf1",
     "leaf311",
@@ -260,14 +295,16 @@ const MarketPrice = ({ isOpen, setVisible, applyItem }) => {
   ];
 
   const mockProducts = mockCategories.flatMap((category) => {
-    const products = Array.from({ length: 10 }, (_, index) => ({
+    const length = category == "leaf1" ? 15 : 10;
+    const products = Array.from({ length: length }, (_, index) => ({
       id: `${category}-${index + 1}`,
       category,
       image: mockImages[category][index],
       price:
         "¥" +
-        (
-          Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000
+        (category == "leaf1"
+          ? mockPrices[category][index]
+          : Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000
         ).toLocaleString("en-US"),
       name: mockNames[category][index],
       supplement: "〇〇番、ケース径 etc...",
