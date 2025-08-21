@@ -586,20 +586,20 @@ export default function Home() {
     },
     {
       title: "型番 / 重量",
-      key: "production_number",
-      dataIndex: "production_number",
+      key: "manage_no",
+      dataIndex: "manage_no",
       width: 150,
       onCell: (record) => ({
         record,
-        dataIndex: "production_number",
+        dataIndex: "manage_no",
         editing:
           editingCell?.key === record.key &&
-          editingCell?.dataIndex === "production_number",
+          editingCell?.dataIndex === "manage_no",
         onSave: save,
         onClick: () =>
           setEditingCell({
             key: record.key,
-            dataIndex: "production_number",
+            dataIndex: "manage_no",
           }),
       }),
     },
